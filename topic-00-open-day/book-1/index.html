@@ -152,7 +152,7 @@ body
               <h2>Download and install Virtualbox v5.2</h2>
 <p><img src="./img/virtualbox1.png" alt="VirtualBox.org"></p>
 <p>Virtualbox is a <em>virtualisation hypervisor</em> which provides an environment to create and provision virtual machine instances.</p>
-<p>You will be using Virtualbox to explore machine virtualisation and operating systems. This and subsequent labs have been developed and tested using <strong>version 5.2.12</strong>. To keep your developent environment consistant with the labs, <strong>you are advised to install this version</strong>.</p>
+<p>You will be using Virtualbox to explore machine virtualisation and operating systems. This and subsequent labs have been developed and tested using <strong>version 5.2.12</strong>. To keep your development environment consistent with the labs, <strong>you are advised to install this version</strong>.</p>
 <p>Select the appropriate download and install Virtualbox 5.2.12 for your operating system:</p>
 <ul>
 <li><a href="https://download.virtualbox.org/virtualbox/5.2.12/VirtualBox-5.2.12-122591-Win.exe">Windows</a></li>
@@ -226,7 +226,7 @@ body
 <p>When the New Virtual Machine Wizard appears, click <strong><em>Next</em></strong></p>
 <p><img src="./img/virtualbox.jpg" alt="New Virtual Machine"></p>
 <ul>
-<li><p>Click <strong>Next</strong> until it show the vm storage size. Put how much space you need depending on your hardisk</p>
+<li><p>Click <strong>Next</strong> until it show the vm storage size. Put how much space you need depending on your hard disk</p>
 <p>As you go through, please feel free to use any of the online resources available: websites, chat rooms, for example <a href="https://askubuntu.com/questions/142549/how-to-install-ubuntu-on-virtualbox">askubuntu.com</a></p>
 </li>
 <li><p>Finish the wizard by clicking the <strong>Create</strong> button.</p>
@@ -253,7 +253,7 @@ body
 <p><img src="./img/StartBoot.jpg" alt="Starting to boot iso file"></p>
 <p> WELCOME TO UBUNTU!!!!!</p>
 <h1>Tutorials and Extra Resources</h1>
-<p>As mentionned above, there are many many tutorials and resources available online to assist such as <a href="http://www.psychocats.net/ubuntu/virtualbox">Installing Ubuntu inside Windows using VirtualBox</a> - albeit this particular one is slightly out of date, the principles still remain largely the same.</p>
+<p>As mentioned above, there are many many tutorials and resources available online to assist such as <a href="http://www.psychocats.net/ubuntu/virtualbox">Installing Ubuntu inside Windows using VirtualBox</a> - albeit this particular one is slightly out of date, the principles still remain largely the same.</p>
 <p>Ubuntu also has a very complete <a href="https://tutorials.ubuntu.com/">Tutorial page</a>.</p>
 
             </div>
@@ -261,8 +261,8 @@ body
             <div  class="ui tab segment lab" data-tab="03">
               <h2>Download and install Vagrant v2.0.2</h2>
 <p><img src="./img/vagrant1.png" alt="www.vagrantup.com"></p>
-<p>Vagrant is a tool for building and managing virtual machine environments. 
-Combined with hypervisor such as Virtualbox, Vagrant simlifies the set up, configuration and provisioning of environments containing several virtual devices. It also provides networking configuration capabilities such as forwarded ports, public network connections, and private networks.</p>
+<p>Vagrant is a tool for building and managing virtual machine environments.
+Combined with hypervisor such as Virtualbox, Vagrant simplifies the set up, configuration and provisioning of environments containing several virtual devices. It also provides networking configuration capabilities such as forwarded ports, public network connections, and private networks.</p>
 <p>Select the appropriate download for your machine (OS X, Windows, Linux):</p>
 <ul>
 <li><a href="https://releases.hashicorp.com/vagrant/2.0.2/vagrant_2.0.2_x86_64.msi">Windows (64 bit)</a></li>
@@ -275,10 +275,9 @@ Combined with hypervisor such as Virtualbox, Vagrant simlifies the set up, confi
 Vagrant 2.0.2</code></pre>
 <h2>Initialise</h2>
 <p>Vagrant is preconfigured to work with VirtualBox. You will now use Vagrant to get and install virtual machine images (called <em>boxes</em>) preloaded with some stuff we&#39;ll be using in the labs.
-First lets initialise a Vagrant project to use a vagrant &quot;box&quot; prepared earlier. </p>
-<ul>
-<li>Create a new folder on your laptop called <em>vagrant-onsite-day</em></li>
-<li><p>Open a terminal window in this folder and type the following command:</p>
+First lets initialise a Vagrant project to use a vagrant &quot;box&quot; prepared earlier.</p>
+<p>Create a new folder on your laptop called <em>vagrant-onsite-day</em></p>
+<p>Open a terminal window in this folder and type the following command:</p>
 <pre><code class="lang-bash">$ vagrant init frankwalsh/labvm</code></pre>
 <p>You should see some output on the console confirming a <code>Vagrantfile</code> has been placed in this directory and asking you to &quot;vagrant up&quot;. Go ahead and enter the command <code>vagrant up</code> on at the prompt. You should see output similar to the following:</p>
 <pre><code class="lang-bash">vagrant up
@@ -289,13 +288,10 @@ Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; provider...
 ==&gt; default: Setting the name of the VM: vagrant-onsite-day_default_1527850779888_3870
 ==&gt; default: Clearing any previously set network interfaces...
 ==&gt; default: Preparing network interfaces based on configuration...
-  default: Adapter 1: nat....
+    default: Adapter 1: nat....
 ....</code></pre>
 <p>This could take some time to complete as it will need to download the <em>frankwalsh/labvm</em> box (approx 800MB) from the Vagrant cloud server.</p>
-</li>
-<li><p>To check it&#39;s all good, run the following command to connect to the box and check that it&#39;s running on your machine:</p>
-</li>
-</ul>
+<p>To check all is good, run the following command to connect to the box and check that it&#39;s running on your machine:</p>
 <pre><code class="lang-bash">$ vagrant ssh
 Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.13.0-144-generic x86_64)
 
@@ -308,6 +304,7 @@ Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.13.0-144-generic x86_64)
   Memory usage: 15%               IP address for eth0: 10.0.2.15
   Swap usage:   0%
 ....</code></pre>
+<p>That&#39;s it, you&#39;re now ready for the on-site day. See you then!</p>
 
             </div>
           
