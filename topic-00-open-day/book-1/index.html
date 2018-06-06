@@ -144,12 +144,16 @@ body
           
             <div  class="ui tab segment lab" data-tab="Preparatory Lab">
               <h1>Objectives</h1>
-<p>Virtualbox  · Linux · Vagrant</p>
+<p>Virtualbox · Linux · Vagrant</p>
+<h2>Introduction</h2>
+<p>The main purpose of this lab is to set up your laptop/workstation with the main software packages used in this module, specifically Virtualbox, Vagrant and Ubuntu Operating System. <strong>Please complete this lab before the on-site days in June</strong> as downloading and installing these packages can take some time.
+On successful completion, you should have a &quot;platform independent&quot; environment to complete the labs and assignments irrespective of the type of machine/operating system you use. </p>
+<p>There is a &quot;computer-systems&quot; channel on Slack so if you&#39;ve any issues with the lab you can interact with us there there and/or resolve it during the Computer Systems and Networks workshop on June 14th. </p>
 
             </div>
           
             <div  class="ui tab segment lab" data-tab="01">
-              <h2>Download and install Virtualbox v5.2</h2>
+              <h2>Download and install Virtualbox v5.2.12</h2>
 <p><img src="./img/virtualbox1.png" alt="VirtualBox.org"></p>
 <p>Virtualbox is a <em>virtualisation hypervisor</em> which provides an environment to create and provision virtual machine instances.</p>
 <p>You will be using Virtualbox to explore machine virtualisation and operating systems. This and subsequent labs have been developed and tested using <strong>version 5.2.12</strong>. To keep your development environment consistent with the labs, <strong>you are advised to install this version</strong>.</p>
@@ -277,10 +281,8 @@ Vagrant 2.0.2</code></pre>
 <p>Vagrant is preconfigured to work with VirtualBox. You will now use Vagrant to get and install virtual machine images (called <em>boxes</em>) preloaded with some stuff we&#39;ll be using in the labs.
 First lets initialise a Vagrant project to use a vagrant &quot;box&quot; prepared earlier.</p>
 <p>Create a new folder on your laptop called <em>vagrant-onsite-day</em></p>
-<p>Open a terminal window in this folder and type the following command:</p>
-<pre><code class="lang-bash">$ vagrant init frankwalsh/labvm</code></pre>
-<p>You should see some output on the console confirming a <code>Vagrantfile</code> has been placed in this directory and asking you to &quot;vagrant up&quot;. Go ahead and enter the command <code>vagrant up</code> on at the prompt. You should see output similar to the following:</p>
-<pre><code class="lang-bash">vagrant up
+<p>Open a terminal window in this folder and type &quot;<code>vagrant init frankwalsh/labvm</code>&quot; at the command prompt. You should see some output on the console confirming that a Vagrantfile has been placed in this directory and asking you to &quot;vagrant up&quot;. Go ahead and enter the command &quot;<code>vagrant up</code>&quot; on at the prompt. You should see output similar to the following:</p>
+<pre><code class="lang-bash">$ vagrant up
 Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; provider...
 ==&gt; default: Importing base box &#39;frankwalsh/labvm&#39;...
 ==&gt; default: Matching MAC address for NAT networking...
@@ -291,7 +293,8 @@ Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; provider...
     default: Adapter 1: nat....
 ....</code></pre>
 <p>This could take some time to complete as it will need to download the <em>frankwalsh/labvm</em> box (approx 800MB) from the Vagrant cloud server.</p>
-<p>To check all is good, run the following command to connect to the box and check that it&#39;s running on your machine:</p>
+<h2>Check it out</h2>
+<p>To check all is good, type &quot;<code>vagrant ssh</code>&quot; at the command prompt  to connect to the box (we&#39;ll talk about secure shell(SSH) later):</p>
 <pre><code class="lang-bash">$ vagrant ssh
 Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.13.0-144-generic x86_64)
 
@@ -304,7 +307,17 @@ Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.13.0-144-generic x86_64)
   Memory usage: 15%               IP address for eth0: 10.0.2.15
   Swap usage:   0%
 ....</code></pre>
-<p>That&#39;s it, you&#39;re now ready for the on-site day. See you then!</p>
+<p>You now are connected to the virtual machine(VM) running in Virtualbox on your laptop(the host). There is no graphical user interface (we don&#39;t need it). We will continue from here in the on-site workshop on June 14th</p>
+<h2>Shut it down</h2>
+<p>Type &quot;<code>exit</code>&quot; at the command prompt. This will close the ssh session to the VM.
+Then type &quot;<code>vagrant halt</code>&quot; at the command prompt to shut down the VM. All going well, you should see something similar to the following:</p>
+<pre><code class="lang-bash">vagrant@hdip-labvm-2018:~$ exit
+logout
+Connection to 127.0.0.1 closed.
+$ vagrant halt
+==&gt; default: Attempting graceful shutdown of VM...
+$</code></pre>
+<p>That&#39;s it, you&#39;re now ready for the on-site day on the 14th. See you then!</p>
 
             </div>
           
