@@ -169,7 +169,7 @@ body
 <ul>
 <li>Provision a virtual machine(VM) using Vagrant</li>
 <li>Connect to the VM using Secure shell(SSH)</li>
-<li>Create a file on the VM in the synced folder and edit it on the host</li>
+<li>Create a file on the VM in the synced directory and edit it on the host</li>
 <li>Run a simple Java program on the VM</li>
 <li>Use common Linux network commands</li>
 </ul>
@@ -187,7 +187,7 @@ body
 <h2>Vagrant</h2>
 <p>Vagrant&#39;s purpose is to manage and configure our virtual machines. In the preparatory lab, you created a Vagrant project from scratch using the &quot;<code>vagrant init</code>&quot; command. You will now modify the Vagrantfile to add more detail.</p>
 <p>The Vagrantfile describes the machine(s) used in the project, and how to configure and provision these machines.</p>
-<p>In the preparatory lab you created a folder called <em>vagrant-onsite-day</em>. Open the Vagrantfile in this folder and have a look at the contents. You&#39;ll see that it&#39;s filled with example code. Vagrantfiles are written in the programming language <a href="https://www.ruby-lang.org/en/">Ruby</a>. Don&#39;t worry, knowledge of the Ruby programming language is not necessary.</p>
+<p>In the preparatory lab you created a directory called <em>vagrant-onsite-day</em>. Open the Vagrantfile in this directory and have a look at the contents. You&#39;ll see that it&#39;s filled with example code. Vagrantfiles are written in the programming language <a href="https://www.ruby-lang.org/en/">Ruby</a>. Don&#39;t worry, knowledge of the Ruby programming language is not necessary.</p>
 <p>Replace the contents of the file with the following:</p>
 <pre><code class="lang-ruby">VAGRANTFILE_API_VERSION = &quot;2&quot;
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -200,7 +200,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 end</code></pre>
 <p>An IP address provides an identity to a networked device. Similar to your home or business address supplying that specific physical location with an identifiable address, devices on a network are differentiated from one another through IP addresses.
 The above script configures a virtual machine, &quot;pc0&quot;, with IP address of 192.168.5.2 in a virtual private network (think of a private network as a separate network contained inside the virtual environment). The <em>config.vm.box</em> variable describes the image used for the machine. In this case it&#39;s the same one used in the preparatory lab so you should have it downloaded already.</p>
-<p>Now open a terminal window in the root folder and enter the following command to start the VM:</p>
+<p>Now open a terminal window in the root directory and enter the following command to start the VM:</p>
 <pre><code class="lang-bash">$ vagrant up</code></pre>
 <p>This will take a few minutes to complete if you haven&#39;t done the preliminary lab as the VM image will need to be downloaded the first time it&#39;s started. It will be much quicker for subsequent start ups. After it finishes, it will have created the following virtual environment on your machine:
 <img src="./img/network.png" alt="Virtual Network"></p>
@@ -214,7 +214,7 @@ shell (like ssh), using the dedicated IP address, just as if it was a &quot;real
 <p>Although you&#39;ve started a new virtual machine, you will not actually see anything since Vagrant runs the virtual machine without a Graphical User Interface (one good reason for this is that no UI requires less resources on the host machine, i.e. your laptop). To access the machine, we will use Secure Shell (SSH).</p>
 <p>SSH provides a secure channel connecting an SSH client with an SSH server. We will use it in one of it&#39;s most common usages.  remote command-line login and remote command execution.</p>
 <p>Vagrant has a built in command to start a SSH session with a virtual machine.</p>
-<p>Open a terminal window <strong>in the folder containing the Vagrantfile</strong> and enter:   </p>
+<p>Open a terminal window <strong>in the directory containing the Vagrantfile</strong> and enter:   </p>
 <pre><code class="lang-bash">vagrant ssh pc0</code></pre>
 <p>This will start a session with pc0. The session should start by displaying VM info:  </p>
 <pre><code class="lang-bash">$ vagrant ssh pc0
@@ -260,12 +260,12 @@ vagrant@pc0:/vagrant$</code></pre>
 <li>The Vagrantfile specifies what software to install and how you want to access it.</li>
 </ol>
 <p>As you&#39;ve already seen, Vagrant shares your project directory to the <em>/vagrant</em> directory in your guest machine.</p>
-<p>In the SSH session with <em>pc0</em>, type <strong><code>cd /vagrant</code></strong> at the command prompt to change directory to the shared folder:</p>
+<p>In the SSH session with <em>pc0</em>, type <strong><code>cd /vagrant</code></strong> at the command prompt to change directory to the shared directory:</p>
 <pre><code class="lang-bash">vagrant@pc0:~$ cd /vagrant</code></pre>
-<p>Now type <strong><code>ls</code></strong> at the command prompt to list the contents of the shared folder</p>
+<p>Now type <strong><code>ls</code></strong> at the command prompt to list the contents of the shared directory</p>
 <pre><code class="lang-bash">vagrant@pc0:/vagrant$ ls
 vagrantfile</code></pre>
-<p>You will see at the moment you only have one file in that folder at the moment.</p>
+<p>You will see at the moment you only have one file in that directory at the moment.</p>
 <p>Type <strong><code>touch HelloWorld.java</code></strong> at the command promu to create a new, empty, file called &#39;HelloWorld.java&#39;</p>
 <pre><code class="lang-bash">vagrant@pc0:/vagrant$ touch HelloWorld.java
 vagrant@pc0:/vagrant$ ls
@@ -294,7 +294,7 @@ Hello, World</code></pre>
             <div  class="ui tab segment lab" data-tab="04">
               <h1>The Network</h1>
 <p>Lets have a look at the environment you&#39;ve created from a network perspective...</p>
-<p>If don&#39;t already have a SSH session open, SSH into <em>pc0</em> by opening a terminal window in your <em>vagrant-onsite-day</em> folder and enter  &quot;vagrant ssh&quot; at the command prompt.</p>
+<p>If don&#39;t already have a SSH session open, SSH into <em>pc0</em> by opening a terminal window in your <em>vagrant-onsite-day</em> directory and enter  &quot;vagrant ssh&quot; at the command prompt.</p>
 <p>Now lets explore some Linux terminal commands that are useful for networking.</p>
 <h2>ifconfig</h2>
 <p>In order for a device to connect to a network, it needs a network interface. The <strong>ifconfig</strong> utility  provides a quick and easy way to view network interface information on a machine.<br>In your ssh session, type <strong><code>ifconfig</code></strong> to view the status of all currently active network interfaces, including their names. You should see something similar to the following:
