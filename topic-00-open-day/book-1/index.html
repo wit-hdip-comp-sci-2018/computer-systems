@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,167 +7,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/css/uikit.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <style>
-      
+  </head>
+  <style>
+    
 
-body
-{
+body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
 }
 
-figcaption
-{
-  margin-bottom: 20px;
+p {
+  margin: 0.5em;
 }
 
-.vertical-align
-{
-  display: flex;
-  align-items: center;
-}
-
-.ui.segment.pushable
-{
-  margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
-}
-
-code
-{
+pre code {
   font-family: "Monaco";
-  font-size: 110%;
+  font-size: 100%;
 }
 
-img
-{
-  padding:1px;
-  border:1px solid black;
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-h1
-{
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
   font-style:italic;
   font-size:130%;
-  border-bottom:thin solid black;
 }
 
-h2
-{
+h2 {
   font-size:110%;
-  border-bottom: thin solid black;
 }
 
-h3
-{
+h3 {
   font-size:100%;
-  border-bottom: thin solid black;
-}
-
-body
-{
-  overflow-y: scroll;
-}
-
-.pushable > .pusher
-{
-  padding-bottom: 1.5rem;
-}
-
-.ui.segment.pushable
-{
-  margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
 }
 
 
 
-    </style>
-  </head>
+  </style>
+<body>
 
-  <body>
-    
-    
-
-    <div class="ui fixed top pointing inverted stackable menu labmenu">
-      <header class="header item">
-        <i id="toc" class="sitemap icon"></i>
-        <a href="../index.html">
-           On-Site Workshop: June 14 
-        </a>
-      </header>
-      <div class="right tab-menu menu">
-        
-          <a class="item" data-tab="Preparatory Lab">
-            Preparatory Lab
-          </a>
-        
-          <a class="item" data-tab="01">
-            01
-          </a>
-        
-          <a class="item" data-tab="02">
-            02
-          </a>
-        
-          <a class="item" data-tab="03">
-            03
-          </a>
-        
-        <div class="item">
+  
+  <div class="uk-offcanvas-content">
+    <div id="offcanvas-usage" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav">
           
-        </div>
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Preparatory Lab
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Shell Scripting
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Vagrant and Sense HAT
+                </a>
+              </li>
+            
+          
+        </ul>
       </div>
     </div>
+  </div>
 
-    <div class="ui segment pushable">
-      <div class="ui inverted labeled icon left inline vertical sidebar menu">
-        <br><br>
-        
-          
-            <a class="active item" href="../../topic-00-open-day/book-1/index.html">
-              Preparatory Lab
-            </a>
-          
-        
-          
-            <a class="item" href="../../topic-00-open-day/book-2/index.html">
-              Shell Scripting
-            </a>
-          
-        
-          
-            <a class="item" href="../../topic-00-open-day/book-3/index.html">
-              Vagrant and Sense HAT
-            </a>
-          
-        
+
+  <div uk-sticky>
+    <nav uk-navbar>
+      <div class="uk-navbar-left">
+        <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
+          <li><a href="#offcanvas-usage" uk-icon="icon: menu", uk-toggle title="Switch Lab" pos="bottom" uk-tooltip></a></li>
+          <li class="uk-active"><a href="../index.html"> On-Site Workshop: June 14 </a></li>
+        </ul>
       </div>
-      <div class="pusher" tabindex="-1">
-        <div class="ui basic segment" id="labchat">
-          <br>
+
+
+      <div class="uk-navbar-right">
+        <ul class="uk-subnav uk-background-secondary uk-subnav-pill uk-subnav-divider" uk-switcher="connect: .switcher-container">
           
-            <div  class="ui tab segment lab" data-tab="Preparatory Lab">
-              <h1>Objectives</h1>
+            <li><a href="#">Preparatory Lab</a></li>
+          
+            <li><a href="#">01</a></li>
+          
+            <li><a href="#">02</a></li>
+          
+            <li><a href="#">03</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="uk-container uk-container-expand">
+    <ul class="uk-switcher switcher-container">
+      
+        <li> <h1>Objectives</h1>
 <p>Virtualbox · Linux · Vagrant</p>
 <h2>Introduction</h2>
 <p>The main purpose of this lab is to set up your laptop/workstation with the main software packages used in this module, specifically Virtualbox, Vagrant and Ubuntu Operating System. <strong>Please complete this lab before the on-site days in June</strong> as downloading and installing these packages can take some time.
 On successful completion, you should have a &quot;platform independent&quot; environment to complete the labs and assignments irrespective of the type of machine/operating system you use. </p>
 <p>There is a &quot;computer-systems&quot; channel on Slack so if you&#39;ve any issues with the lab you can interact with us there there and/or resolve it during the Computer Systems and Networks workshop on June 14th. </p>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="01">
-              <h2>Download and install Virtualbox v5.2.12</h2>
+</li>
+      
+        <li> <h2>Download and install Virtualbox v5.2.12</h2>
 <p><img src="./img/virtualbox1.png" alt="VirtualBox.org"></p>
 <p>Virtualbox is a <em>virtualisation hypervisor</em> which provides an environment to create and provision virtual machine instances.</p>
 <p>You will be using Virtualbox to explore machine virtualisation and operating systems. This and subsequent labs have been developed and tested using <strong>version 5.2.12</strong>. To keep your development environment consistent with the labs, <strong>you are advised to install this version</strong>.</p>
@@ -190,11 +163,9 @@ On successful completion, you should have a &quot;platform independent&quot; env
 <p>All going well you should see something similar to the following:</p>
 <p><img src="./img/virtualbox2.png" alt="VirtualBox.org"></p>
 <p>For more information about Virtualbox and installation, have a look around the <a href="https://www.virtualbox.org/">website</a>. </p>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="02">
-              <h1>Bionic Beaver!!!!!!!!!!!!</h1>
+</li>
+      
+        <li> <h1>Bionic Beaver!!!!!!!!!!!!</h1>
 <h1>Ubuntu 18.04 LTS:</h1>
 <p>Version 18.04 was released in April 2018 and is guaranteed to have supported security and maintenance updates until April 2023</p>
 <ul>
@@ -271,11 +242,9 @@ On successful completion, you should have a &quot;platform independent&quot; env
 <h1>Tutorials and Extra Resources</h1>
 <p>As mentioned above, there are many many tutorials and resources available online to assist such as <a href="http://www.psychocats.net/ubuntu/virtualbox">Installing Ubuntu inside Windows using VirtualBox</a> - albeit this particular one is slightly out of date, the principles still remain largely the same.</p>
 <p>Ubuntu also has a very complete <a href="https://tutorials.ubuntu.com/">Tutorial page</a>.</p>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="03">
-              <h2>Download and install Vagrant v2.0.2</h2>
+</li>
+      
+        <li> <h2>Download and install Vagrant v2.0.2</h2>
 <p><img src="./img/vagrant1.png" alt="www.vagrantup.com"></p>
 <p>Vagrant is a tool for building and managing virtual machine environments.
 Combined with hypervisor such as Virtualbox, Vagrant simplifies the set up, configuration and provisioning of environments containing several virtual devices. It also provides networking configuration capabilities such as forwarded ports, public network connections, and private networks.</p>
@@ -330,67 +299,8 @@ $ vagrant halt
 ==&gt; default: Attempting graceful shutdown of VM...
 $</code></pre>
 <p>That&#39;s it, you&#39;re now ready for the on-site day on the 14th. See you then!</p>
-
-            </div>
-          
-        </div>
-      </div>
-    </div>
-
-    <script>
-      $(document).on('keydown', function(e) {
-  e = e || window.event;
-  var nextTab;
-  switch (e.which || e.keyCode) {
-    case 37: // left
-      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
-      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
-      nextTab.click();
-      $('.pusher').focus();
-      break;
-
-    case 39: // right
-      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
-      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
-      nextTab.click();
-      $('.pusher').focus();
-      break;
-  }
-});
-
-      $(document).ready(function() {
-  $('img').addClass('ui image');
-
-  $('.ui.embed').embed();
-
-  const $images = $('.lab img');
-  jQuery.each($images, function(i) {
-    if ($images[i].alt.length > 0) {
-      const divImg = $(document.createElement('div')).addClass(
-        'ui basic segment',
-      );
-      $($images[i]).wrap(divImg);
-      const divLabel = $(document.createElement('div')).addClass(
-        'ui blue ribbon label',
-      );
-      divLabel.append($images[i].alt);
-      $(divLabel).insertBefore($images[i]);
-    }
-  });
-
-  $('.ui.menu .item').tab({
-    history: true,
-    historyType: 'hash',
-  });
-
-  $('.popup').popup();
-
-  $('.ui.sidebar')
-    .sidebar({ context: $('.pushable') })
-    .sidebar('setting', 'transition', 'slide out')
-    .sidebar('attach events', '#toc');
-});
-
-    </script>
-  </body>
-</html>
+</li>
+      
+    </ul>
+  </div>
+</body>
