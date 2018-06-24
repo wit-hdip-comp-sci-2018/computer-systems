@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/css/uikit.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit-icons.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/css/uikit.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
@@ -60,9 +62,10 @@ h3 {
 
 
   </style>
-<body>
 
-  
+  <body class="lab">
+
+    
   <div class="uk-offcanvas-content">
     <div id="offcanvas-usage" uk-offcanvas>
       <div class="uk-offcanvas-bar">
@@ -102,41 +105,43 @@ Vagrant and Sense HAT
   </div>
 
 
-  <div uk-sticky>
-    <nav uk-navbar>
-      <div class="uk-navbar-left">
-        <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
-          <li><a href="#offcanvas-usage" uk-icon="icon: menu", uk-toggle title="Switch Lab" pos="bottom" uk-tooltip></a></li>
-          <li class="uk-active"><a href="../index.html"> On-Site Workshop: June 14 </a></li>
-        </ul>
-      </div>
+    <div uk-sticky>
+      <nav class="uk-navbar">
+        <div class="uk-navbar-left">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
+            <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
+                   uk-tooltip></a></li>
+            <li class="uk-active"><a href="../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
+                                     pos="bottom" uk-tooltip> On-Site Workshop: June 14 </a></li>
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
+              uk-switcher="connect: .switcher-container">
+            
+              <li><a href="#">Shell Scripting</a></li>
+            
+              <li><a href="#">01</a></li>
+            
+              <li><a href="#">02</a></li>
+            
+              <li><a href="#">03</a></li>
+            
+              <li><a href="#">04</a></li>
+            
+              <li><a href="#">Exercises</a></li>
+            
+              <li><a href="#">06</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
 
-
-      <div class="uk-navbar-right">
-        <ul class="uk-subnav uk-background-secondary uk-subnav-pill uk-subnav-divider" uk-switcher="connect: .switcher-container">
-          
-            <li><a href="#">Shell Scripting</a></li>
-          
-            <li><a href="#">01</a></li>
-          
-            <li><a href="#">02</a></li>
-          
-            <li><a href="#">03</a></li>
-          
-            <li><a href="#">04</a></li>
-          
-            <li><a href="#">Exercises</a></li>
-          
-            <li><a href="#">06</a></li>
-          
-        </ul>
-      </div>
-    </nav>
-  </div>
-  <div class="uk-container uk-container-expand">
-    <ul class="uk-switcher switcher-container">
-      
-        <li> <h1>Shell Scripting</h1>
+    <div class="uk-container uk-container-expand">
+      <ul class="uk-switcher switcher-container">
+        
+          <li> <h1>Shell Scripting</h1>
 <p>Shell basics · Files · Users · Permissions</p>
 <h2>What is “Shell Scripting”?</h2>
 <ul>
@@ -154,8 +159,8 @@ Vagrant and Sense HAT
 <li>then execute the file.</li>
 </ol>
 </li>
-      
-        <li> <h2>Be careful of the Basics:</h2>
+        
+          <li> <h2>Be careful of the Basics:</h2>
 <ol>
 <li>Linux IS case sensitive so be careful with working with filenames and with commands</li>
 <li>Become familiar with naming conventions i.e. no spaces</li>
@@ -199,8 +204,8 @@ Please note:<ul>
     $</code></pre>
 <p>So what went wrong?  </p>
 </li>
-      
-        <li> <h2>File Permissions and Re-directing output</h2>
+        
+          <li> <h2>File Permissions and Re-directing output</h2>
 <pre><code>    $ ls -l numusers</code></pre>
 <p>This will show the permissions of the file <strong><em>numusers</em></strong> </p>
 <p>Before you can execute a program this way, you must change the file’s permissions and make it <strong>executable</strong>.<br>Use the <strong>chmod</strong> (change file modes) command to do this:</p>
@@ -239,8 +244,8 @@ Please note:<ul>
 <p>We could shorten this command again to </p>
 <pre><code> $ chmod +x numusers</code></pre>
 </li>
-      
-        <li> <h1>Example 2</h1>
+        
+          <li> <h1>Example 2</h1>
 <p>For the next example suppose you want to write a shell program called “<strong><em>stats</em></strong>” that prints the date and time, the number of users logged in, and your current working directory. </p>
 <p>You know that the three command sequences you need to get this information are: </p>
 <pre><code>date, who | wc –l, and pwd.</code></pre>
@@ -268,8 +273,8 @@ $</code></pre>
 <p>Save your file and exit</p>
 <p>Run the script</p>
 </li>
-      
-        <li> <h1>COMMENTS</h1>
+        
+          <li> <h1>COMMENTS</h1>
 <p>The Shell Programming language would not be complete without a <strong><em>comment statement</em></strong>. </p>
 <p>A comment statement allows you to insert remarks or comments about your program without it having any effect on its execution. </p>
 <ul>
@@ -311,8 +316,8 @@ $ echo $mybin</code></pre>
 $ echo $number
 365    (output)</code></pre>
 </li>
-      
-        <li> <h1>Exercises</h1>
+        
+          <li> <h1>Exercises</h1>
 <p>Please complete the following file in your own time</p>
 <ul>
 <li><a href="./archives/archive.zip">Scripting Exercises</a></li>
@@ -325,8 +330,8 @@ $ echo $number
 <li>plus links to very useful online resources</li>
 </ol>
 </li>
-      
-        <li> <h1>Bionic Beaver!!!!!!!!!!!!</h1>
+        
+          <li> <h1>Bionic Beaver!!!!!!!!!!!!</h1>
 <h1>Ubuntu 18.04 LTS:</h1>
 <p>Version 18.04 was released in April 2018 and is guaranteed to have supported security and maintenance updates until April 2023</p>
 <ul>
@@ -404,7 +409,26 @@ jpg
 <p>As mentioned above, there are many many tutorials and resources available online to assist such as <a href="http://www.psychocats.net/ubuntu/virtualbox">Installing Ubuntu inside Windows using VirtualBox</a> - albeit this particular one is slightly out of date, the principles still remain largely the same.</p>
 <p>Ubuntu also has a very complete <a href="https://tutorials.ubuntu.com/">Tutorial page</a>.</p>
 </li>
-      
-    </ul>
-  </div>
-</body>
+        
+      </ul>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass('');
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+          'uk-label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+});
+
+    </script>
+  </body>
+</html>
