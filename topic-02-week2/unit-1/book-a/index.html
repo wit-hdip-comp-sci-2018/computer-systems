@@ -1,0 +1,500 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <style>
+    
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+  </style>
+
+  <body class="lab">
+
+    
+  <div class="uk-offcanvas-content">
+    <div id="offcanvas-usage" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav">
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Preparatory Lab
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Shell Scripting
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Vagrant and Sense HAT
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Linux Practice Exercises
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Home Network
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Scripting Exercises
+                </a>
+              </li>
+            
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+    <div uk-sticky>
+      <nav class="uk-navbar">
+        <div class="uk-navbar-left">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
+            <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
+                   uk-tooltip></a></li>
+             }}
+              <li class="uk-active"><a href="../../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
+                                       pos="bottom" uk-tooltip> Shell Scripting </a></li>
+            
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
+              uk-switcher="connect: .switcher-container">
+            
+              <li><a href="#">Scripting Exercises</a></li>
+            
+              <li><a href="#">grep</a></li>
+            
+              <li><a href="#">awk</a></li>
+            
+              <li><a href="#">sed</a></li>
+            
+              <li><a href="#">quotes</a></li>
+            
+              <li><a href="#">$</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="uk-container uk-container-expand">
+      <ul class="uk-switcher switcher-container">
+        
+          <li> <h1>Scripting in Practice</h1>
+<p>Unix Commands in Practice</p>
+<p><strong>Recall from last week: The Shell is the interface between the user and the OS</strong></p>
+<h2>Viewing Files</h2>
+<ul>
+<li><code>cat</code> displays a whole file at a time</li>
+<li><code>more</code> displays a file one screen at a time, allowing scrolling down</li>
+<li><code>less</code> displays a file one screen at a time, allowing scrolling down and up</li>
+<li><code>head</code> displays the first few lines</li>
+<li><code>tail</code> displays the last few lines</li>
+</ul>
+<h2>File Permissions</h2>
+<p>The following is a recap of Unix file permissions:</p>
+<p><img src="./img/filePermissions.jpg" alt="Setting File Permissions"></p>
+<ul>
+<li>You will need to use <code>chmod</code> to change permissions of any file.</li>
+<li>This will be necessary to execute your scripts.</li>
+</ul>
+<h2>Redirection</h2>
+<p>You can use redirection operators to retrieve input from something other than the standard input device and send output to something other than the standard output device</p>
+<p><strong>Examples of when you  might consider using redirection</strong>: </p>
+<ul>
+<li>Redirect the <code>ls</code> command output to a file, instead of to the monitor (or screen) </li>
+<li>Redirect a program that receives input from the keyboard to receive input from a file instead </li>
+<li>Redirect error messages to files, instead of to the screen by default</li>
+</ul>
+<ol>
+<li><p><strong>Redirection using <code>&gt;</code></strong></p>
+<ul>
+<li>The greater than sign (<code>&gt;</code>) is called a redirection symbol </li>
+<li>Create a new file or overwrite an existing file by attaching <code>&gt;</code> to a command that produces output </li>
+</ul>
+</li>
+<li><p>Redirection using <code>&gt;&gt;</code></p>
+</li>
+</ol>
+<pre><code>* To append to an existing file, use two redirection symbols `&gt;&gt;`</code></pre>
+<h2>Pipe operator <code>|</code></h2>
+<p>Redirects the output of one command to the input of another command, for example:</p>
+<pre><code>    $ ls /etc | sort -r</code></pre>
+<h2>Other common commands</h2>
+<ul>
+<li>Combining files using output redirection <code>cat</code></li>
+<li>Sort data using the <code>sort</code> command</li>
+</ul>
+<p>and please refer to Week 1 notes for further details and commands.. </p>
+<h2><em>_</em></h2>
+</li>
+        
+          <li> <h1>What is <code>grep</code></h1>
+<ul>
+<li>stands for <strong>g</strong>lobal <strong>r</strong>egular <strong>e</strong>xpression <strong>p</strong>rint</li>
+<li><p><code>grep</code> is a powerful file pattern searcher that comes equipped on every distribution of Linux
+If for whatever reason it isn&#39;t installed then install now:</p>
+<pre><code>$sudo apt-get install grep</code></pre>
+</li>
+<li><p><code>grep</code> searches for a specific pattern of characters within its input. 
+If the pattern is found, it displays the line containing it. </p>
+</li>
+<li>The pattern is more generally known as a regular expression, which allows for wildcards, etc.</li>
+</ul>
+<pre><code>    $ grep [OPTIONS] PATTERN [FILE...]</code></pre>
+<h2>Some examples of the use of <code>grep</code></h2>
+<ul>
+<li><p>You want to quickly search for &quot;<strong>caroline cahill</strong>&quot;  in a particular file &quot;<strong>lecturerNames.txt</strong>&quot; on your machine. </p>
+<pre><code>  $ grep &quot;caroline cahill&quot; lecturerNames.txt</code></pre>
+</li>
+<li><p>you want the matches to be highlighted in colour (--color):</p>
+<pre><code>  $ grep --color &quot;caroline cahill&quot; lecturerNames.txt</code></pre>
+</li>
+<li><p>you want to show where the matching line appears (-n):</p>
+<pre><code>  $ grep --color -n &quot;caroline cahill&quot; lecturerNames.txt</code></pre>
+</li>
+<li><p>you want grep to be case insensitive (-i):</p>
+<pre><code>  $ grep --color -n -i &quot;caroline cahill&quot; lecturerNames.txt</code></pre>
+</li>
+<li><p>you want grep to search all <strong>.txt</strong> files in your directory, you can use a <strong>wildcard</strong> (*.txt):</p>
+<pre><code>  $ grep --color -n -i &quot;caroline cahill&quot; *.txt</code></pre>
+</li>
+<li><p>you want to extend your search to subdirectories and any files they contain, using <strong>-r</strong> to recursively search and consider using a wildcard to allow to search in <strong>any</strong> file:</p>
+<pre><code>  $ grep --color -n -i -r &quot;caroline cahill&quot; *</code></pre>
+</li>
+<li><p>you have an entire folder full of music files in a bunch of different formats. You want to find all of the *.mp3 files from the artist Kodaline, but you don’t want any of the remixed tracks</p>
+<pre><code>$find . –name “*.mp3” | grep –i Kodaline | grep –vi “remix”</code></pre>
+</li>
+</ul>
+<p>we are using <code>find</code> to print all of the files with a *.mp3 extension, piping it to <code>grep –i</code> to filter out and prints all files with the name “Kodaline” and then another pipe to <code>grep –vi</code> which filters out and does not print all filenames with the (case insensitive) string “remix”.</p>
+<h2>Matching Regular Expressions</h2>
+<p>(That&#39;s what the &quot;<strong>re</strong>&quot; in &quot;g<strong>re</strong>p&quot; stands for after all!)</p>
+<p>Regular expressions use special characters in the PATTERN string to match a wider array of strings</p>
+<p>For example:
+<img src="./img/RegExpr.jpg" alt="Grep for Matching Regular Expressions"></p>
+<p>For the above example, the command used (in the screenshot directly above) is:</p>
+<pre><code>    $ grep --color -i -n &quot;our.*products&quot; *.html</code></pre>
+<ul>
+<li>the period <code>.</code> is interpreted as a single-character wildcard</li>
+<li>The asterisk <code>*</code> means &quot;the preceding character, appearing zero or more times, will match.&quot;</li>
+</ul>
+<p>So the combination <code>.*</code> will match <em>any</em> number of <em>any</em> character.</p>
+<h2>Using <strong>grep</strong> to search for errors</h2>
+<pre><code>    $ grep &quot;Sept 11 03&quot; /etc/httpd/logs/error_log</code></pre>
+<p>Search the <code>error_log</code> file for any error entries that happened on Sept 11th at 3AM</p>
+<h2>Combining grep with other commands</h2>
+<p>This will make <code>grep</code> more powerful, for example combining with <code>head</code> or <code>tail</code> and so on </p>
+<h2>Grep versions</h2>
+<ol>
+<li><code>grep</code> - supports basic regular expressions</li>
+<li><code>egrep</code> - supports extended regular expressions</li>
+<li><code>fgrep</code>  - search for fixed strings</li>
+</ol>
+<p>For the use of Unix <code>kill</code> process, you must provide the process id for the process that you want to kill. 
+- For example: you want to kill a running Firefox process:</p>
+<pre><code>$pgrep firefox
+12160</code></pre>
+<p>will return the process id <code>12160</code> of the firefox process running </p>
+<pre><code>$kill 12160</code></pre>
+<p>will kill this process i.e. firefox</p>
+<h2>Be creative, experiment with the options in the <code>man</code> page, and come up with <code>grep</code> expressions that serve your own purposes!</h2>
+<h2><em>_</em></h2>
+</li>
+        
+          <li> <h1>What is <code>awk</code>?</h1>
+<p><code>awk</code> is an entire text-processing language, but it is also very useful for some small tasks, such as for extracting pieces of text from a line returned by <code>grep</code>.</p>
+<ul>
+<li><p><code>awk</code> is a versatile programming language for working on files.</p>
+</li>
+<li><p><code>awk</code> is an excellent filter and report writer</p>
+</li>
+<li><p><code>awk</code> understands the same arithmatic operators as C </p>
+</li>
+<li><p><code>awk</code> has string manipulation functions, so it can search for particular strings and modify the output</p>
+</li>
+<li><p>The essential organization of an <code>awk</code> program follows the form:</p>
+</li>
+</ul>
+<pre><code>$pattern { action }</code></pre>
+<h2>EXERCISE: Create a file called <strong>cities</strong> and edit using the nano editor</h2>
+<pre><code>$ nano cities
+Dublin, Ireland
+London, UK
+Oslo, Norway
+Lisbon, Portugal</code></pre>
+<pre><code>$ sort cities
+Dublin, Ireland
+Lisbon, Portugal
+London, UK
+Oslo, Norway</code></pre>
+<p>Then try the following three basic commands:</p>
+<pre><code>$ grep on cities | awk &#39;{print $2}&#39;</code></pre>
+<pre><code>$ grep on cities | awk &#39;{print $1}&#39;</code></pre>
+<pre><code>$ grep on cities | awk –F, &#39;{print $1}&#39;</code></pre>
+<h2>EXERCISE: Create a space separated file called <strong>employee.txt</strong> that contains the following records:</h2>
+<pre><code>100 Frank Manager Sales €5000
+200 Caroline Developer Technology €5500
+300 Mary Sysadmin Technology €7000
+400  Rosanne Manager Marketing €9500
+500 Eamonn DBA Technology €6000</code></pre>
+<h2>Amend the code below, where suitable, to extract the expected result from your <strong>employee.txt</strong> file created:</h2>
+<ol>
+<li><p>Print the fifth column in a space separated file:</p>
+<pre><code>$awk &#39;{print $5}&#39; filename</code></pre>
+</li>
+<li><p>Print the second column of the lines containing &quot;something&quot; in a space separated file:</p>
+<pre><code>$awk &#39;/something/ {print $2}&#39; filename</code></pre>
+</li>
+<li><p>Print the third column in a comma separated file:</p>
+<pre><code>$awk -F &#39;,&#39; &#39;{print $3}&#39; filename</code></pre>
+</li>
+<li><p>Sum the values in the first column and print the total:</p>
+<pre><code>$awk &#39;{s+=$1} END {print s}&#39; filename</code></pre>
+<p>or try this:</p>
+<pre><code>$awk &#39;{s+=$1; print $1} END {print &quot;--------&quot;; print s}&#39; filename</code></pre>
+</li>
+</ol>
+<p><strong>Quick Question:</strong> If you amend this code to sum the values in the last column... do you get the expected result? </p>
+<h2>Some other useful commands, courtesy of github.com:</h2>
+<p>Recreate a <strong>table.txt</strong> file shown here (<em>Note</em> the file is stored in a <strong>text</strong> directory i.e. <code>text/table.txt</code>):</p>
+<pre><code>rank    length  text
+1       36      How quickly daft jumping zebras vex.
+2       38      Jackdaws love my big sphinx of quartz.
+3       44      The quick brown fox jumps over the lazy dog.</code></pre>
+<p><img src="./img/usefulCommands.jpg" alt="Useful Commands"></p>
+<ul>
+<li>the last command is used with a <code>numbers.txt</code> file that you can create - it simply contains one column with random numbers</li>
+</ul>
+<h2><em>_</em></h2>
+</li>
+        
+          <li> <h2>What is <code>sed</code>?</h2>
+<ul>
+<li><code>sed</code> is the ultimate <strong>s</strong>tream <strong>ed</strong>itor</li>
+<li><code>sed</code> is a special editor for modifying files automatically. If you want to write a program to make changes in a file, sed is the tool to use. </li>
+<li><code>sed</code> allows you to make global changes to a large file</li>
+<li>requirements are an input file and a command that lets sed know what actions to apply to the file</li>
+</ul>
+<ul>
+<li><code>sed</code> commands have two general formats:</li>
+</ul>
+<ol>
+<li>specify an editing command on the command line</li>
+<li>specify a script file containing sed commands</li>
+</ol>
+<h2>When might I choose to use <code>sed</code>?</h2>
+<ul>
+<li>the sed command is most commonly used in UNIX  for substitution or for find and replace.</li>
+<li>In the situation where we are manually making the same edits on multiple files. Sometimes the same edits are manually repeated on files on different servers - this process can be very tedious and time consuming. </li>
+</ul>
+<p><img src="./img/subs.jpg" alt="sed used for substitution"></p>
+<ul>
+<li>One of the most common <code>sed</code> commands is the <strong>s</strong> for <strong>substitution</strong> . </li>
+</ul>
+<p>A simple example is changing &quot;<strong>day</strong>&quot; in the &quot;<strong>old</strong>&quot; file to &quot;<strong>night</strong>&quot; in the &quot;<strong>new</strong>&quot; file:</p>
+<pre><code>    $ sed &#39;s/day/night/&#39; &lt;old &gt;new</code></pre>
+<ul>
+<li>The <code>sed</code> editor changes exactly what you tell it to. So if you executed</li>
+</ul>
+<pre><code>echo Sunday | sed &#39;s/day/night/&#39;</code></pre>
+<p>This would output the word <strong>&quot;Sunnight&quot;</strong> because <code>sed</code> found the string &quot;day&quot; in the input. </p>
+<ul>
+<li><strong>Note</strong> that this <code>sed</code> will replace once on each line.
+That is the default behavior. If you want something different, you will have to use some of the options that are available.</li>
+</ul>
+<h2>Quoting multiple <code>sed</code> lines in BASH</h2>
+<p>The Bourne shell makes this easier as a quote can cover several lines:</p>
+<pre><code>#!/bin/sh
+sed &#39;
+s/a/A/g 
+s/e/E/g 
+s/i/I/g 
+s/o/O/g 
+s/u/U/g&#39;  &lt;old &gt;new</code></pre>
+<p>When in doubt, experiment!!!</p>
+<h2><em>_</em></h2>
+</li>
+        
+          <li> <h1>Quotes</h1>
+<p>There are four different types of quote characters that the shell recognises:</p>
+<ol>
+<li><p>The single quote character &#39;</p>
+</li>
+<li><p>The double quote character &quot;</p>
+</li>
+<li><p>The backslash character \</p>
+</li>
+<li><p>The back quote character `</p>
+</li>
+</ol>
+<h2>EXERCISE: Create a space separated file called <strong>phonebook</strong> that contains the following records:</h2>
+<pre><code>Frank Walsh 0861234567
+Caroline Cahill 0867645321
+Frank Honest 0872468248
+Casandra Birney 0879876543
+Eamonn DeLeaster 0831234567</code></pre>
+<p>Now try the following commands:</p>
+<pre><code>$grep Caroline phonebook</code></pre>
+<pre><code>$grep Frank phonebook</code></pre>
+<pre><code>$grep Frank Walsh phonebook</code></pre>
+<p><strong>What happens with this output??</strong></p>
+<p><strong>NOTE:</strong> The shell uses white space to separate the arguments on the line so <code>Frank</code>, <code>Walsh</code> and <code>phonebook</code> are all passed as three separate arguments.</p>
+<h2>Use of the single quote &#39;</h2>
+<p>Multiple words can be enclosed in single quotes to prevent them being interpreted as separate arguments:</p>
+<pre><code>$grep &#39;Frank Walsh&#39; phonebook</code></pre>
+<h2>Use of the backslash \</h2>
+<ul>
+<li><p>The backslash is an escape character that preserves the literal value of the following character - assuming the shell recognises the following character as a special character such as backslash, single quotes, double quotes, dollar sign and so on...</p>
+</li>
+<li><p>It protects characters for the shell interpreting them</p>
+</li>
+</ul>
+<h2>Use of the back quote</h2>
+<ul>
+<li><p>tell the shell to execute the enclosed command and to insert the output from the point on the command line</p>
+</li>
+<li><p>Here, the shell executes <code>date</code> and replaces <code>date</code> on the command line with the output of date:</p>
+<pre><code>$ echo The date and time is: `date`
+The date and time is: Thu Sept 24 18:50:52 IST 2018</code></pre>
+</li>
+</ul>
+</li>
+        
+          <li> <h1>Command Line Arguments</h1>
+<p>Shell programs can process arguments passed to them
+via the command line
+Every time we have executed a shell program, the shell has automatically stored all the proceeding arguments in what is referred to as positional parameters, namely 1, 2, 3, etc.
+These parameters (arguments) can be referenced using the <code>$</code> sign</p>
+<h2>Example of a program to find processes running on the system</h2>
+<pre><code>$ nano findproc
+ps -ef | grep $1</code></pre>
+<p>(save, exit and make <code>findproc</code> executable)</p>
+<p>Execute as follows:</p>
+<pre><code>$ ./findproc bash</code></pre>
+<p>Execute again passing your username as the argument and see the results.</p>
+<h2>The <code>$#</code> Variable</h2>
+<p>Whenever you execute a shell program, the special shell variable <code>$#</code> is set to the number of arguments that were passed to the script on the command line.</p>
+<p>Create the shell program.</p>
+<pre><code>$ nano args
+echo $# arguments passed
+echo arg 1 = $1 arg 2 = $2 arg 3 = $3</code></pre>
+<p>(save, exit and make <code>args</code> executable)</p>
+<ul>
+<li>Execute the script passing in sample arguments, such as <code>a</code>, <code>b</code> and <code>c</code></li>
+<li>Execute the script passing in sample arguments, such as <code>&quot;a b c&quot;</code></li>
+<li>Execute the script passing in only two sample arguments</li>
+<li>Execute the script passing in zero sample arguments</li>
+</ul>
+<h2>_</h2>
+</li>
+        
+      </ul>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass('');
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass('uk-label uk-text-lowercase');
+      divLabel.append($images[i].alt);
+      $(divLabel).insertAfter($images[i]);
+      $('<br>').insertAfter($images[i]);
+    }
+  });
+});
+
+    </script>
+  </body>
+</html>

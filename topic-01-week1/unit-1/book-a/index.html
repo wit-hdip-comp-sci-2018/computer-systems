@@ -118,6 +118,15 @@ Home Network
               </li>
             
           
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Scripting Exercises
+                </a>
+              </li>
+            
+          
         </ul>
       </div>
     </div>
@@ -230,7 +239,7 @@ Please note:<ul>
 </li>
         
           <li> <h1>Example 2</h1>
-<p>For the next example suppose you want to write a shell program called “<strong><em>stats*</em></strong>” that printed the date and time, the number of users logged in, and your current working directory. You know that the three command sequences you need to get this information are: </p>
+<p>For the next example suppose you want to write a shell program called <code>stats</code> that printed the date and time, the number of users logged in, and your current working directory. You know that the three command sequences you need to get this information are: </p>
 <pre><code>date, who | wc –l, and pwd.</code></pre>
 <pre><code>$ nano stats
    Enter the lines:
@@ -243,7 +252,8 @@ $ ./stats
    3
    /home/jbloggs/
 $</code></pre>
-<p>To make the output of this script a bit more user friendly we can add some text to the script, to appear at certain points of the programs execution. This functionality is achieved through the use of the shell command <strong>echo</strong>. Add the following lines to your <strong><em>stats</em></strong> program </p>
+<p>To make the output of this script a bit more user friendly we can add some text to the script, to appear at certain points of the programs execution. This functionality is achieved through the use of the shell command <code>echo</code>. 
+Add the following lines to your <code>stats</code> program </p>
 <pre><code>$ nano stats
   echo The current time and date is:
   date
@@ -258,16 +268,16 @@ $ ./stats
 </li>
         
           <li> <h1>COMMENTS</h1>
-<p>The Shell Programming language would not be complete without a <strong><em>comment statement</em></strong>. A comment statement allows you to insert remarks or comments about your program without it having any effect on its execution. Whenever the shell encounters the special character # at the beginning of a word or line, it takes whatever characters following the # as comments and simply ignores them; e.g.</p>
+<p>The Shell Programming language would not be complete without a <strong><em># comment statement</em></strong>. A comment statement allows you to insert remarks or comments about your program without it having any effect on its execution. Whenever the shell encounters the special character # at the beginning of a word or line, it takes whatever characters following the # as comments and simply ignores them; e.g.</p>
 <pre><code># Author: C Cahill
 # Program Description:
 # This program calculates the amount of CPU usage of each user ………</code></pre>
 <p>Comments are useful for documenting commands or sequences of commands whose purpose may not be obvious. </p>
 <h1>VARIABLES</h1>
-<p>Like virtually all programming languages, the shell allows you to store values into <strong><em>variables</em></strong>.  To store a value in a shell variable, you simply write the name of the variable followed immediately by the equals sign =, followed immediately by the value you wish the variable to contain (<strong>N.B. do not use spaces</strong>)</p>
-<p>variable_name=value</p>
+<p>Like virtually all programming languages, the shell allows you to store values into <strong><em>variables</em></strong>.<br><em>N.B. do not use spaces</em></p>
+<p><code>variable_name=value</code></p>
 <pre><code>$ count=1</code></pre>
-<p>To assign the value /home/username/bin to the variable mybin, you simply write </p>
+<p>To assign the value <code>/home/username/bin</code> to the variable <code>mybin</code>, you simply write </p>
 <pre><code>$ mybin=/home/username/bin</code></pre>
 <p><strong><em>NOTE: (replace username with your user name)</em></strong></p>
 <p>Two points are worth noting at this stage:</p>
