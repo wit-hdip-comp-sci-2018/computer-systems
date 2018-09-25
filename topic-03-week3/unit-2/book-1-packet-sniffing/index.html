@@ -197,11 +197,11 @@ Packet Sniffing using TShark
       <ul class="uk-switcher switcher-container">
         
           <li> <h1>Network Traffic Monitoring and Analysis</h1>
-<p>Use Wireshark to capture ICMP data packet IP addresses and Ethernet frame MAC addresses.</p>
+<p>Use TShark to capture and analyse network traffic.</p>
 </li>
         
           <li> <h2>Objectives</h2>
-<p><img src="./img/topology1.png" alt="Topology">]</p>
+<p><img src="./img/topology1.png" alt="Topology"></p>
 <p>Wireshark is a software protocol analyzer, or &quot;packet sniffer&quot; application, used
 for network troubleshooting, analysis, software and protocol development, and education. In this lab, you will:</p>
 <ul>
@@ -216,13 +216,17 @@ for network troubleshooting, analysis, software and protocol development, and ed
 <h3>Required Resources</h3>
 <ul>
 <li>Computer with Internet Access</li>
-<li>Solution to Lab1 (Vagrant and Virtual)</li>
+<li>Vagrant</li>
+<li>VirtualBox</li>
+<li>Complete last week2 lab - Vagrant and Virtualisation </li>
 </ul>
 </li>
         
           <li> <h2>Set up Virtual Network</h2>
 <ol>
-<li>Copy the previous lab directory and rename it CS-lab2. update the Vagrantfile with the following contents:</li>
+<li>Create a lab directory called <strong>cs-nets-lab3</strong>.</li>
+<li>Open a terminal window in the directory and run <code>vagrant init</code> to initialise it as a vagrant project</li>
+<li>Replace the contents of the Vagrantfile with the following code:</li>
 </ol>
 <pre><code class="lang-ruby">VAGRANTFILE_API_VERSION = &quot;2&quot;
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -235,15 +239,20 @@ pc1.vm.hostname = &quot;pc1&quot;
 pc1.vm.network :private_network, ip: &quot;192.168.5.3&quot;
 end
 config.vm.box = &quot;frankwalsh/labvm&quot;
-config.vm.provision :shell, path: &quot;bootstrap.sh&quot;
 config.ssh.forward_x11 = true
 end</code></pre>
 <ol>
-<li>Open a terminal window and start the virtual environment:</li>
+<li>Start the virtual environment in the usual way:  <pre><code class="lang-bash">$ vagrant up</code></pre>
+The Vagrantfile will create the following network topology consisting of two linux machines connected using a private network (192.168.5.0,  mask 255.255.255.0).</li>
 </ol>
-<pre><code class="lang-bash">$ vagrant up</code></pre>
-<p>The above Vagrantfile will create the following network topology consisting of two linux machines connected using a private network (192.168.5.0,  mask 255.255.255.).</p>
 <p><img src="./img/topology2.png" alt="Virtual Machine Topology"></p>
+<ol>
+<li>Check if you can &quot;see&quot; the new VMs from your host. <strong>From your host,</strong> Ping both using the IP addresses you assigned to them in your Vagrantfile.<br>```
+ping 192.168.5.2</li>
+</ol>
+<p>ping 192.168.5.3
+``` 
+Both should respond successfully.</p>
 <p>You will now send and monitor network traffic between pc0, pc1 and the host machine. </p>
 </li>
         
@@ -254,8 +263,8 @@ clarify how packet headers are used to transport data to their destination.</p>
 <h3>Retrieve your PC’s interface configuration</h3>
 <p>You will need to record your host machines IP address and its network interface card (NIC) physical address, also called the MAC address.</p>
 <ol>
-<li>On the host machine, open a command window, type <code>ipconfig /all</code>, and then press Enter. If you are using Linux terminal, type <code>ifconfig</code>, and then press enter.</li>
-<li>Note your PC interface’s IP address and MAC (physical) address.</li>
+<li>On the host machine, open a command window, type <code>ipconfig /all</code>, and then press Enter. If you are using Linux/Windows, type <code>ifconfig</code>, and then press enter.</li>
+<li>Note your PC interface’s IP address and MAC (physical) address. The output should look similar, but not exactly like , the following:</li>
 </ol>
 <pre><code class="lang-bash">$ ifconfig
 eno1      Link encap:Ethernet  HWaddr 34:e6:d7:06:ef:6f  
@@ -290,29 +299,54 @@ vboxnet0  Link encap:Ethernet  HWaddr 0a:00:27:00:00:00
           RX bytes:0 (0.0 B)  TX bytes:162768 (162.7 KB)</code></pre>
 <h3>SSH in to pc0 and start using TShark</h3>
 <ol>
-<li>In a terminal window open in the project directory,  open a SSH session with pc0 using the following command:<pre><code class="lang-bash">vagrant ssh pc0</code></pre>
+<li>In a terminal window open in the vagrant project directory(cs-nets-lab3),  open a SSH session with pc0 using the following command:<pre><code class="lang-bash">vagrant ssh pc0</code></pre>
 </li>
-<li>Have a look at the network configuration and take note the name of the various inteface adapters:<pre><code class="lang-bash">vagrant@pc0:~$ ifconfig</code></pre>
+<li>Have a look at the network configuration and take note the name of the various inteface adapters:<pre><code class="lang-bash">vagrant@pc0:~$ ifconfig
+eth0      Link encap:Ethernet  HWaddr 08:00:27:1b:25:c4  
+       inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+       inet6 addr: fe80::a00:27ff:fe1b:25c4/64 Scope:Link
+       UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+       RX packets:647 errors:0 dropped:0 overruns:0 frame:0
+       TX packets:547 errors:0 dropped:0 overruns:0 carrier:0
+       collisions:0 txqueuelen:1000 
+       RX bytes:71816 (71.8 KB)  TX bytes:63132 (63.1 KB)
+eth1      Link encap:Ethernet  HWaddr 08:00:27:bb:e7:ef  
+       inet addr:192.168.5.2  Bcast:192.168.5.255  Mask:255.255.255.0
+       inet6 addr: fe80::a00:27ff:febb:e7ef/64 Scope:Link
+       UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+       RX packets:17 errors:0 dropped:0 overruns:0 frame:0
+       TX packets:13 errors:0 dropped:0 overruns:0 carrier:0
+       collisions:0 txqueuelen:1000 
+       RX bytes:3169 (3.1 KB)  TX bytes:1062 (1.0 KB)</code></pre>
 </li>
-<li>We will use tshark to start monitoring network traffic on interface <em>eth1</em> on <em>pc0</em>. The <em>eth1</em> interface connects pc0 to the private network on the host machine(see the diagram on page 1).Initially we will view the results in the console. Enter the following command to capture the next 10 packets on interface <em>eth1</em> and print it to the console.<pre><code class="lang-bash">tshark -i eth1 -c 10
-Capturing on &#39;eth1&#39;</code></pre>
-You will probably start to see traffic immediately. We can apply a filter to make it easier to view and work with the data that is being captured by tshark. For now, we are only interested in displaying ICMP (ping) PDUs. This time, tshark will output results to <em>/vagrant/pc0-eth1-traffic1.log</em>.</li>
+<li>We will use tshark to start monitoring network traffic on interface <em>eth1</em> on <em>pc0</em>. The <em>eth1</em> interface connects pc0 to the private network on the host machine(see the diagram on page 1).Initially we will view the results in the console. First we need to configure tshark to allow access to the network interfaces and to  /usr/bin/dumpcap for logging. 
+In the pc0 ssh session do the following:</li>
 </ol>
+<p>Enter the following command:  </p>
+<pre><code class="lang-bash">sudo dpkg-reconfigure wireshark-common</code></pre>
+<p>and select &quot;yes&quot; in the dialog window:  </p>
+<p><img src="./img/tshark-conf.png" alt="Configuring TShark"></p>
+<p>Modify the permissions on /usr/bin/dumpcap as follows:</p>
+<pre><code class="lang-bash">vagrant@pc0:~$ sudo chmod +x /usr/bin/dumpcap</code></pre>
+<p>Enter the following command to capture the next 10 packets on interface <em>eth1</em> and print it to the console.</p>
+<pre><code class="lang-bash">tshark -i eth1 -c 10
+Capturing on &#39;eth1&#39;</code></pre>
+<p>You will probably start to see traffic immediately. We can apply a filter to make it easier to view and work with the data that is being captured by tshark. For now, we are only interested in displaying ICMP (ping) PDUs. This time, you will configure tshark will output results to <em>/vagrant/pc0-eth1-traffic1.log</em>.</p>
 <h3>Capture Filters</h3>
-<p>Sometimes, particularly on busy networks, Capture filters are applied during data capturing  in order to discard network traffic that you&#39;re not interested in. This can be done using the -f command-line parameter, followed by a filter.</p>
+<p>Sometimes, particularly on busy networks, Capture filters are applied during data capturing  in order to discard network traffic that you&#39;re not interested in. This can be done using the -f (filter) command-line parameter, followed by a filter criteria.</p>
 <p>There are many filters you can apply. In this case we are just interested in ICPM traffic.
 Remember that filter strings always should be written in lowercase.
-4. Stop TShark capturing traffic by entering <code>ctrl+c</code> in the ssh terminal.  Enter the following:</p>
-<pre><code class="lang-bash">vagrant@pc0:~$ tshark -i eth1 -f icmp &gt; /vagrant/pc0-eth1-traffic1.log</code></pre>
+4. Stop TShark if it&#39;s still capturing traffic by entering <code>ctrl+c</code> in the ssh terminal.  Now enter the following:</p>
+<pre><code class="lang-bash">vagrant@pc0:~$ tshark -i eth1 -f icmp</code></pre>
 <ol>
-<li>Now bring up the command prompt window on your host machine and ping the IP address of pc0 .<pre><code class="lang-bash">$ ping 192.168.5.2
+<li>Now bring up a command prompt window <em>on your host machine</em> and ping the IP address of pc0 .<pre><code class="lang-bash">$ ping 192.168.5.2
 PING 192.168.5.2 (192.168.5.2) 56(84) bytes of data.
 64 bytes from 192.168.5.2: icmp_seq=1 ttl=64 time=0.543 ms
 64 bytes from 192.168.5.2: icmp_seq=2 ttl=64 time=0.445 ms
 64 bytes from 192.168.5.2: icmp_seq=3 ttl=64 time=0.339 ms
 64 bytes from 192.168.5.2: icmp_seq=4 ttl=64 time=0.336 ms</code></pre>
 </li>
-<li><p>Examine <code>/vagrant/pc0-eth1-traffic1.log</code> on your host machine using  a text editor such as sublime. You should see the  ICMP traffic similar to the following:</p>
+<li><p>After the ping has executed for a while, you should see the  ICMP traffic similar to the following:</p>
 <pre><code>1   0.000000  192.168.5.1 -&gt; 192.168.5.2  ICMP 98 Echo (ping) request  id=0x5dc4, seq=1/256, ttl=64
 2   0.000061  192.168.5.2 -&gt; 192.168.5.1  ICMP 98 Echo (ping) reply    id=0x5dc4, seq=1/256, ttl=64 (request in 1)
 3   1.011293  192.168.5.1 -&gt; 192.168.5.2  ICMP 98 Echo (ping) request  id=0x5dc4, seq=2/512, ttl=64
@@ -331,28 +365,26 @@ PING 192.168.5.2 (192.168.5.2) 56(84) bytes of data.
 16   7.157264  192.168.5.2 -&gt; 192.168.5.1  ICMP 98 Echo (ping) reply    id=0x5dc4, seq=8/2048, ttl=64 (request in 15)</code></pre>
 <blockquote>
 <p><strong>Note:</strong> If your pings fail, this may be because your host firewall is
-blocking the requests. Please see Appendix A: Allowing ICMP Traffic Through a Firewall</p>
+blocking the requests. If this happens, try pinging pc0 from pc1.</p>
 </blockquote>
 </li>
-<li><p>Now stop TShark capturing traffic by entering <code>ctrl+c</code> in the SSH session.</p>
+<li><p>Now, if need be, stop TShark capturing traffic by entering <code>ctrl+c</code> in the SSH session.</p>
 </li>
 </ol>
 <h2>Display filters.</h2>
-<p>Display filters are applied after packet capturing; therefore, they just &quot;hide&quot; network traffic fields you are not interested in and display the ones you are interested in. You can use them to &quot;query&quot; your network data. For example, you might want to see packets sent to your machine from a particular IP address. You always can remove the effects of a display filter and get all your data back.
-You will now examine the data that was generated by the ping requests from the host machine. Tshark can produce data in a standard format (called pcap) so that it can be analysed later. As well as capturing network data, tshark can also be used to analyse pcap files.
+<p>Display filters are applied after packet capturing and just &quot;hide&quot; network traffic fields you are not interested in and display the ones you are interested in. Display filters are specified using the -T command line parameter followed by the fields you wish to display.  You can use them to &quot;query&quot; your network data. For example, you might want to see packets sent to your machine from a particular IP address. You always can remove the effects of a display filter and get all your data back.<br>You will now examine the data that was generated by the ping requests from the host machine. Tshark can produce data in a standard format (called pcap) so that it can be analysed later. As well as capturing network data, tshark can also be used to analyse pcap files.
 The previous section displayed the list of PDU frames captured as a summary of the IP packet information. We now want to investigate the various PDU layers and analyse the values.</p>
-<h3>Record Network traffic as pcap format.</h3>
+<h3>Record Network traffic in a pcap file.</h3>
 <p>You will now record 10 icmp packets on eth1 interface, and write the results to file <code>/vagrant/pc0-eth1-traffic1.pcap</code>
-- In the ssh session for pc0, enter the following command</p>
-<pre><code class="lang-bash">vagrant@pc0:~$ tshark -i eth1 -f icmp -c 10 -w  /vagrant/pc0-eth1-traffic1.pcap
-Capturing on &#39;eth1&#39;
-10
-vagrant@pc0:~$</code></pre>
-<p>We will now use <code>/vagrant/pc0-eth1-traffic1.pcap</code> to analyse the data at different levels</p>
+- In the ssh session for pc0, enter the following command to capture up to 10 frames and write them (-w paramater) to /vagrant/pc0-eth1-traffic1.pcap.</p>
+<pre><code class="lang-bash">vagrant@pc0:~$ tshark -i eth1 -f icmp -c 10 -w /vagrant/pc0-eth1-traffic1.pcap
+Capturing on &#39;eth1&#39;</code></pre>
+<p>And, as before, ping pc0 from the host machine. TShark will record next 10 ICMP frames.
+We will now use <code>/vagrant/pc0-eth1-traffic1.pcap</code> to analyse the data at different levels</p>
 <h3>IP information</h3>
 <p>The above console listing in the previous section gives a summary of the IPv4 PDU. You can easily see the soucrce and destination ipv4 addresses which correspond to what we expect (192.168.5.1 is the host, 192.168.5.2 is pc0). We will now use the pcap file to display ip summary:</p>
 <pre><code class="lang-bash">tshark -r /vagrant/pc0-eth1-traffic1.pcap</code></pre>
-<p>This instructs tshark to read <code>/vagrant/pc0-eth1-traffic1.pcap</code> and output the result to the console. But what if we want to see Just Ethernet PDU information? This is also recorded in the pcap file, we just need to tell tshark to display it.</p>
+<p>This instructs tshark to read <code>/vagrant/pc0-eth1-traffic1.pcap</code> and output the result to the console. But what if we want to see just the Ethernet PDU information? This is also recorded in the pcap file, we just need to tell tshark to display it.</p>
 <h3>Ethernet PDU</h3>
 <p>To get information relating to Ethernet PDUs for each packet, run the following command:</p>
 <pre><code class="lang-shell">vagrant@pc0:~$ tshark -r /vagrant/pc0-eth1-traffic1.pcap -T fields -e ip -e eth
@@ -370,37 +402,36 @@ pings. You will then determine what is different about this data from the data e
 <li><p>In the SSH session on pc0, start capturing ICMP packets, this time on the eth0 interface.</p>
 <pre><code class="lang-bash">tshark -w /vagrant/pc0-eth0-traffic1.pcap -i eth0 -f icmp</code></pre>
 </li>
-<li><p>Now, open a second ssh session to pc0 by running <code>vagrant ssh pc0</code> in the vagrant project directory.</p>
+<li><p>Now, open a second terminal on your host and start another ssh session to pc0  by running <code>vagrant ssh pc0</code> in the vagrant project directory.</p>
 </li>
 <li><p>From the second SSH session, enter <code>ping google.ie</code>. As soon as you see the replies, the count in the first SSH session should start to increment correspondingly. The following figure illustrates the two SSH session terminals:</p>
 </li>
 </ul>
 <p><img src="./img/consoles.png" alt="Pinging google.ie and recording ICMP traffic">  </p>
 <ul>
-<li>Stop tshark recording network traffic by entering <em>ctrl+c</em> in the SSH session window. Now examine the file <code>/vagrant/pc0-eth0-traffic1.pcap</code> . Note that, when you ping the URLs listed, the Domain Name Server (DNS) translates the URL to
-an IP address.</li>
-<li>Try the same procedure for www.cisco.com and www.yahoo.com. Note the IP address received for each URL.</li>
+<li>Stop tshark recording network traffic by entering <em>ctrl+c</em> in the SSH session window. Now examine the file <code>/vagrant/pc0-eth0-traffic1.pcap</code> . Note that, when you ping the URLs listed, the Domain Name Server (DNS) translates the URL to an IP address.</li>
+<li>Try the same procedure for www.cisco.com and www.yahoo.com. Note the IP address received for each URL.  </li>
 </ul>
 </li>
         
           <li> <h1>FTP PDU Capture</h1>
 <p>In this section you will examine File Transfer Protocol (FTP) network traffic. Remember from the lectures that we said FTP traffic is through port 21 (control) and 20(data)</p>
 <ul>
-<li>As before, start capturing network data on machine pc0, network interface eth0. This time, store the data in file <code>/vagrant/pc0-eth0-traffic1.pcap</code>. This time, we will filter to port 20 and 21. This is specified using the <em>pcap filter syntax</em> indicated by the <em>-f</em> flag.</li>
+<li>As before, start capturing network data on machine pc0, network interface eth0. This time, store the data in file <code>/vagrant/pc0-eth0-traffic2.pcap</code>. This time, we will filter to port 20 and 21. This is specified using the <em>pcap filter syntax</em> indicated by the <em>-f</em> flag.</li>
 </ul>
-<pre><code class="lang-bash">tshark -w /vagrant/pc0-eth0-traffic1.pcap -i eth0 -f &quot;tcp port 20 or tcp port 21&quot;</code></pre>
+<pre><code class="lang-bash">tshark -w /vagrant/pc0-eth0-traffic2.pcap -i eth0 -f &quot;tcp port 20 or tcp port 21&quot;</code></pre>
 <ul>
-<li><p>As before, open a new SSH session to pc0 using <code>vagrant ssh pc0</code> and  enter <code>ftp ftp.heanet.ie</code>.</p>
+<li><p>As before, open another SSH session(or reuse the previous session if still in use) to pc0 using <code>vagrant ssh pc0</code> and  enter <code>ftp ftp.heanet.ie</code>.</p>
 </li>
-<li><p>When the connection is established, enter anonymous as the user without a password, i.e
+<li><p>When the connection is established, enter anonymous as the user without a password, i.e.
 Userid: anonymous
 Password: <ENTER></p>
 </li>
-<li><p>You should see tshark start to record FTP traffic as shown below:
+<li><p>You should see tshark start to record FTP traffic similar to what is shown below:
 <img src="./img/consoles2.png" alt="FTP Network Traffic"></p>
 </li>
 <li><p>examine the captured traffic as before:</p>
-<pre><code>tshark -r /vagrant/pc0-eth0-traffic1.pcap</code></pre>
+<pre><code>tshark -r /vagrant/pc0-eth0-traffic2.pcap</code></pre>
 <p>This gives you a summary of the frames similar to the following</p>
 <pre><code>1 0.000000000    10.0.2.15 -&gt; 193.1.193.64 TCP 74 54307→21 [SYN] Seq=0 Win=29200 Len=0 MSS=1460 SACK_PERM=1 TSval=3999232 TSecr=0 WS=64
 2 0.008329000 193.1.193.64 -&gt; 10.0.2.15    TCP 60 21→54307 [SYN, ACK] Seq=0 Ack=1 Win=65535 Len=0 MSS=1460
@@ -410,12 +441,13 @@ Password: <ENTER></p>
 6 0.020519000    10.0.2.15 -&gt; 193.1.193.64 TCP 54 54307→21 [ACK] Seq=1 Ack=90 Win=1868800 Len=0
 7 0.020618000    10.0.2.15 -&gt; 193.1.193.64 TCP 54 54307→21 [ACK] Seq=1 Ack=434 Win=1921024 Len=0</code></pre>
 </li>
-<li><p>Select an FTP frame, note it&#39;s number and run tshark again, using the -Y flag and the frame number to get more details about the FTP frame:</p>
-<pre><code>tshark -r /vagrant/pc0-eth0-traffic1.pcap -V -Y &quot;frame.number==4&quot;</code></pre>
-<p>Examine the output. What protocols encapsulated in the FTP frame?   </p>
+<li>Select an FTP frame, note it&#39;s number and run tshark again, using the -Y flag and the frame number to get more details about the FTP frame:<pre><code>tshark -r /vagrant/pc0-eth0-traffic2.pcap -V -Y &quot;frame.number==4&quot;</code></pre>
 </li>
-<li><p>Now locate the frames containing the user name and password. From what you see in the frames, what does this say about the security of this FTP login process?</p>
-</li>
+<li>Examine the output. What protocols encapsulated in the FTP frame? Have a look at the encapsulation and Ethernet frame slides as a reference and try to relate them to the recorded frame. </li>
+</ul>
+<h3>FTP Security</h3>
+<ul>
+<li>Now locate the frames containing the user FTP name and password you entered in the ssh session. From what you see in the frames, what does this say about the security of the FTP login process?</li>
 </ul>
 <p>hint: you can also use <code>grep</code> to filter out unwanted packets:</p>
 <pre><code class="lang-bash">tshark -r /vagrant/pc0-eth1-traffic2.pcap | grep FTP
@@ -444,8 +476,7 @@ Password: <ENTER></p>
 <p>You should see output similar to whats shown in the following diagram. The<br>packet capture should start to increment as soon as you make the HTTP request (using <code>wget</code>) from the second SSH session terminal.
 <img src="./img/consoles3.png" alt="HTTP Traffic Capture"></p>
 </li>
-<li><p>Locate and identify the TCP and HTTP packets associated with the webpage download. Note the
-similarity between these message exchanges and the FTP exchanges in the previous page.</p>
+<li><p>Locate and identify the TCP and HTTP packets associated with the webpage download. Note the similarity between these message exchanges and the FTP exchanges in the previous page.</p>
 </li>
 <li><p>Find a HTTP response packet with the command <code>tshark -r /vagrant/pc0-eth0-traffic2.pcap -Y http.response</code>. This should find the Frame that contains the resonse from Google. You should see something simimlar to the following:</p>
 <pre><code class="lang-bash">$ tshark -r /vagrant/pc0-eth0-traffic2.pcap -Y http.response
@@ -456,10 +487,16 @@ similarity between these message exchanges and the FTP exchanges in the previous
 <p>Hopefully you recognise what the payload text is from your web dev module!</p>
 </li>
 <li><p>You can extract specific data from HTTP traffic. Using the -T, you can specify that we want to extract fields and with the -e options we identify which fields we want to extract.</p>
-<pre><code class="lang-bash">tshark -w /vagrant/pc0-eth0-traffic3.pcap -i eth0 -f &quot;tcp port 80&quot;</code></pre>
-<p>Now, using <code>wget</code> as before, make some requests for various web sites to create some data in the pcap file.</p>
 </li>
-<li><p>Stop recording nework data. To get a sorted list of hosts and user agents, use the follwing command:</p>
+</ul>
+<h2>Where have you been???</h2>
+<p>One use of logging network traffic on an interface is to list what web sites/URLs have been requested across that interface. This would still be here even if the browsing history was deleted or if browsing anonymously. In a real situation such a log file could be massive so we can use TShark to filter and sort data to list unique web sites alphabetically. 
++ In an SSH session to pc0, start recording HTTP traffic:</p>
+<pre><code class="lang-bash">tshark -w /vagrant/pc0-eth0-traffic3.pcap -i eth0 -f &quot;tcp port 80&quot;</code></pre>
+<ul>
+<li><p>Using <code>wget</code> as before, make some requests for various web sites (e.g. www.bbc.co.uk, www.wit.ie, www.yahoo.ie).</p>
+</li>
+<li><p>Stop recording network data after about 5 wget requests. To get a sorted list of hosts and user agents, use the following command to read from the pcap file:</p>
 <pre><code class="lang-bash">tshark -r /vagrant/pc0-eth0-traffic3.pcap -Y http.request -T fields -e http.host -e http.user_agent | sort | uniq -c | sort -n</code></pre>
 <p>You should see a result similar to the following:</p>
 <pre><code class="lang-bash">$ tshark -r /vagrant/pc0-eth0-traffic3.pcap -Y http.request -T fields -e http.host -e http.user_agent | sort | uniq -c | sort -n
@@ -467,6 +504,7 @@ similarity between these message exchanges and the FTP exchanges in the previous
     1 www.google.ie    Wget/1.15 (linux-gnu)
     1 www.rte.ie    Wget/1.15 (linux-gnu)
     1 www.wit.ie    Wget/1.15 (linux-gnu)</code></pre>
+<p>The above data gives the host and user-agent (requesting application). </p>
 </li>
 </ul>
 </li>
