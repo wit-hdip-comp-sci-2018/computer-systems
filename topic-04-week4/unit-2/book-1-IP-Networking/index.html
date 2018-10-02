@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <style>
+    
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+  </style>
+
+  <body class="lab">
+
+    
+  <div class="uk-offcanvas-content">
+    <div id="offcanvas-usage" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav">
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Preparatory Lab
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Shell Scripting
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Vagrant and Sense HAT
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Linux Practice Exercises
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Home Network
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Scripting Exercises
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-vagrant/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Vagrant and Virtualisation
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+CPU
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-packet-sniffing/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Packet Sniffing using TShark
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Labs
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-IP-Networking/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+IP Networking
+                </a>
+              </li>
+            
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+    <div uk-sticky>
+      <nav class="uk-navbar">
+        <div class="uk-navbar-left">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
+            <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
+                   uk-tooltip></a></li>
+             }}
+              <li class="uk-active"><a href="../../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
+                                       pos="bottom" uk-tooltip> Networking </a></li>
+            
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
+              uk-switcher="connect: .switcher-container">
+            
+              <li><a href="#">IP Networking</a></li>
+            
+              <li><a href="#">01</a></li>
+            
+              <li><a href="#">02</a></li>
+            
+              <li><a href="#">03</a></li>
+            
+              <li><a href="#">04</a></li>
+            
+              <li><a href="#">05</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="uk-container uk-container-expand">
+      <ul class="uk-switcher switcher-container">
+        
+          <li> <h1>Private and Public IP Networks</h1>
+<p>Use Vagrant to set up a simulated provate/public network topology.</p>
+</li>
+        
+          <li> <h2>Objectives</h2>
+<h1><img src="./img/topology1.png" alt="Topology"></h1>
+<p>In this lab, you will:</p>
+<ul>
+<li>Review a simple multi-machine network consisting of machines on different subnets</li>
+<li>Create a private network using Vagrant</li>
+<li>Create a bridged network interface using Vagrant</li>
+<li>Test and validate the connectivity between different subnets.</li>
+</ul>
+<h3>Required Resources</h3>
+<ul>
+<li>2 devices on the same LAN with Internet Access (Laptop and Smart Phone)</li>
+<li>VirtualBox/Vagrant</li>
+<li>Complete last week3 lab - Vagrant and Virtualisation </li>
+</ul>
+</li>
+        
+          <li> <h2>Set up Virtual Network</h2>
+<ol>
+<li>Create a lab directory called <strong>cs-nets-lab4</strong>.</li>
+<li>Open a terminal window in the directory and run <code>vagrant init</code> to initialise it as a vagrant project</li>
+<li>Replace the contents of the Vagrantfile with the code from last weeks lab and modify machine names and network configuration according to the following code:</li>
+</ol>
+<pre><code class="lang-ruby">VAGRANTFILE_API_VERSION = &quot;2&quot;
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+config.vm.define &quot;WebServer&quot; do |pc0|
+pc0.vm.hostname = &quot;WebServer&quot;
+pc0.vm.network :private_network, ip: &quot;10.0.1.2&quot;, :netmask =&gt; &quot;255.255.255.0&quot;
+end
+config.vm.define &quot;DBServer1&quot; do |pc1|
+pc1.vm.hostname = &quot;DBServer&quot;
+pc1.vm.network :private_network, ip: &quot;10.0.1.3&quot;, :netmask =&gt; &quot;255.255.255.0&quot;
+end
+config.vm.box = &quot;frankwalsh/labvm&quot;
+config.ssh.forward_x11 = true
+end</code></pre>
+<blockquote>
+<ol>
+<li>The Vagrant file shows network configuration in dot decimal form. Calculate the binary representation of the DBServer&#39;s IP address and network mask.  </li>
+<li>Calculate the network address of the private network in prefix format (e.g. 121.145.2.0/26)  </li>
+<li>Start the virtual environment in the usual way:  <pre><code class="lang-bash">$ vagrant up</code></pre>
+The Vagrantfile will create the following network topology consisting of two linux machines connected using a private network (10.0.1.0/24).</li>
+</ol>
+</blockquote>
+<p><img src="./img/vagrant-private.png" alt="Virtual Machine Topology"></p>
+<ol>
+<li>Check if you can &quot;see&quot; the new VMs from your host. <strong>From your host,</strong> Ping both using the IP addresses you assigned to them in your Vagrantfile.<br>```
+ping 10.0.1.2</li>
+</ol>
+<p>ping 10.0.1.3
+``` 
+Both should respond successfully as before.</p>
+<p>You will now try to interact with these machines from another device on your home network, for example you Smart Phone.</p>
+</li>
+        
+          <li> <h1>Virtual private network</h1>
+<p>The figure below depicts the networking topology you created in last weeks (week3) lab, including your home router. In his lab you will use this model to explore networking using Vagrant. Although we are doing this lab &quot;virtually&quot;,  the concepts can be applied in any IP network. The lab assumes that Vagrant is running in the host laptop whose IP address is, for example, 192.168.1.10.</p>
+<p> ![Topology, Virtual Network]</p>
+<h2>Accessing the private network</h2>
+<p>In the previous slide, you pinged both VMs successfully from your host machine. Now try the same from another device on your LAN. This can be and device capable of issuing an ICMP request such as:</p>
+<p>1 Mobile Phone
+2 Another Laptop/desktop machine
+3 Your Raspberry Pi(if you have it up and running)</p>
+<h3>SmartPhones</h3>
+<p>Download an app that allows you to ping devices on your LAN. The following are available for free (iPhone app not tested with this lab):</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.androidping.app&amp;hl=en"><img src="./img/ping.png" alt="Android App"></a> 
+<a href="https://itunes.apple.com/us/app/network-ping-lite/id289967115?mt=8"><img src="./img/pinglite.png" alt="iPhone App"></a>  </p>
+<h3>Ping away...</h3>
+<p>Now find the IP address of the <strong>host machine</strong>, the machine that is running Virtualbox and hosting your VMs(probably your laptop).
+- Use a different device on your Home network to ping your host address. You should get a successful response. An example using Ping for android is shown below. </p>
+<p><img src="./img/ping-ss.png" alt="Ping Screenshot"></p>
+<ul>
+<li>Now, on your host machine, use vagrant to SSH into your WebServer VM and get the interface configuration as follows:
+~~~bash
+$ vagrant ssh WebServer
+Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.13.0-144-generic x86_64)
+.
+.
+.
+.
+vagrant@webserver:~$ ifconfig
+eth0      Link encap:Ethernet  HWaddr 08:00:27:1b:25:c4  <pre><code>    inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+    inet6 addr: fe80::a00:27ff:fe1b:25c4/64 Scope:Link
+    UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+    RX packets:594 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:495 errors:0 dropped:0 overruns:0 carrier:0
+    collisions:0 txqueuelen:1000 
+    RX bytes:61789 (61.7 KB)  TX bytes:58920 (58.9 KB)</code></pre>
+</li>
+</ul>
+<p>eth1      Link encap:Ethernet  HWaddr 08:00:27:97:fd:d7<br>          inet addr:10.0.1.2  Bcast:10.0.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe97:fdd7/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:5 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:18 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1225 (1.2 KB)  TX bytes:1596 (1.5 KB)</p>
+<p>lo        Link encap:Local Loopback<br>          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:16 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:16 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:1184 (1.1 KB)  TX bytes:1184 (1.1 KB)
+~~~</p>
+<blockquote>
+<p>From the lecture videos, explain what the <strong>lo</strong> interface is. 
+- Try to ping any of the interfaces on the webserver VM using the same device you used to ping your host. Does it work? Hopefully not! You should see output similar to the folowing</p>
+</blockquote>
+<p><img src="./img/ping-ss2.png" alt="Ping Screenshot"></p>
+<p>Before going any further, try to explain why you cannot &quot;see&quot; the web server VM outside the host.</p>
+</li>
+        
+          <li> <h1>Private and public Networks</h1>
+<p>At the moment it&#39;s not possible to access any of your VMs from external devices on your LAN at home. As such, it does not replicate the initial networking topology proposed earlier.<br>We would like the web server to be accessible from external networks, if only to access web resources. However, we&#39;d like the DBServer to remain isolated and only accessible from the private network. Furthermore, to replicate the real environment, it should not be possible to access external networks or the internet from the DBServer. </p>
+<p>To allow access to the WebServer, you can add a <strong>public Network</strong> interface. This will create a bridged network(remember Week 2, virtualisation) such aht athe Web Server will appear like any other host on the LAN.</p>
+<p>Update the Vagrantfile to include the public network configuration highlighted below:</p>
+<pre><code class="lang-bash">VAGRANTFILE_API_VERSION = &quot;2&quot;
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    config.vm.define &quot;WebServer&quot; do |pc0|
+        pc0.vm.hostname = &quot;WebServer&quot;
+        pc0.vm.network :private_network, ip: &quot;10.0.1.2&quot;, :netmask =&gt; &quot;255.255.255.0&quot;
+        # Public Network (bridged)
+        pc0.vm.network &quot;public_network&quot;
+    end
+    config.vm.define &quot;DBServer1&quot; do |pc1|
+        pc1.vm.hostname = &quot;DBServer&quot;
+        pc1.vm.network :private_network, ip: &quot;10.0.1.3&quot;, :netmask =&gt; &quot;255.255.255.0&quot;
+    end
+    config.vm.box = &quot;frankwalsh/labvm&quot;
+    config.ssh.forward_x11 = true
+end</code></pre>
+<p>During the update you will be asked to select the interface on your host machine you wish to use. <strong>Make sure to use the interface you&#39;re currently using to connect to your LAN and the Internet</strong>.
+Once finished, SSH into pc0 as before and check the interface configuration using <code>ifconfig</code> again. You should now have another interface on the machine that is on the same network as your host machine. Effectively you&#39;ve created a new network interface in softwar that looks to the host system as though the Web Server VM  is physically connected to the interface using a network cable. This means that you can connect between the Web Server VM and the rest of your network. Your interface config on the Web Server VM should look something similar to the following: 
+<img src="./img/bridged.png" alt="Bridged Interface"></p>
+<h3>Ping again</h3>
+<p>Now try to ping the Web Server VM from a device on your LAN using the IP address assigned to the bridged interface(eth2 in the above example). This time it should work.<br><img src="./img/ping3.png" alt="Ping bridged interface">
+However, you still will not be able to ping the DB Server as it is only connected to the <strong>private network</strong>.</p>
+<p>To get the VM to act somewhat like a real web server, you can start a simple process that listens on port 80 on the Web Server VM and returns a simple HTML page. </p>
+<ul>
+<li><p>Create a simple HTML page called <code>index.html</code> in the home directory of your Web Server VM</p>
+<pre><code class="lang-bash">vagrant@webserver:~$ echo &#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;Web Server Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Hello from your Web Server VM!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;&#39; &gt; index.html</code></pre>
+</li>
+<li><p>Using the <img src="https://www.commandlinux.com/man-page/man1/nc.1.html" alt="netcat command"> Run a short script at the command line to listen for(-l) a connection on port 80 (-p) and return the index.html page.</p>
+</li>
+</ul>
+<pre><code class="lang-bash">vagrant@webserver:~$ while true; do echo -e &quot;HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n&quot; | cat - index.html  | sudo nc -l -p 80; done</code></pre>
+<ul>
+<li>Now, from a browser on your host machine(or any other machine on your LAN), make a request to the Web Server by just putting the IP address into the address bar. You should see similar the following:
+<img src="./img/webpage.png" alt="Web Server page"></li>
+</ul>
+</li>
+        
+          <li> <h1>DB Server</h1>
+<p>The DB server should be isolated from public networks. There should be no routing from external networks to the DB Server. Similarly, there is no need for external access from the DB Server to the internet (perhaps for security reasons).</p>
+<ul>
+<li><p>SSH into the DB Server and try to retrieve the google.ie
+web page
+~~~bash
+vagrant@dbserver:~$ wget google.ie
+--2018-10-02 10:09:51--  <a href="http://google.ie/">http://google.ie/</a>
+Resolving google.ie (google.ie)... 74.125.90.67, 2a00:1450:400b:803::2003
+Connecting to google.ie (google.ie)|74.125.90.67|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: <a href="http://www.google.ie/">http://www.google.ie/</a> [following]
+--2018-10-02 10:09:51--  <a href="http://www.google.ie/">http://www.google.ie/</a>
+Resolving www.google.ie (www.google.ie)... 74.125.90.67, 2a00:1450:400b:803::2003
+Reusing existing connection to google.ie:80.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: &#39;index.html.1&#39;</p>
+<p>  [ &lt;=&gt;                                   ] 11,694      --.-K/s   in 0s      </p>
+</li>
+</ul>
+<p>2018-10-02 10:09:51 (22.4 MB/s) - &#39;index.html.1&#39; saved [11694]</p>
+<pre><code>
+As above, the web request for google.ie worked. This is because your DBServer VM is routed to the internet via the default gateway which is on the network used by vagrant to connect to your machine(10.0.2.0/24). To see the ip routing used by your VM, use the ``route`` command:
+
+~~~bash
+vagrant@dbserver:~$ route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         10.0.2.2        0.0.0.0         UG    0      0        0 eth0
+10.0.1.0        *               255.255.255.0   U     0      0        0 eth1
+10.0.2.0        *               255.255.255.0   U     0      0        0 eth0</code></pre>
+<p>From the routing table you can see that all traffic for 10.0.1.0/24 is routed on interface eth1,traffic for 10.0.2.0/24 is routed to eth0, and all other IP traffic is routed to the default gateway 10.0.2.2(the ip address of the VirtualBox NAT router) on interface eth0.
+The connection to this router via the 10.0.2.0/24 netowork is required for  Vagrant to wirk properly. However, we can remove the default route entry in the routing table. This will prevent any traffic being routed to external public networks and will &quot;simulate&quot; an isolated DB Server.
+- Remove the default route from the routing table</p>
+<pre><code class="lang-bash">vagrant@dbserver:~$ sudo ip route del default</code></pre>
+<ul>
+<li>Repeat the Google.ie request - it should now fail<pre><code class="lang-bash">vagrant@dbserver:~$ sudo ip route del default
+vagrant@dbserver:~$ wget google.ie
+--2018-10-02 10:28:05--  http://google.ie/
+Resolving google.ie (google.ie)... 2a00:1450:400b:803::2003, 74.125.90.67
+Connecting to google.ie (google.ie)|2a00:1450:400b:803::2003|:80... failed: Network is unreachable.
+Connecting to google.ie (google.ie)|74.125.90.67|:80... failed: Network is unreachable.</code></pre>
+</li>
+</ul>
+</li>
+        
+      </ul>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass('');
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass('uk-label uk-text-lowercase');
+      divLabel.append($images[i].alt);
+      $(divLabel).insertAfter($images[i]);
+      $('<br>').insertAfter($images[i]);
+    }
+  });
+});
+
+    </script>
+  </body>
+</html>
