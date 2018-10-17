@@ -334,11 +334,12 @@ bluetoothctl: 5.50</code></pre>
 <h2>Turn on BLE advertising</h2>
 <p>Before changing anything, lets check if the generic service example runs. </p>
 <p>First, change the bluetooth device name permanently to include your name so that it can be identified easily. On the Raspberry Pi, create a file called <code>/etc/machine-info</code> (perhaps use <code>nano /etc/machine-info</code>) and add the following content:</p>
-<pre><code class="lang-bash">PRETTY_HOSTNAME=Smart-Light-YOURNAME</code></pre>
-<p>Next,  configure your Bluetooth controller on the RPi to allow BLE advertising. At the command line on the RPi, run the following command to allow both reading and writing to ble services.</p>
-<pre><code class="lang-bash">$ sudo hciconfig hci0 leadv 0</code></pre>
+<pre><code class="lang-bash">PRETTY_HOSTNAME=YOUR_NAME</code></pre>
+<p>Next, configure your Bluetooth controller on the RPi to allow BLE advertising. At the command line on the RPi, run the following command to allow both reading and writing to ble services.</p>
+<pre><code class="lang-bash">sudo hciconfig hci0 leadv 0</code></pre>
 <p>(&quot;leadv&quot; stands for LE Advertising...)</p>
 <h2>Clone Example Service</h2>
+<p>Open a terminal window and make sure you are in your home directory by entering <code>cd ~</code>.  </p>
 <p>Use <code>Git</code> to clone the starter code for your GATT service. In your home directory, run the following command</p>
 <pre><code class="lang-bash">~ $ git clone https://github.com/fxwalsh/Bluetooth-Low-Energy-LED-Matrix.git</code></pre>
 <p>Change directory to the cloned repository and examine the files in the src directory.</p>
@@ -436,19 +437,17 @@ sense = SenseHat()</code></pre>
                 characteristic)
 ...
 ...</code></pre>
+<h2>Update main() function</h2>
+<p>Find the <code>main()</code> function in the script. Replace the line that adds the Demo Service (<code>app.add_service(DemoService(bus, 1))</code>) to the following:</p>
+<pre><code class="lang-python">app.add_service(SmartLightService(bus, 0))</code></pre>
 <h2>Run it!</h2>
-<p>If the example service is still running, stop it using <code>ctrl+c</code>. As before, run the service by entering <code>sudo ./gatt-server</code> at the RPi command prompt and connect using LightBlue on your device. 
+<p>If the example service is still running, stop it using <code>ctrl+c</code>. As before, run the service by entering <code>sudo ./smartlight-gatt-server</code> at the RPi command prompt and connect using LightBlue on your device. 
 Write &quot;FFFFFF&quot; to the light colour characteristic and you should see the SenseHAT LED matrix light up. Try some other colours to make sure it&#39;s working.</p>
 <h2>Any Problems?</h2>
 <p>Bluetooth can be tricky. When you make changes to your service you may need to stop and start Bluetooth on your device/smartphone.<br>If you cannot see the service on your device, restart Bluetooth on the RPi and make sure Low Energy Advertising is allowed:</p>
 <pre><code class="lang-bash">sudo hciconfig hci0 down
 sudo hciconfig hci0 up
 sudo hciconfig hci0 leadv 0</code></pre>
-<h2>Exercise</h2>
-<p>Update the Light Switch characteristic that turns the LED Matrix on and off. You should consider the following:
-- The Smart light has two states: <code>on</code> and <code>off</code>
-- If the state is set to off, <code>sense.clear()</code> can &quot;turns off&quot; the LED matrix
-- If the state is on, the LED matrix should be set to the <code>value</code> of the light colour characteristic (<code>sense.clear(value[0],value[1],value[2])</code>) </p>
 </li>
         
           <li> <h1>Temperature Service</h1>
@@ -457,6 +456,7 @@ sudo hciconfig hci0 leadv 0</code></pre>
 <p><img src="./img/env-service.png" alt="Environment Service"></p>
 <p>The design applies the UUIDs for environment sensing service and temperature characteristic specified by the Bluetooth SIG.</p>
 <h2>Environment Service Class</h2>
+<p><strong>NOTE: ALL THE FOLLOWING CODE SHOULD BE ADDED ABOVE THE <code>main()</code> FUNCTION</strong></p>
 <p>Add the following class to the <code>smartlight-gatt-server</code> script:</p>
 <pre><code class="lang-python">class EnvironmentService(Service):
 
@@ -467,7 +467,7 @@ sudo hciconfig hci0 leadv 0</code></pre>
         self.add_characteristic(TemperatureCharacteristic(bus, 0, self))</code></pre>
 <p>As you can see the service uses the reserved UUID for Environment Sensing services and adds just on characteristic, <code>TemperatureCharacteristic</code></p>
 <h2>Temperature Characteristic class</h2>
-<p>Add the folowing class to the <code>smartlight-gatt-server</code> script</p>
+<p>Add the folowing class to the <code>smartlight-gatt-server</code> script.</p>
 <pre><code class="lang-python">class TemperatureCharacteristic(Characteristic):
     TEMP_UUID = &#39;2a6e&#39;
 
@@ -531,35 +531,26 @@ To read the temperature from the device, do </p>
         
           <li> <h1>Automate GATT service on Startup</h1>
 <p>At the moment, you have to run your GATT service manually on the RPi. Ideally, your script would run automatically when the RPi boots.
-One way to do this is to edit <strong>RC Local File</strong>.</p>
-<h2>rc.local</h2>
-<p>On your Pi, edit the file <code>/etc/rc.local</code> using an editor of your choice or nano:</p>
-<pre><code class="lang-bash">sudo nano /etc/rc.local</code></pre>
-<p>Add the following commands to: 
-- restart the Bluetooth service
-- configure it for BLE advertising 
-- Run your light server using absolute referencing of the file location (complete file path are preferred). </p>
-<pre><code class="lang-Bash">#start bluetooth service
-sudo service bluetooth restart
-
-#Enable Bluetooth LE
-sudo hciconfig hci0 leadv 0
-
-#Run GATT script
-sudo python3 /home/pi/ble/Bluetooth-Low-Energy-LED-Matrix/src/smartlight-gatt-server &amp;</code></pre>
-<p>Be sure to leave the line <code>exit 0</code> at the end, then save the file and exit.</p>
-<p>As the <code>smartlight-gatt-server</code> program runs continuously(never exits), you must fork the process by adding an ampersand (“&amp;”) to the end of the command, like:</p>
-<pre><code>sudo python3 /home/pi/ble/Bluetooth-Low-Energy-LED-Matrix/src/smartlight-gatt-server &amp;</code></pre>
-<p>The Pi will run this program at bootup, and before other services are started.  If you don’t include the ampersand and if your program runs continuously, the Pi will not complete its boot process. The ampersand allows the command to run in a separate process and continue booting with the main process running.</p>
-<p>Now reboot the Pi to test it:</p>
-<pre><code class="lang-bash">sudo reboot</code></pre>
-<p>Also, be sure to reference absolute file names rather than relative to your home folder. For example use <code>/home/pi/myscript.py</code> instead of <code>myscript.py</code>.</p>
-<p>If you add a script into /etc/rc.local, it is added to the boot sequence. If your code gets stuck then the boot sequence cannot proceed. So be careful as to which code you are trying to run at boot and test the code a couple of times. You can also get the script’s output and error written to a text file (say log.txt) and use it to debug.</p>
-<pre><code class="lang-bash">sudo python /home/pi/sample.py &amp; &gt; /home/pi/Desktop/log.txt 2&gt;&amp;1</code></pre>
+One way to do this is to edit the Cron Table.</p>
+<h2>Crontab</h2>
+<p><a href="https://en.wikipedia.org/wiki/Cron">cron</a> is a utility that allows tasks to be automatically run in the background at regular intervals. The Crontab (CRON TABle) is a file which contains the schedule of cron entries to be run and at specified times. The crontab File location varies by operating system however you can easily access it on the RPi using the <code>crontab</code> utility program.<br>In a terminal window, enter <code>sudo crontab -e</code> at the prompt:
+<img src="./img/cron1.png" alt="Crontab"><br>If prompted, follow the instructions and select your favourite editor (default is nano). At the end of the file, add:</p>
+<pre><code class="lang-bash">@reboot sleep 30 &amp;&amp; sudo hciconfig hci0 leadv 0
+@reboot sleep 40 &amp;&amp; sudo python3 /home/pi/Bluetooth-Low-Energy-LED-Matrix/src/smartlight-gatt-server</code></pre>
+<p>The <code>sleep</code> commands delay the startup of the GATT server long enough for the supporting services on the Pi to start (i.e. Bluetooth service)
+Save and exit the Crontab and reboot the RPi by typing <code>sudo reboot</code> at the command prompt. 
+The BLE device should start advertising in the background on every reboot of the RPi.</p>
 </li>
         
           <li> <h1>Exercises</h1>
-<p><strong>ToDo</strong></p>
+<ol>
+<li>We used the <code>hciconfig</code> command in this lab. Investigate and explain how this command could be used to turn the Raspberry Pi into a broadcast-only BLE device. </li>
+<li>Explain how the <code>hcitool</code> command can be used to advertise data. </li>
+</ol>
+<h2>Optional:</h2>
+<ol>
+<li>Include a <code>Light Switch</code> characteristic in the SmartLight service that turns the LED Matrix on and off. You should consider the following:<br>The light has two states: <code>on</code> and <code>off</code>. If the state is set to off, the LED matrix should be off. If the state is on, the LED matrix should be set to the <code>value</code> of the light colour characteristic (<code>sense.clear(value[0],value[1],value[2])</code>).</li>
+</ol>
 </li>
         
       </ul>
