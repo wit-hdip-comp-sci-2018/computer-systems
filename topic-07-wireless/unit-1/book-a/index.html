@@ -240,7 +240,7 @@ Shell Scripting
                    uk-tooltip></a></li>
              }}
               <li class="uk-active"><a href="../../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
-                                       pos="bottom" uk-tooltip> Computer History & Architecture </a></li>
+                                       pos="bottom" uk-tooltip> Flip Flop Circuits · LINUX LAB </a></li>
             
           </ul>
         </div>
@@ -248,13 +248,11 @@ Shell Scripting
           <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
               uk-switcher="connect: .switcher-container">
             
-              <li><a href="#">CPU</a></li>
+              <li><a href="#">Shell Scripting</a></li>
             
-              <li><a href="#">VonNeumann</a></li>
+              <li><a href="#">Guides</a></li>
             
-              <li><a href="#">Problems</a></li>
-            
-              <li><a href="#">Alternative</a></li>
+              <li><a href="#">LinuxMail</a></li>
             
           </ul>
         </div>
@@ -264,56 +262,75 @@ Shell Scripting
     <div class="uk-container uk-container-expand">
       <ul class="uk-switcher switcher-container">
         
-          <li> <h1>The CPU in Practice</h1>
-<p>The Von Neumann architecture </p>
-<p>This has been incredibly successful, with most modern computers following the idea.
-When you look at the Von Neumann Architecture, you can see the various components:</p>
+          <li> <h1>Shell Scripting Assessment Guidelines</h1>
+<p>Linux Shell Scripting</p>
+<h1>Assessment Guide Video also available under Week 2</h1>
+<pre><code>**PLEASE NOTE: I&#39;ve updated Week 2: Assessment Details with a video that will complement the Assessment Details file**</code></pre>
 <ul>
-<li>Memory</li>
+<li>The following labs go through some exercises for you to try out that may be useful for your Shell Scripting Assessment </li>
 </ul>
-<p>The computer will have memory that can hold both data and also the program processing that data. In modern computers this memory is <strong>RAM</strong>.</p>
-<ul>
-<li>Control Unit</li>
-</ul>
-<p>The control unit will manage the process of moving data and program into and out of memory and also deal with carrying out (executing) program instructions - one at a time. This includes the idea of a &#39;register&#39; to hold intermediate values. In the illustration above, the &#39;accumulator&#39; is one such register.</p>
-<p>The &#39;one-at-a-time&#39; phrase means that the von neumann architecture is a <strong>sequential processing machine</strong>.</p>
-<ul>
-<li>Input - Output</li>
-</ul>
-<p>Whatever values that are passed to and forth are stored once again in some internal registers.</p>
-<ul>
-<li>Arithmetic Logic Unit</li>
-</ul>
-<p>This part of the architecture is solely involved with carrying out calculations upon the data. All the usual Add, Multiply, Divide and Subtract calculations will be available but also data comparisons such as &#39;Greater Than&#39;, &#39;Less Than&#39;, &#39;Equal To&#39; will be available.
-Bus</p>
-<p>Notice the arrows between components? This implies that information should flow between various parts of the computer. In a modern computer built to the Von Neumann architecture, information passes back and forth along a &#39;bus&#39;. There are buses to identify locations in memory - an &#39;address bus&#39;</p>
-<p>And there are buses to allow the flow of data and program instructions - a &#39;data bus&#39;.</p>
+<h1>Assessment Due Date</h1>
+<pre><code> - to be uploaded to Moodle on or before 11:55pm Sunday 18th November (week 9)</code></pre>
 </li>
         
-          <li> <h1>Von Neumann Architecture</h1>
-<p>You should supplement these notes with spending some time using a CPU Similator</p>
-<p>One example is the <a href="https://peterhigginson.co.uk/LMC/">Peter Higginsons CPU Simulator</a>    </p>
-<p>This will assist in an understanding of how data moves around the CPU - which is based on the Von Neumann Architecture, a computer architecture based on a 1945 description by the mathematician and physicist John von Neuman</p>
-<p>PLEASE BECOME FAMILIAR WITH WORKING OF THIS OR AN ALTERNATIVE CPU SIMULATOR</p>
-<p><img src="./img/vonNeumann.jpg" alt="Von Neumann Architecture"></p>
+          <li> <h1>Shell Scripting Assessment Notes</h1>
+<ul>
+<li><strong>Week 2</strong> contains details of your <strong>Assessment Details</strong> that the <strong>Menu</strong> is to be the entry point of your project.</li>
+</ul>
+<p><img src="./img/wk2.jpg" alt=""></p>
+<ul>
+<li><strong>Menu</strong>, file #1, will allow the user to read a command line menu and from this, a user can select from any of the options presented and be brought to the appropriate script.</li>
+</ul>
+<p><img src="./img/menu.jpg" alt="Sample Basic Menu"></p>
+<ul>
+<li><p>So, if the user enters <strong>1</strong> then send them to the <strong>./AddCust</strong></p>
+</li>
+<li><p>This should be file #2 that you will have created which will automatically create a file called <strong>CustomerDetails</strong>, if it doesn&#39;t already exist... you might consider using re-direction in your command</p>
+</li>
+<li><p><strong>CustomerDetails</strong> is therefore file #3 that the script will create at the beginning to enter the first record</p>
+</li>
+<li><p>If the user enters <strong>2</strong> then send them to the <strong>./RemCust</strong> (so this is file #4 that you will have created)</p>
+</li>
+<li><p>If the user enters <strong>3</strong> then send them to the <strong>./FindCust</strong> (so this is file #5 that you will have created)</p>
+</li>
+<li><p>Finally a user will be allowed to <strong>email</strong> customer(s) and you can choose how you would like to approach this... see the next lab</p>
+</li>
+<li><p>All menu options should loop until a user chooses to exit</p>
+</li>
+</ul>
 </li>
         
-          <li> <h1>Von Neumann Architecture has its problems</h1>
-<h1>For example:</h1>
-<p>Every single piece of data and/or instruction (instr) must pass across the data bus so that the data/instr can move from main memory into the CPU and vice versa.</p>
-<h2>The &#39;Von Neumann bottleneck&#39;</h2>
-<p>The <strong>Von Neumann bottleneck</strong> occurs because the rate at which the CPU can carry out instructions is much faster than the data bus</p>
-<p>If nothing were done, the CPU would spend most of its time waiting around for instructions.</p>
-<h1>What type of memory is used to help alleviate this bottleneck?</h1>
+          <li> <h1>Linux Mail Component</h1>
+<ul>
+<li>There is a primitive mailer on Linux that is relatively easy to use from the command line.</li>
+<li>You check for mail by just typing:</li>
+</ul>
+<pre><code>mail</code></pre>
+<ul>
+<li>You send mail by typing</li>
+</ul>
+<pre><code>mail joe@bloggs.com -s &quot;Message for Joe&quot;</code></pre>
+<ul>
+<li><p>You then type your mail and end it by typing <strong>CTRL+D</strong> on a line of its own</p>
 </li>
-        
-          <li> <h1>Von Neumann Architecture has its problems</h1>
-<h1>For example:</h1>
-<p>The rate at which data needs to be fetched and the rate at which instructions need to be fetched are often very different. And yet they share the same bottlenecked data bus</p>
-<p>This alternative architecture is mainly used within the CPU to handle its caches, but it is less used with main memory because of complexity and cost</p>
-<p><img src="./img/Harvard.jpg" alt="What is the name of this alternative Architecture?"></p>
-<p>What are some advantages of this alternative architecture?</p>
-<p>Remember, PLEASE BECOME FAMILIAR WITH WORKING of the Peter Higginson or any alternative CPU simulator</p>
+<li><p>You’ll need to install mailutils first if not already installed:</p>
+</li>
+</ul>
+<pre><code>sudo apt-get install mailutils
+
+(choose local only option)</code></pre>
+<ul>
+<li><p>This facility means that you will be only allowed send test emails and not emails via the internet so this is perfectly OK. An email will not actually be sent out. You can test that the email was sent via your mail command
+This is sufficient for the purpose of this assessment i.e. if you tested sending an email to your own email <em>myemail@gmail.com</em>, it is OK that you will not see this email in your own gmail account. </p>
+</li>
+<li><p>You might consider setting a variable to be equal to a find (recall <strong>grep</strong>) of the appropriate person in a particular file where the records are stored to begin with... what next?? Maybe pipe the output to an awk command? Why? </p>
+</li>
+<li><p>You might consider something like this to email the person with a particular message:</p>
+<pre><code>echo $message | mail -s $subject $emailaddress</code></pre>
+</li>
+<li><p>This is only one of MANY approaches that you might have taken to searching for a particular person/group you want to send an email to and then emailing them... what I&#39;m looking for is your command of the language</p>
+</li>
+</ul>
 </li>
         
       </ul>
