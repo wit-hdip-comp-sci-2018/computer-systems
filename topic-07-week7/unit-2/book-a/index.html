@@ -187,7 +187,7 @@ h3 {
     
       
         <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Shell Scripting </a>
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
       
     
       
@@ -235,7 +235,7 @@ To test your client/server programs, you will compile the code and place it in t
       
         <div class="ui tab segment lab" data-tab="02">
           <h1>TCP/IP</h1>
-<p>So we have a client/server connection over TCP/IP sockets. Now lets start recording network traffic and examin the TCP/IP interaction:</p>
+<p>So we have a client/server connection over TCP/IP sockets. Now lets start recording network traffic and examine the TCP/IP interaction:</p>
 <p>Disconnect your client program running on pc1 by entering ctrl+c in the SSH session.</p>
 <p>Start another SSH session with pc0 and start TShark recording on interface eth1 and filter on port 10500(i.e. the port our server program is using):</p>
 <pre><code class="lang-bash">~$ tshark -w /vagrant/pc0-eth0-traffic3.pcap -i eth1 -f &quot;tcp port 10500&quot;</code></pre>
@@ -247,7 +247,7 @@ To test your client/server programs, you will compile the code and place it in t
  + What&#39;s the port number of the client? Why is it this number?
  + Disonnect and connect the client again and have a look at the client port number and 3-way handshake. What happens?
 + As you see, the TCP connection is negotiated at each connection, thereafter transmission can commence.
-+ Have a closed look at the data that&#39;s transmitted. Pick a &quot;push&quot; frame(one with [PSH,ACK] flag it&#39;ll contain data) and inspect the encapsulation:  </p>
++ Have a closed look at the data that&#39;s transmitted. Pick a &quot;push&quot; frame(one with [PSH,ACK] flag, it&#39;ll contain data) and inspect the encapsulation:  </p>
 <pre><code class="lang-bash">$ tshark -r pc0-eth0-traffic3.pcap -V -Y &quot;frame.number==12&quot;
 Frame 12: 80 bytes on wire (640 bits), 80 bytes captured (640 bits) on interface 0
     Interface id: 0 (eth1)
@@ -283,7 +283,7 @@ Data (14 bytes)
 <ul>
 <li>Have a look at the TCP and Data section of the Frame. Notice how the Flags past of the datagram indicates what type of transmission it is.<ul>
 <li>How can the same datagram act as an Acknowledgement and a Push?</li>
-<li>How does the raw data translate into the text sent? Id this data &quot;safe&quot; during Transmission?</li>
+<li>How does the raw data translate into the text sent? Would you class this data as being &quot;safe&quot; during Transmission?</li>
 </ul>
 </li>
 </ul>
@@ -324,7 +324,7 @@ Server up and running...</code></pre>
 <p>On <em>pc1</em>, run the client with 0 time delay by typing <code>python client.py 0</code> at the command prompt. You should see something similar to the following:<br><img src="./img/pc0-tcp1.png" alt="pc0 - server.py"><img src="./img/pc1-tcp1.png" alt="pc1-client.py-0 delay">  </p>
 <p>Now, on <em>pc1</em>, run the client with 0.01 time delay(1/100th of a second) by typing <code>python client.py 0.01</code> at the command prompt. You should see something similar to the following:<br><img src="./img/pc0-tcp1.png" alt="pc0 - server.py"><img src="./img/pc1-tcp2.png" alt="pc1-client.py-0.01 delay"><br>Notice the difference in the output of client.py program for 0 delay and 0.01. Taking into account of what was discussed in class:
 + what are the possible reasons for the differing output?
-+ what do you think is happening with the TCP packets.</p>
++ what do you think is happening with the TCP packets?</p>
 <p>To try and make sense of what&#39;s going on at a network level, lets repeat the above exercise except this time we&#39;ll capture and analyse some tcp network data on the client side.</p>
 <p>Open another terminal window and connect to <em>pc1</em> using SSH(you should have two ssh sessions with <em>pc1</em> open now). Run TShark to filter on port 50200 with a payload greater than 0. We&#39;ll listen on interface <code>eth0</code> and write the data to a file. We&#39;ll capture everything so no filters.</p>
 <pre><code class="lang-bash">tshark -i eth1 -w pc0-eth1-tcp-sensor.pcap</code></pre>
@@ -358,8 +358,8 @@ Received: 25,21/06/2018 00:00:00
 ...</code></pre>
 <p>Lets examine the captured data. We can use the -Y (Yank filter) to query specific aspects of the data and filter based on field names. As all the data is in the same file, we need a way to query the specifics for each of the 3 scenarios. One way to do this for the first experiment is to look for the frame that contains each request. 
 For the experiments, you know that the payload(data) of the tcp request from the client to tcp port 50200 was &quot;0&quot;, &quot;0.01&quot; and null(nothing) in that order so lets look for that:</p>
-<pre><code class="lang-bash">vagrant@pc1:~$ tshark -r pc0-eth1-tcp-sensor.pcap  -o data.show_as_text:TRUE -T fields -e frame.number -e data.text  -E header=y -Y &quot;tcp.len&gt;0 &amp;&amp; tcp.dstport==50200&quot;
-frame.number    data.text
+<pre><code class="lang-bash">vagrant@pc1:~$ tshark -r ta will be reassembled in the TCP/IP st_as_text:TRUE -T fields -e frame.number -e data.text  -E header=y -Y &quot;tcp.len&gt;0 &amp;&amp; tcp.dstport==50200&quot;
+frame.number    data.textta will be reassembled in the TCP/IP st
 7                0
 
 53                0.01
@@ -370,7 +370,7 @@ frame.number    data.text
 8    192.168.5.2    0
 9    192.168.5.2    24
 11    192.168.5.2    336
-12    192.168.5.2    1448
+12    192.168.5.2    1448ta will be reassembled in the TCP/IP st
 15    192.168.5.2    400
 17    192.168.5.2    144
 19    192.168.5.2    360
@@ -390,7 +390,7 @@ frame.number    data.text
 47    192.168.5.2    0
 49    192.168.5.2    0
 51    192.168.5.2    0</code></pre>
-<p>From the above, I can see that 23 tcp packets were required to recieve the data at the clients (19 to transfer the data). This will be different every time you run it. </p>
+<p>From the above, I can see that 23 tcp packets were required to receive the data at the clients (19 to transfer the data). This will be different every time you run it. </p>
 <p>Lets run the same query for the 2nd experiment where delay was set to 0.01 seconds for each transmission.</p>
 <pre><code class="lang-bash">vagrant@pc1:~$ tshark -r pc0-eth1-tcp-sensor.pcap  -o data.show_as_text:TRUE -T fields -e frame.number -e ip.src -e tcp.len    -E header=y -Y &quot;tcp.srcport==50200 &amp;&amp; frame.number&gt;53 &amp;&amp; frame.number&lt;460&quot;
 frame.number    ip.src    tcp.len
@@ -406,7 +406,7 @@ frame.number    ip.src    tcp.len
 454    192.168.5.2    0
 456    192.168.5.2    0
 458    192.168.5.2    0</code></pre>
-<p>You can see that far more tcp packets are used to trasport the data to the client. If we include the tcp.data field to have a look at the payload, you will see there&#39;s a tcp packet for each sensor value. This is due to the delay and the way the server program works.</p>
+<p>You can see that far more tcp packets are used to transport the data to the client. If we include the tcp.data field to have a look at the payload, you will see there&#39;s a tcp packet for each sensor value. This is due to the delay and the way the server program works.</p>
 <p>Finally, lets run a query to look at the big bang approach to send all the data at once.</p>
 <pre><code class="lang-bash">vagrant@pc1:~$ tshark -r pc0-eth1-tcp-sensor.pcap -T fields -e frame.number -e ip.src -e tcp.len    -E header=y -Y &quot;tcp.srcport==50200 &amp;&amp; frame.number&gt;460&quot;
 frame.number    ip.src    tcp.len
@@ -416,7 +416,7 @@ frame.number    ip.src    tcp.len
 466    192.168.5.2    0
 468    192.168.5.2    0
 vagrant@pc1:~$</code></pre>
-<p>You can see here that the data is now transferred in 5 tcp packets. Notice that the data is split into 2 packets for transission in this case.
+<p>You can see here that the data is now transferred in 5 tcp packets. Notice that the data is split into 2 packets for transmission in this case.
 + Why do you think this happens? 
 + Where does the split happen, in the server program or in the tcp stack? </p>
 <p>Lets change the query to have a look at what the payload looks like for a data carrying frame, number 462 (you&#39;ll have to scroll up to have a look at it:</p>

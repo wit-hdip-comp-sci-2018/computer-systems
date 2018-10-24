@@ -77,13 +77,21 @@ h3 {
   <header class="header item">
     <i id="toc" class="sitemap icon"></i>
     
-      <a href="../../index.html">  Flip Flop Circuits · LINUX LAB  </a>
+      <a href="../index.html">  ASSESSMENT-1: Linux Shell Scripting  </a>
     
   </header>
   <div class="right tab-menu menu">
     
-      <a class="item" data-tab="Assessment-Time">
-        Assessment-Time
+      <a class="item" data-tab="Assessment-Guides">
+        Assessment-Guides
+      </a>
+    
+      <a class="item" data-tab="Files-Required">
+        Files-Required
+      </a>
+    
+      <a class="item" data-tab="Linux-Mail">
+        Linux-Mail
       </a>
     
   </div>
@@ -106,6 +114,11 @@ h3 {
       
         <a class="item"
            href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
       
     
       
@@ -188,11 +201,80 @@ h3 {
     <div class="ui basic segment">
       <br>
       
-        <div class="ui tab segment lab" data-tab="Assessment-Time">
-          <h1>Scripting in Practice</h1>
-<p>Assessment Time</p>
-<p>For this week, there are no labs related directly to the week 7 content but instead, you have the opportunity to spend some time completing your <em>Shell Scripting Assessment</em> which is due for submission in Week 9.</p>
-<p>As always, lease feel free to contact me via <strong>Slack</strong> if you&#39;ve any queries</p>
+        <div class="ui tab segment lab" data-tab="Assessment-Guides">
+          <h1>Shell Scripting Assessment Guidelines</h1>
+<p>Shell Scripting Assessment Guidelines</p>
+<h1>Assessment Guide Video also available under the previous  <strong>Assessment Details</strong> area</h1>
+<pre><code>**PLEASE NOTE: There is now a linked guide video underneath that will complement the Assessment Details file**</code></pre>
+<ul>
+<li>The following labs go through some exercises for you to try out that may be useful for your Shell Scripting Assessment </li>
+</ul>
+<h1>Assessment Due Date</h1>
+<pre><code> - to be uploaded to Moodle on or before 11:55pm Sunday 18th November (week 9)</code></pre>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="Files-Required">
+          <h1>Shell Scripting Assessment Notes</h1>
+<ul>
+<li>In your <strong>Assessment Details</strong>, you can read that the <strong>Menu</strong> is to be the entry point of your project.</li>
+</ul>
+<p><img src="./img/wk2.jpg" alt=""></p>
+<ul>
+<li><strong>Menu</strong>, file #1, will allow the user to read a command line menu and from this, a user can select from any of the options presented and be brought to the appropriate script.</li>
+</ul>
+<p><img src="./img/menu.jpg" alt="Sample Basic Menu"></p>
+<ul>
+<li><p>So, if the user enters <strong>1</strong> then send them to the <strong>./AddCust</strong></p>
+</li>
+<li><p>This should be file #2 that you will have created which will automatically create a file called <strong>CustomerDetails</strong>, if it doesn&#39;t already exist... you might consider using re-direction in your command</p>
+</li>
+<li><p><strong>CustomerDetails</strong> is therefore file #3 that the script will create at the beginning to enter the first record</p>
+</li>
+<li><p>If the user enters <strong>2</strong> then send them to the <strong>./RemCust</strong> (so this is file #4 that you will have created)</p>
+</li>
+<li><p>If the user enters <strong>3</strong> then send them to the <strong>./FindCust</strong> (so this is file #5 that you will have created)</p>
+</li>
+<li><p>Finally a user will be allowed to <strong>email</strong> customer(s) and you can choose how you would like to approach this... see the next lab</p>
+</li>
+<li><p>All menu options should loop until a user chooses to exit</p>
+</li>
+</ul>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="Linux-Mail">
+          <h1>Linux Mail Component</h1>
+<ul>
+<li>There is a primitive mailer on Linux that is relatively easy to use from the command line.</li>
+<li>You check for mail by just typing:</li>
+</ul>
+<pre><code>mail</code></pre>
+<ul>
+<li>You send mail by typing</li>
+</ul>
+<pre><code>mail joe@bloggs.com -s &quot;Message for Joe&quot;</code></pre>
+<ul>
+<li><p>You then type your mail and end it by typing <strong>CTRL+D</strong> on a line of its own</p>
+</li>
+<li><p>You’ll need to install mailutils first if not already installed:</p>
+</li>
+</ul>
+<pre><code>sudo apt-get install mailutils
+
+(choose local only option)</code></pre>
+<ul>
+<li><p>This facility means that you will be only allowed send test emails and not emails via the internet so this is perfectly OK. An email will not actually be sent out. You can test that the email was sent via your mail command
+This is sufficient for the purpose of this assessment i.e. if you tested sending an email to your own email <em>myemail@gmail.com</em>, it is OK that you will not see this email in your own gmail account. </p>
+</li>
+<li><p>You might consider setting a variable to be equal to a find (recall <strong>grep</strong>) of the appropriate person in a particular file where the records are stored to begin with... what next?? Maybe pipe the output to an awk command? Why? </p>
+</li>
+<li><p>You might consider something like this to email the person with a particular message:</p>
+<pre><code>echo $message | mail -s $subject $emailaddress</code></pre>
+</li>
+<li><p>This is only one of MANY approaches that you might have taken to searching for a particular person/group you want to send an email to and then emailing them... what I&#39;m looking for is your command of the language</p>
+</li>
+</ul>
 
         </div>
       
