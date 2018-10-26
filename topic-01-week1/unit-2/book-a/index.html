@@ -1,23 +1,27 @@
-
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"/>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+        type="text/css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+        rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <style>
     
 
@@ -63,217 +67,146 @@ h3 {
 
 
   </style>
+</head>
 
-  <body class="lab">
+<body>
 
+
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
     
-  <div class="uk-offcanvas-content">
-    <div id="offcanvas-usage" uk-offcanvas>
-      <div class="uk-offcanvas-bar">
-        <button class="uk-offcanvas-close" type="button" uk-close></button>
-        <ul class="uk-nav">
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Preparatory Lab
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Shell Scripting
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Vagrant and Sense HAT
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Linux Practice Exercises
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Home Network
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Scripting Exercises
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-vagrant/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Vagrant and Virtualisation
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-CPU
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-packet-sniffing/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Packet Sniffing using TShark
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-NoBases
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-IP-Networking/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-IP Networking
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Boolean
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-The Headless RPi
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Logic
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Presence Detector 1
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-b/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-BLE
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Assessment-Time
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-TCP-Sockets
-                </a>
-              </li>
-            
-          
-        </ul>
-      </div>
-    </div>
+      <a href="../../index.html">  Introduction to Computing  </a>
+    
+  </header>
+  <div class="right tab-menu menu">
+    
+      <a class="item" data-tab="Home Network">
+        Home Network
+      </a>
+    
+      <a class="item" data-tab="01">
+        01
+      </a>
+    
+      <a class="item" data-tab="02">
+        02
+      </a>
+    
+      <a class="item" data-tab="03">
+        03
+      </a>
+    
   </div>
+</div>
 
-
-    <div uk-sticky>
-      <nav class="uk-navbar">
-        <div class="uk-navbar-left">
-          <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
-            <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
-                   uk-tooltip></a></li>
-             }}
-              <li class="uk-active"><a href="../../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
-                                       pos="bottom" uk-tooltip> Introduction to Computing </a></li>
-            
-          </ul>
-        </div>
-        <div class="uk-navbar-right">
-          <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
-              uk-switcher="connect: .switcher-container">
-            
-              <li><a href="#">Home Network</a></li>
-            
-              <li><a href="#">01</a></li>
-            
-              <li><a href="#">02</a></li>
-            
-              <li><a href="#">03</a></li>
-            
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    <div class="uk-container uk-container-expand">
-      <ul class="uk-switcher switcher-container">
-        
-          <li> <h1>Home Network Investigation</h1>
+<div class="ui pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment">
+      <br>
+      
+        <div class="ui tab segment lab" data-tab="Home Network">
+          <h1>Home Network Investigation</h1>
 <p>Local Network · Network Speed · Connected Devices</p>
 <h2>Objectives</h2>
 <ul>
@@ -286,9 +219,11 @@ TCP-Sockets
 <li>Computer running WIndows/Linux/OSx </li>
 <li>Internet connection</li>
 </ul>
-</li>
-        
-          <li> <h1>Network Setup</h1>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="01">
+          <h1>Network Setup</h1>
 <h2>Introduction</h2>
 <p>You will now investigate your home network setup. Not only is it a good idea to know how you connect to the local network in your home, but also what internet service provider you use, what&#39;s the maximum upload and download speed you can achieve, what IP address you have on the internet and what network interfaces you have on your machine. It may be useful to know these details if you need to troubleshoot connectivity and network issues in later labs.  </p>
 <h2>Your Home Network</h2>
@@ -326,9 +261,11 @@ On Windows,Linux and OS X, use the <code>netstat –nr</code> command to see a s
 <p><img src="./img/public-ip.png" alt="Private and Public IP addresses"><br>You now know the IP address of your computer on your local area network(LAN). However, this is probably a &quot;local&quot; IP address that is just used in your LAN. It is not the IP address that the rest of the internet uses to interact with your computer. Your internet service provider will assign a single public IP address that is used by your computer (and all other devices on your LAN) and your router can translate traffic between local and public IP addresses. There are several  web services that can be used to find out your public IP address.<br>In a browser, go to <a href="www.google.ie">Google</a> and search &quot;what is my IP&quot;. You’ll see the Public IP address of your computer.
 <img src="./img/google-ip.png" alt="Public IP Address"><br>IP addresses are managed by the Internet Assigned Numbers Authority (IANA), which has overall responsibility for the Internet Protocol (IP) address pool. 
 Your public IP address is usually based on a real-world location and can be used to estimate where you are. For example, your IP address can be used to give you weather forecasts for the town you&#39;re in or to advertise local services in the area. To see this in action, you can use several web sites that will display your IP address and location.<br>In a web browser, go to www.acuweather.com and see the result...</p>
-</li>
-        
-          <li> <h1>Need for Speed</h1>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="02">
+          <h1>Need for Speed</h1>
 <p>As we&#39;ll discuss in class, there&#39;s are several factors that can affect the quality of your connection and the speed of your machine. Typically, broadband speed is measured in <strong>Megabits per second</strong>, commonly written as <code>Mb</code> or <code>Mbps</code> (as in 24Mb or 24Mbps). It is the rate at which data is transferred either from (download) or to (upload) a location in the internet. As there are 8 bits in a byte, 1 Megabit per second (the unit internet speeds are measured in) is 8 times slower than 1 Megabyte per second.</p>
 <p>You will now check your connection speed using <strong>speed-test</strong>, a Javascript utility that&#39;s curated on the Node Package Management platform (NPM). If you haven&#39;t already, you will need to install <a href="https://nodejs.org/en/download/">Node</a> on your machine to accrss and run this utility. </p>
 <p>Open a terminal window on your machine and install speed-test as follows:</p>
@@ -362,9 +299,11 @@ progress(request(&#39;https://goo.gl/pXKZuV&#39;))
 <li>How does the download speed compare to the first example?</li>
 <li>Compare all 3 results. Try to come up with a reason(hypothesis) for any differences in the numbers.</li>
 </ul>
-</li>
-        
-          <li> <h1>Who&#39;s on the network...</h1>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="03">
+          <h1>Who&#39;s on the network...</h1>
 <p><strong>nmap</strong> (Network Mapper) is an open-source tool that allows you to discover devices on a network. It&#39;s available for Linux, macOS, and Windows. You will now use nmap to scan your home LAN and list all connected devices. </p>
 <h2>Install</h2>
 <h3>Windows and OSX</h3>
@@ -382,26 +321,67 @@ Now you have the IP address of your computer, you will scan the whole subnet for
 <img src="./img/nmap-scan.png" alt="nmap scan"><br>Examine the list. It should contain the machine you&#39;re working on and probably the router your connected to among other devices. Hopefully you recognise all devices on your list!</p>
 <h2>Exercise</h2>
 <p>Some devices can hide from Pings. Are there any connected device missing from the list? For example, did your phone respond(assuming it&#39;s on and you connect to Wifi while at home)? If not, why do you think this is the case?</p>
-</li>
-        
-      </ul>
-    </div>
 
-    <script>
-      $(document).ready(function() {
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+  $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
   const $images = $('.lab img');
   jQuery.each($images, function(i) {
     if ($images[i].alt.length > 0) {
-      const divImg = $(document.createElement('div')).addClass('');
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
       $($images[i]).wrap(divImg);
-      const divLabel = $(document.createElement('div')).addClass('uk-label uk-text-lowercase');
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
       divLabel.append($images[i].alt);
-      $(divLabel).insertAfter($images[i]);
-      $('<br>').insertAfter($images[i]);
+      $(divLabel).insertBefore($images[i]);
     }
   });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
 });
 
-    </script>
-  </body>
+</script>
+</body>
 </html>

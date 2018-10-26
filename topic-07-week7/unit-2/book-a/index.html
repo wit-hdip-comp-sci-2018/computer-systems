@@ -1,23 +1,27 @@
-
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"/>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+        type="text/css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+        rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <style>
     
 
@@ -63,217 +67,146 @@ h3 {
 
 
   </style>
+</head>
 
-  <body class="lab">
+<body>
 
+
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
     
-  <div class="uk-offcanvas-content">
-    <div id="offcanvas-usage" uk-offcanvas>
-      <div class="uk-offcanvas-bar">
-        <button class="uk-offcanvas-close" type="button" uk-close></button>
-        <ul class="uk-nav">
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Preparatory Lab
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Shell Scripting
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Vagrant and Sense HAT
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Linux Practice Exercises
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Home Network
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Scripting Exercises
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-vagrant/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Vagrant and Virtualisation
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-CPU
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-packet-sniffing/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Packet Sniffing using TShark
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-NoBases
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-IP-Networking/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-IP Networking
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Boolean
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-The Headless RPi
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Logic
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Presence Detector 1
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-b/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-BLE
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Assessment-Time
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-TCP-Sockets
-                </a>
-              </li>
-            
-          
-        </ul>
-      </div>
-    </div>
+      <a href="../../index.html">  Transport Layer  </a>
+    
+  </header>
+  <div class="right tab-menu menu">
+    
+      <a class="item" data-tab="TCP-Sockets">
+        TCP-Sockets
+      </a>
+    
+      <a class="item" data-tab="01">
+        01
+      </a>
+    
+      <a class="item" data-tab="02">
+        02
+      </a>
+    
+      <a class="item" data-tab="03">
+        03
+      </a>
+    
   </div>
+</div>
 
-
-    <div uk-sticky>
-      <nav class="uk-navbar">
-        <div class="uk-navbar-left">
-          <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
-            <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
-                   uk-tooltip></a></li>
-             }}
-              <li class="uk-active"><a href="../../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
-                                       pos="bottom" uk-tooltip> Transport Layer </a></li>
-            
-          </ul>
-        </div>
-        <div class="uk-navbar-right">
-          <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
-              uk-switcher="connect: .switcher-container">
-            
-              <li><a href="#">TCP-Sockets</a></li>
-            
-              <li><a href="#">01</a></li>
-            
-              <li><a href="#">02</a></li>
-            
-              <li><a href="#">03</a></li>
-            
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    <div class="uk-container uk-container-expand">
-      <ul class="uk-switcher switcher-container">
-        
-          <li> <h1>TCP Sockets</h1>
+<div class="ui pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment">
+      <br>
+      
+        <div class="ui tab segment lab" data-tab="TCP-Sockets">
+          <h1>TCP Sockets</h1>
 <p>This lab explores Transport layer protocols.</p>
 <h2>Objectives</h2>
 <ul>
@@ -286,9 +219,11 @@ TCP-Sockets
 <h2>Introduction</h2>
 <p>In this lab you will download a TCP client and server program written in Java and Python by cloning a repository. The Java and Python code may be incomplete or contain bugs, but your knowledge of sockets and Java should enable you to produce a working version.
 To test your client/server programs, you will compile the code and place it in the shared vagrant directory of the virtual network from the last lab. This will make them available in each of the virtual machines in the <em>/vagrant</em> directory.</p>
-</li>
-        
-          <li> <h2>Java sockets program</h2>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="01">
+          <h2>Java sockets program</h2>
 <p>Clone the following repo into a suitable location on your machine:</p>
 <p><a href="https://github.com/wit-computing/hdip-socket-to-me.git">https://github.com/wit-computing/hdip-socket-to-me.git</a></p>
 <p>The cloned repo is an IntelliJ project. Start IntelliJ and do <em>File-&gt;Open</em> and select the repo directory.</p>
@@ -296,13 +231,15 @@ To test your client/server programs, you will compile the code and place it in t
 + What port number will the server bind to?
 + What statement actually binds the program to the port?
 + Notice that there is plenty of code for handling IOException. From a networking perspective, Why do you think this is required?</p>
-<p>You will now deploy the sockets Server to <em>PC0</em>. One way to do this is to copy the compiled byte code (i.e. Server.class) to the shared vagrant directory on your laptop. In IntelliJ, select the <em>socket-echo</em> project anb then select <em>Build-&gt;Build Project</em>. This will make sure the project is compiled to the <em>out</em> directory.<br><img src="./img/out.png" alt="IntelliJ out directory"><br>Copy the <em>Server.class</em> and <em>Client.class</em> files to your shared Vagrant directory. Now start the Vagrant virtual environment as usual by opening a terminal window in you Vagrant directory and entering <code>vagrant up</code>.<br>As before, open a SSH session with PC0.Change directory to the <em>/vagrant</em> folder and run the Server from the commandline:
+<p>You will now deploy the sockets Server to <em>PC0</em>. One way to do this is to copy the compiled byte code (i.e. Server.class) to the shared vagrant directory on your laptop. In IntelliJ, select the <em>socket-echo</em> project anb then select <em>Build-&gt;Build Project</em>. This will make sure the project is compiled to the <em>out</em> directory.<br><img src="./img/out.png" alt="IntelliJ out directory"><br>Copy the <em>Server.class</em> and <em>Client.class</em> files to your shared Vagrant directory. Now start the Vagrant virtual environment as usual by opening a terminal window in you Vagrant directory and entering <code>vagrant up</code>.<br>As before, open a SSH session with PC0.Change directory to the <em>/vagrant</em> folder and run the Server from the command line:
  <img src="./img/server.png" alt="Running Server"><br>Now, open a session on pc1 and run the client. Something&#39;s wrong! Client.java compiles but it does not connect to the server. You should see something similar to the following.<br><img src="./img/client1.png" alt="Client: not connected "><br>You will need to figure out why the client failed. Have a look at the code and keep in mind that, in order for the client to connect to a socket, it needs the correct IP address and port that the Server is listening on. Fix the issue and run the Client program again. If you fix it, you should see the following:<br><img src="./img/client2.png" alt="Client: connected"><br>Start to enter some text in the Client terminal and hit <em>Return/Enter</em>. You should see the text echoed back to you from the server on pc0. This is using TCP/IP protocol to do this. Lets have a look at how this looks &quot;on the wire&quot; using TShark.  </p>
 <h3>Optional Challenge</h3>
 <p>In your programming module, you created a &quot;tech support&quot; program that generated automated responses based on requests. If you have time, why don&#39;t you try to reuse the tech support code to make the Server behave the same way (and not just echo every request).</p>
-</li>
-        
-          <li> <h1>TCP/IP</h1>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="02">
+          <h1>TCP/IP</h1>
 <p>So we have a client/server connection over TCP/IP sockets. Now lets start recording network traffic and examine the TCP/IP interaction:</p>
 <p>Disconnect your client program running on pc1 by entering ctrl+c in the SSH session.</p>
 <p>Start another SSH session with pc0 and start TShark recording on interface eth1 and filter on port 10500(i.e. the port our server program is using):</p>
@@ -311,11 +248,14 @@ To test your client/server programs, you will compile the code and place it in t
  <img src="./img/client4.png" alt="TCP Client sending text"></p>
 <p>You should have some network traffic data recorded in <em>/vagrant/pc0-eth0-traffic3.pcap</em>. As before, lets open the file and have a look using <code>tshark -r pc0-eth0-traffic3.pcap</code>. You should see similar output to the following:
 <img src="./img/tcp1.png" alt="TCP data"></p>
-<p>Have a look at the data and answer the following question:<br>+ Can you locate the TCP 3-way handshake. How many times does it happen.
- + What&#39;s the port number of the client? Why is it this number?
- + Disonnect and connect the client again and have a look at the client port number and 3-way handshake. What happens?
-+ As you see, the TCP connection is negotiated at each connection, thereafter transmission can commence.
-+ Have a closed look at the data that&#39;s transmitted. Pick a &quot;push&quot; frame(one with [PSH,ACK] flag, it&#39;ll contain data) and inspect the encapsulation:  </p>
+<p>Have a look at the data and answer the following question:</p>
+<ul>
+<li>Can you locate the TCP 3-way handshake. How many times does it happen.</li>
+<li>What&#39;s the port number of the client? Why is it this number?</li>
+<li>Disconnect and connect the client again and have a look at the client port number and 3-way handshake. What happens?</li>
+</ul>
+<p>As you see, the TCP connection is negotiated at each connection, thereafter transmission can commence.
+Have a closed look at the data that&#39;s transmitted. Pick a &quot;push&quot; frame(one with [PSH,ACK] flag, it&#39;ll contain data) and inspect the encapsulation:  </p>
 <pre><code class="lang-bash">$ tshark -r pc0-eth0-traffic3.pcap -V -Y &quot;frame.number==12&quot;
 Frame 12: 80 bytes on wire (640 bits), 80 bytes captured (640 bits) on interface 0
     Interface id: 0 (eth1)
@@ -349,15 +289,15 @@ Data (14 bytes)
     Data: 7265616c6c79207265616c6c790a
     [Length: 14]</code></pre>
 <ul>
-<li>Have a look at the TCP and Data section of the Frame. Notice how the Flags past of the datagram indicates what type of transmission it is.<ul>
+<li>Have a look at the TCP and Data section of the Frame. Notice how the Flags past of the datagram indicates what type of transmission it is.</li>
 <li>How can the same datagram act as an Acknowledgement and a Push?</li>
 <li>How does the raw data translate into the text sent? Would you class this data as being &quot;safe&quot; during Transmission?</li>
 </ul>
-</li>
-</ul>
-</li>
-        
-          <li> <h1>TCP/IP Packets</h1>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="03">
+          <h1>TCP/IP Packets</h1>
 <p>The objective in this section is to demonstrate:</p>
 <ul>
 <li>TCP is stream-orientated</li>
@@ -366,33 +306,33 @@ Data (14 bytes)
 <p>To do this you will modify the TCP client connect to a different TCP server in the cloud(or create it on your Pi if you have it already).</p>
 <h2>Smart Environment Scenario:</h2>
 <p>Let’s assume we have a remote sensor device as part of a smart environment infrastructure for monitoring temperature at several locations.
-The remote sensor device (the TCP server) waits for a request from a data aggrigator(the TCP client) for data. It behaves as follows:
-+ On receiving a message from the data aggrigator, the remote device sends <em>n</em> sensor values, in this case the temperature.
-+ The server closes the connection after sending the <em>n</em> messages. 
-+ The aggrigator(client) does not know the value of <em>n</em> before the request is made.
-+ The request from the aggrigator is a value indicating the time period between transmitting each sensor reading. The value, in seconds, is given as a command line argument to the client.
-+ If no time is specified, the server will try to send all <em>n</em> values at the same time. </p>
-<h4>Starting the Server</h4>
-<p>On <em>PC0</em>, change directory to the synced /vagrant folder and open the <code>server.py</code> using nano.</p>
+The remote sensor device (the TCP server) waits for a request from a data aggrigator (the TCP client) for data. It behaves as follows:</p>
+<ul>
+<li>On receiving a message from the data aggrigator, the remote device sends <em>n</em> sensor values, in this case the temperature.</li>
+<li>The server closes the connection after sending the <em>n</em> messages. </li>
+<li>The aggrigator(client) does not know the value of <em>n</em> before the request is made.</li>
+<li>The request from the aggrigator is a value indicating the time period between transmitting each sensor reading. The value, in seconds, is given as a command line argument to the client.</li>
+<li>If no time is specified, the server will try to send all <em>n</em> values at the same time. </li>
+</ul>
+<h3>Set up and Start the Server</h3>
+<ul>
+<li>On your host machine, copy the files contained the <code>python</code> directory of the repos you clones earlier (<a href="https://github.com/wit-computing/hdip-socket-to-me.git">https://github.com/wit-computing/hdip-socket-to-me.git</a>) to the synced <code>/vagrant</code> directory. </li>
+<li>SSH into <em>PC0</em> and change directory to the synced synced <code>/vagrant</code> folder and open <code>simple-server.py</code> using nano.</li>
+</ul>
 <pre><code class="lang-bash">vagrant@pc0:~$ cd /vagrant
-vagrant@pc0:/vagrant$ ls
-Client.class      Server.class  client.py        pc0-eth1-traffic1.pcap
-Client.java       Server.java   lots-of-data.txt        pc0-eth1-traffic2.pcap
-HelloWorld.class  Vagrantfile   pc0-eth0-traffic2.pcap  pc0eth1traffic1.pcap
-HelloWorld.java   bootstrap.sh  pc0-eth0-traffic3.pcap  server.py
 vagrant@pc0:/vagrant$ nano server-simple.py</code></pre>
 <p>Update the server code so that your server listens on the correct port (i.e. 50200).
 Now run the server by typing <code>python simple-server.py</code> at the command prompt. All going well, you should see a message &quot;Server up and running...&quot;</p>
 <pre><code class="lang-bash">vagrant@pc0:/vagrant$ python server-simple.py
 Server up and running...</code></pre>
-<h4>Running the Client</h4>
-<p>Open a SSH session with <em>pc1</em> and change directory to the syched folder. Using nano, have open <em>client.py</em> and change the IP address and port number to connect to the server on <em>pc0</em>. Start the client program by typing <code>python client.py</code> at the command prompt. The client program takes one arguement which is time period between sending each of the <em>n</em> sensor values back to the client. </p>
+<h3>Running the Client</h3>
+<p>Open a SSH session with <em>pc1</em> and change directory to the synced <code>/vagrant</code> folder. Using nano, have open <em>client.py</em> and change the IP address and port number to connect to the server on <em>pc0</em>. Start the client program by typing <code>python client.py</code> at the command prompt. The client program takes one arguement which is time period between sending each of the <em>n</em> sensor values back to the client. </p>
 <p>On <em>pc1</em>, run the client with 0 time delay by typing <code>python client.py 0</code> at the command prompt. You should see something similar to the following:<br><img src="./img/pc0-tcp1.png" alt="pc0 - server.py"><img src="./img/pc1-tcp1.png" alt="pc1-client.py-0 delay">  </p>
 <p>Now, on <em>pc1</em>, run the client with 0.01 time delay(1/100th of a second) by typing <code>python client.py 0.01</code> at the command prompt. You should see something similar to the following:<br><img src="./img/pc0-tcp1.png" alt="pc0 - server.py"><img src="./img/pc1-tcp2.png" alt="pc1-client.py-0.01 delay"><br>Notice the difference in the output of client.py program for 0 delay and 0.01. Taking into account of what was discussed in class:
 + what are the possible reasons for the differing output?
 + what do you think is happening with the TCP packets?</p>
 <p>To try and make sense of what&#39;s going on at a network level, lets repeat the above exercise except this time we&#39;ll capture and analyse some tcp network data on the client side.</p>
-<p>Open another terminal window and connect to <em>pc1</em> using SSH(you should have two ssh sessions with <em>pc1</em> open now). Run TShark to filter on port 50200 with a payload greater than 0. We&#39;ll listen on interface <code>eth0</code> and write the data to a file. We&#39;ll capture everything so no filters.</p>
+<p>Open another terminal window and connect to <em>pc1</em> using SSH(you should have two ssh sessions with <em>pc1</em> open now!). Run TShark to filter on port 50200 with a payload greater than 0. We&#39;ll listen on interface <code>eth0</code> and write the data to a file. We&#39;ll capture everything so no filters.</p>
 <pre><code class="lang-bash">tshark -i eth1 -w pc0-eth1-tcp-sensor.pcap</code></pre>
 <p>Now run the <code>python client.py 0</code> to capture the network traffic for 0 delay.</p>
 <pre><code class="lang-bash">vagrant@pc1:/vagrant$ python client.py 0
@@ -414,7 +354,7 @@ Received: 25,21/06/2018 00:01:00
 
 Received: 12,21/06/2018 00:02:00
 ...</code></pre>
-<p>Finally, repeat the proceedure for writing all the data in one go.</p>
+<p>Finally, repeat the procedure for writing all the data in one go.</p>
 <pre><code class="lang-bash">vagrant@pc1:/vagrant$ python client.py
 Sent:     
 Received: 25,21/06/2018 00:00:00
@@ -424,19 +364,20 @@ Received: 25,21/06/2018 00:00:00
 ...</code></pre>
 <p>Lets examine the captured data. We can use the -Y (Yank filter) to query specific aspects of the data and filter based on field names. As all the data is in the same file, we need a way to query the specifics for each of the 3 scenarios. One way to do this for the first experiment is to look for the frame that contains each request. 
 For the experiments, you know that the payload(data) of the tcp request from the client to tcp port 50200 was &quot;0&quot;, &quot;0.01&quot; and null(nothing) in that order so lets look for that:</p>
-<pre><code class="lang-bash">vagrant@pc1:~$ tshark -r ta will be reassembled in the TCP/IP st_as_text:TRUE -T fields -e frame.number -e data.text  -E header=y -Y &quot;tcp.len&gt;0 &amp;&amp; tcp.dstport==50200&quot;
-frame.number    data.textta will be reassembled in the TCP/IP st
+<pre><code class="lang-bash">vagrant@pc1:~$ tshark -r pc0-eth1-tcp-sensor.pcap  -o data.show_as_text:TRUE -T fields -e frame.number -e data.text  -E header=y -Y &quot;tcp.len&gt;0 &amp;&amp; tcp.dstport==50200&quot;
+frame.number    data.text
 7                0
 
 53                0.01
 
 460</code></pre>
-<p>So, from the above data you can identify the frame number of each of the requests. Thus the tcp reponses for each request lie between each frame. So for the reuest for 0 delay the responses will have a frame numbet in the range 8-52. So lets look at the the tcp packets with a source port of 129.168.5.2, port 50200 in that range:</p>
-<pre><code class="lang-bash">frame.number    ip.src    tcp.len
+<p>So, from the above data you can identify the frame number of each of the requests. Thus the tcp responses for each request lie between each frame. So for the request for 0 delay the responses will have a frame number in the range 8-52. So lets look at the the tcp packets with a source port of 129.168.5.2, port 50200 in that range:</p>
+<pre><code class="lang-bash">vagrant@pc1:~$ tshark -r pc0-eth1-tcp-sensor.pcap  -o data.show_as_text:TRUE -T fields -e frame.number -e ip.src -e tcp.len    -E header=y -Y &quot;tcp.srcport==50200 &amp;&amp; frame.number&gt;7 &amp;&amp; frame.number&lt;52&quot;
+frame.number    ip.src    tcp.len
 8    192.168.5.2    0
 9    192.168.5.2    24
 11    192.168.5.2    336
-12    192.168.5.2    1448ta will be reassembled in the TCP/IP st
+12    192.168.5.2    1448
 15    192.168.5.2    400
 17    192.168.5.2    144
 19    192.168.5.2    360
@@ -482,9 +423,11 @@ frame.number    ip.src    tcp.len
 466    192.168.5.2    0
 468    192.168.5.2    0
 vagrant@pc1:~$</code></pre>
-<p>You can see here that the data is now transferred in 5 tcp packets. Notice that the data is split into 2 packets for transmission in this case.
-+ Why do you think this happens? 
-+ Where does the split happen, in the server program or in the tcp stack? </p>
+<p>You can see here that the data is now transferred in 5 tcp packets. Notice that the data is split into 2 packets for transmission in this case.</p>
+<ul>
+<li>Why do you think this happens? </li>
+<li>Where does the split happen, in the server program or in the tcp stack? </li>
+</ul>
 <p>Lets change the query to have a look at what the payload looks like for a data carrying frame, number 462 (you&#39;ll have to scroll up to have a look at it:</p>
 <pre><code class="lang-bash">vagrant@pc1:~$ tshark -r pc0-eth1-tcp-sensor.pcap  -o data.show_as_text:TRUE -T fields -e frame.number -e ip.src -e tcp.len -e data.text    -E header=y -Y &quot;frame.number==464&quot;
 frame.number    ip.src        tcp.len    data.text
@@ -494,26 +437,67 @@ frame.number    ip.src        tcp.len    data.text
 25,21/06/2018 10:06:00
 ...</code></pre>
 <p>You can see that the payload has been broken up into 2 packets. The data in the above example begins with a partial sensor reading (the rest of it is in frame 462) followed by other readings. This data will be reassembled in the TCP/IP stack before being delivered to the application. </p>
-</li>
-        
-      </ul>
-    </div>
 
-    <script>
-      $(document).ready(function() {
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+  $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
   const $images = $('.lab img');
   jQuery.each($images, function(i) {
     if ($images[i].alt.length > 0) {
-      const divImg = $(document.createElement('div')).addClass('');
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
       $($images[i]).wrap(divImg);
-      const divLabel = $(document.createElement('div')).addClass('uk-label uk-text-lowercase');
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
       divLabel.append($images[i].alt);
-      $(divLabel).insertAfter($images[i]);
-      $('<br>').insertAfter($images[i]);
+      $(divLabel).insertBefore($images[i]);
     }
   });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
 });
 
-    </script>
-  </body>
+</script>
+</body>
 </html>
