@@ -1,27 +1,23 @@
+
+
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-        type="text/css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-        rel="stylesheet"/>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
   <style>
     
 
@@ -67,154 +63,239 @@ h3 {
 
 
   </style>
-</head>
 
-<body>
+  <body class="lab">
 
-
-
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
     
-      <a href="../index.html">  On-Site Workshop: June 14  </a>
-    
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="Vagrant and Sense HAT">
-        Vagrant and Sense HAT
-      </a>
-    
-      <a class="item" data-tab="01">
-        01
-      </a>
-    
-      <a class="item" data-tab="02">
-        02
-      </a>
-    
-      <a class="item" data-tab="03">
-        03
-      </a>
-    
-      <a class="item" data-tab="04">
-        04
-      </a>
-    
-      <a class="item" data-tab="05">
-        05
-      </a>
-    
+  <div class="uk-offcanvas-content">
+    <div id="offcanvas-usage" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav">
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Preparatory Lab
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Shell Scripting
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Vagrant and Sense HAT
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Assessment-Guides
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Linux Practice Exercises
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Home Network
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Scripting Exercises
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-vagrant/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Vagrant and Virtualisation
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+CPU
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-packet-sniffing/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Packet Sniffing using TShark
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+NoBases
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-IP-Networking/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+IP Networking
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Boolean
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+The Headless RPi
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Logic
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Presence Detector 1
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-b/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+BLE
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Assessment-Time
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+TCP-Sockets
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab
+                </a>
+              </li>
+            
+          
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="ui pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    <br><br>
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
-      
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment">
-      <br>
-      
-        <div class="ui tab segment lab" data-tab="Vagrant and Sense HAT">
-          <h1>Vagrant, Virtualisation and the SenseHat</h1>
+
+    <div uk-sticky>
+      <nav class="uk-navbar">
+        <div class="uk-navbar-left">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
+            <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
+                   uk-tooltip></a></li>
+            
+              <li class="uk-active"><a href="../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
+                                     pos="bottom" uk-tooltip> On-Site Workshop: June 14 </a></li>
+            
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
+              uk-switcher="connect: .switcher-container">
+            
+              <li><a href="#">Vagrant and Sense HAT</a></li>
+            
+              <li><a href="#">01</a></li>
+            
+              <li><a href="#">02</a></li>
+            
+              <li><a href="#">03</a></li>
+            
+              <li><a href="#">04</a></li>
+            
+              <li><a href="#">05</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="uk-container uk-container-expand">
+      <ul class="uk-switcher switcher-container">
+        
+          <li> <h1>Vagrant, Virtualisation and the SenseHat</h1>
 <p>Vagrant · Virtualisation · SSH · Network · SenseHat</p>
 <h2>Objectives</h2>
 <ul>
@@ -228,11 +309,9 @@ h3 {
 <ul>
 <li>Completed preparatory lab</li>
 </ul>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="01">
-          <h1>Vagrant up!</h1>
+</li>
+        
+          <li> <h1>Vagrant up!</h1>
 <h2>Command Line Interface(CLI)</h2>
 <p>The script examples in this lab use the Linux operating system. We will be using linux Command Line Interface(CLI) extensively and the term <strong>&#39;terminal&#39;</strong> is often used to describe a program that provides a CLI.</p>
 <h2>Vagrant</h2>
@@ -257,11 +336,9 @@ The above script configures a virtual machine, &quot;pc0&quot;, with IP address 
 <img src="./img/network.png" alt="Virtual Network"></p>
 <p>All going well, we should now be able to &quot;see&quot; and connect to <em>pc0</em> using a remote
 shell (like ssh), using the dedicated IP address, just as if it was a &quot;real&quot; remote machine.</p>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="02">
-          <h2>Secure Shell (SSH)</h2>
+</li>
+        
+          <li> <h2>Secure Shell (SSH)</h2>
 <p>Although you&#39;ve started a new virtual machine, you will not actually see anything since Vagrant runs the virtual machine without a Graphical User Interface (one good reason for this is that no UI requires less resources on the host machine, i.e. your laptop). To access the machine, we will use Secure Shell (SSH).</p>
 <p>SSH provides a secure channel connecting an SSH client with an SSH server. We will use it in one of it&#39;s most common usages.  remote command-line login and remote command execution.</p>
 <p>Vagrant has a built in command to start a SSH session with a virtual machine.</p>
@@ -299,11 +376,9 @@ vagrant@pc0:/vagrant$</code></pre>
 </li>
 </ol>
 <p>You are now in the defaults vagrant directory which shares with the root Vagrant project directory on the host machine. Check this is the case by running <code>ls</code>. You should see your Vagrantfile.</p>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="03">
-          <h2>Vagrantfile basics</h2>
+</li>
+        
+          <li> <h2>Vagrantfile basics</h2>
 <p>Lets take a closer look at the Vagrantfile. Note the following:</p>
 <ol>
 <li>The location of the vagrantfile indicates the root directory of your vagrant project.</li>
@@ -339,11 +414,9 @@ Java 8 has already been installed on the VM box you are using. Let us now compil
 <pre><code class="lang-shell">vagrant@pc0:/vagrant$ javac HelloWorld.java
 vagrant@pc0:/vagrant$ java HelloWorld
 Hello, World</code></pre>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="04">
-          <h1>The Network</h1>
+</li>
+        
+          <li> <h1>The Network</h1>
 <p>Lets have a look at the environment you&#39;ve created from a network perspective...</p>
 <p>If don&#39;t already have a SSH session open, SSH into <em>pc0</em> by opening a terminal window in your <em>vagrant-onsite-day</em> directory and enter  &quot;vagrant ssh&quot; at the command prompt.</p>
 <p>Now lets explore some Linux terminal commands that are useful for networking.</p>
@@ -375,11 +448,9 @@ Notice that you used a <strong>domain name</strong> this time. In this case, you
 <li>SSH into your virtual machine (pc0) and ping them. All things going well you should see a successful response.</li>
 <li>Also, do a tracepath using a neighbours IP address. Does it complete successfully and how many hops does it take?</li>
 </ul>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="05">
-          <h1>Raspberry Pi Sense HAT Emulator</h1>
+</li>
+        
+          <li> <h1>Raspberry Pi Sense HAT Emulator</h1>
 <h4>Try a pi before you buy!</h4>
 <p>As you know we will be using a Raspberry Pi in the latter part of the module to explore wireless networking and &quot;device-level&quot; connected applications. You will need to buy a Raspberry pi and Sense HAT to complete and assignments and labs.
 The Sense HAT(Hardware Attached on Top), the multi-purpose add-on board for the Raspberry Pi that contains various sensors and an array of RGB LEDs. IT was also sent into space as part of the Astro Pi project on the International Space Station.
@@ -447,67 +518,26 @@ while True:
 <p>Replace the <em>YOUR_DEVICE_NAME</em> with a unique name of your device (I&#39;ll leave that up to you) and replace <em>USE_YOUR_OWN_OR_GET_IT_IN_CLASS</em> with the api key given in class.</p>
 <h2>Want to do more...</h2>
 <p>Create an account at <a href="https://thingspeak.com/"><a href="https://thingspeak.com/">https://thingspeak.com/</a></a> and set up your own channel to receive data from your device.</p>
-
-        </div>
-      
+</li>
+        
+      </ul>
     </div>
-  </div>
-</div>
 
-<script>
-  $(document).on('keydown', function(e) {
-  e = e || window.event;
-  var nextTab;
-  switch (e.which || e.keyCode) {
-    case 37: // left
-      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
-      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
-      nextTab.click();
-      $('.pusher').focus();
-      break;
-
-    case 39: // right
-      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
-      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
-      nextTab.click();
-      $('.pusher').focus();
-      break;
-  }
-});
-
-  $(document).ready(function() {
-  $('img').addClass('ui image');
-
-  $('.ui.embed').embed();
-
+    <script>
+      $(document).ready(function() {
   const $images = $('.lab img');
   jQuery.each($images, function(i) {
     if ($images[i].alt.length > 0) {
-      const divImg = $(document.createElement('div')).addClass(
-        'ui basic segment',
-      );
+      const divImg = $(document.createElement('div')).addClass('');
       $($images[i]).wrap(divImg);
-      const divLabel = $(document.createElement('div')).addClass(
-        'ui blue ribbon label',
-      );
+      const divLabel = $(document.createElement('div')).addClass('uk-label uk-text-lowercase');
       divLabel.append($images[i].alt);
-      $(divLabel).insertBefore($images[i]);
+      $(divLabel).insertAfter($images[i]);
+      $('<br>').insertAfter($images[i]);
     }
   });
-
-  $('.ui.menu .item').tab({
-    history: true,
-    historyType: 'hash',
-  });
-
-  $('.popup').popup();
-
-  $('.ui.sidebar')
-    .sidebar({ context: $('.pushable') })
-    .sidebar('setting', 'transition', 'slide out')
-    .sidebar('attach events', '#toc');
 });
 
-</script>
-</body>
+    </script>
+  </body>
 </html>

@@ -1,27 +1,23 @@
+
+
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-        type="text/css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-        rel="stylesheet"/>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
   <style>
     
 
@@ -67,158 +63,241 @@ h3 {
 
 
   </style>
-</head>
 
-<body>
+  <body class="lab">
 
-
-
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
     
-      <a href="../../index.html">  Raspberry Pi  </a>
-    
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="The Headless RPi">
-        The Headless RPi
-      </a>
-    
-      <a class="item" data-tab="01">
-        01
-      </a>
-    
-      <a class="item" data-tab="02">
-        02
-      </a>
-    
-      <a class="item" data-tab="03">
-        03
-      </a>
-    
-      <a class="item" data-tab="04">
-        04
-      </a>
-    
-      <a class="item" data-tab="05">
-        05
-      </a>
-    
-      <a class="item" data-tab="06">
-        06
-      </a>
-    
+  <div class="uk-offcanvas-content">
+    <div id="offcanvas-usage" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav">
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Preparatory Lab
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Shell Scripting
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Vagrant and Sense HAT
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Assessment-Guides
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Linux Practice Exercises
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Home Network
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Scripting Exercises
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-vagrant/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Vagrant and Virtualisation
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+CPU
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-packet-sniffing/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Packet Sniffing using TShark
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+NoBases
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-IP-Networking/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+IP Networking
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Boolean
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+The Headless RPi
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Logic
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Presence Detector 1
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-b/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+BLE
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Assessment-Time
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+TCP-Sockets
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab
+                </a>
+              </li>
+            
+          
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="ui pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    <br><br>
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
-      
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment">
-      <br>
-      
-        <div class="ui tab segment lab" data-tab="The Headless RPi">
-          <h1>The Headless Pi</h1>
+
+    <div uk-sticky>
+      <nav class="uk-navbar">
+        <div class="uk-navbar-left">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
+            <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
+                   uk-tooltip></a></li>
+             }}
+              <li class="uk-active"><a href="../../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
+                                       pos="bottom" uk-tooltip> Raspberry Pi </a></li>
+            
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
+              uk-switcher="connect: .switcher-container">
+            
+              <li><a href="#">The Headless RPi</a></li>
+            
+              <li><a href="#">01</a></li>
+            
+              <li><a href="#">02</a></li>
+            
+              <li><a href="#">03</a></li>
+            
+              <li><a href="#">04</a></li>
+            
+              <li><a href="#">05</a></li>
+            
+              <li><a href="#">06</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="uk-container uk-container-expand">
+      <ul class="uk-switcher switcher-container">
+        
+          <li> <h1>The Headless Pi</h1>
 <p>Raspbian . SSH . WiFi</p>
 <h2>Introduction</h2>
 <p>The Raspberry Pi is a single board computer(SBC) which was designed to make tech learning easier but has since become popular in Internet of Things/Maker/Hacker community. It&#39;s got all the usual components you would expect on a typical personal computer such HDMI port, USB ports, an ethernet port, an SD card slot, Wi-Fi, Bluetooth etc.</p>
@@ -244,11 +323,9 @@ h3 {
 <li>Find a Raspberry Pi on a network</li>
 <li>Use SSH to connect to the Pi</li>
 </ul>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="01">
-          <h1>Raspbian</h1>
+</li>
+        
+          <li> <h1>Raspbian</h1>
 <p><img src="./img/raspbian_logo.png" alt="Raspbian Logo"><br><strong>NOTE: Your Pi may have come with an SD card preloaded with Raspbian. In this case you can proceed to the next step/page in the lab.</strong><br><a href="https://www.raspbian.org/RaspbianAbout">Raspbian</a> is a Linux operating system designed and optimised specifically for the Raspberry Pi. It is a version of the Debian Linux operating system and has the same heratige as Ubuntu.<br>In this section of the lab you will download and install Raspbian on a SD card.</p>
 <h2>Installing Raspbian</h2>
 <p>This and future labs were developed using the minimal version of Raspbian Stretch Lite. If you intend to use your Pi with a Screen/Desktop at any stage then opt for the Desktop version.</p>
@@ -262,11 +339,9 @@ h3 {
 - click &#39;Flash!&#39; to begin writing data to the SD card.  </p>
 <p>The write may take a few minutes. Once it&#39;s finished, close Etcher and leave the SD card in the drive for now. 
 <img src="./img/etcher.gif" alt="Etcher"></p>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="02">
-          <h1>Raspbian Configuration</h1>
+</li>
+        
+          <li> <h1>Raspbian Configuration</h1>
 <p>To use the Pi in headless mode, you will need to make some changes on the the SD card before we put it into the Pi and boot up. </p>
 <h2>Editing the SD card contents</h2>
 <p>The SD card is just like any other drive on your computer. You should be able to locate it using the default file explorer on your computer or navigate to it using a command line terminal. You will see at least one partition, possibly two depending on what OS is on your computer. What we are after at the moment is the <strong>boot</strong> partition which should be visible on all operating systems. It should be labeled as such in your file explorer if you are using a Mac or Linux machine. If you&#39;re using Windows, it will be the only accessible part of the SD card. </p>
@@ -316,11 +391,9 @@ The wifi network paramaters here are typical for most domestic WiFi. If you&#39;
 + It&#39;s configured for SSH
 + All RPis have the same manufacturers MAC address section, so the MAC will start with &quot;<code>b8:27:eb:...</code>&quot;  </p>
 <p>There is more than one solution to this problem. See if you can come up with more than one before moving on...</p>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="03">
-          <h1>Where&#39;s my RPi?</h1>
+</li>
+        
+          <li> <h1>Where&#39;s my RPi?</h1>
 <p>So to use the RPi in headless mode, you will need to find its IP address. To do this, we&#39;ll use the fact that we know the host name and the MAC address pattern. Here are a few solutions you can try(you need only pick one):</p>
 <h2>1. Use ARP</h2>
 <p>From the web, and the previous page, you know that the first 3 bytes of the MAC address indicates the manufacturer/source of the device. In this case, for the Pi it will be <code>b8:27:eb:...</code>.<br>So one thing you can do is build up the arp cache on your computer by pinging every possible IP address on your network. If we do this, then the ARP table on your machine should contain the RPi MAC. We can use a small Node script to do this.<br>- Create a directory on your laptop called LAB_NAME. Open a terminal window and install the following node package:</p>
@@ -342,11 +415,9 @@ find().then(devices =&gt; {
 <h2>3. Use Adafruit Pi Finder</h2>
 <p><a href="https://learn.adafruit.com/the-adafruit-raspberry-pi-finder/overview">Adafruit</a> Pi Finder is a cross-platform tool that allows you to find and connect to a Raspberry Pi that is attached to your network.
 You can download the version for your particular OS here: <a href="https://github.com/adafruit/Adafruit-Pi-Finder/releases/tag/3.0.0">https://github.com/adafruit/Adafruit-Pi-Finder/releases/tag/3.0.0</a><br><img src="./img/pi-finder1.png" alt="Pi Finder"></p>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="04">
-          <h1>Accessing the RPi using Secure Shell(SSH)</h1>
+</li>
+        
+          <li> <h1>Accessing the RPi using Secure Shell(SSH)</h1>
 <p>In order to access the RPi using SSH you should have the following completed:
 - Enabled SSH by placing an ssh file in the boot partition
 - You know the IP address of your Raspberry Pi.  </p>
@@ -376,11 +447,9 @@ You can download the version for your particular OS here: <a href="https://githu
 <h2>Ongoing use of Putty</h2>
 <p>Next time you use PuTTY, look for the Saved Sessions section in the bottom half of the configuration screen. If you use this, it is recommended to switch to the  Connection page in the left hand tree, and setting the  Seconds between keepalives value to 30. Then switch back to the  Session page in the tree before you click Save. Using this setting allows you to leave a PuTTY window open for long periods of time with no activity, without the Pi timing out and disconnecting you.</p>
 <p>A connection might be unsuccessful for various reasons. It is most likely that your device or Raspberry Pi are not connected properly; SSH is disabled; there is a typo in your code; or the IP address or credentials have changed. In the latter cases, you will need to update the host. For instructions on how to update a host, and for further PuTTY documentation, please see the PuTTY docs.</p>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="05">
-          <h1>Raspi-Config</h1>
+</li>
+        
+          <li> <h1>Raspi-Config</h1>
 <p>Now that you have connected to the RPi you can use the <code>raspi-config</code> utility to further configure the RPi.</p>
 <p>At the command prompt in the the RPi SSH session, enter <code>sudo raspi-config</code>. This will show the following:<br><img src="./img/rpi-config.png" alt="raspi-config">   </p>
 <h3>Change Password</h3>
@@ -393,11 +462,9 @@ Select the <code>Change User Password</code> option and change the password now.
 <p>Your RPi will have the default host name of <code>raspberrypi</code>. It would be good to rename this to something more meaningfull. I
 In the Raspi-config tool, select Network Options-&gt;Hostname
 <img src="./img/hostname.png" alt="Change Hostname"><br>Change the Hostname to <code>sensePi</code>(or, if you want, whatever name you like!). This is the name that the RPi will use on the local network.</p>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="06">
-          <h1>SenseHAT</h1>
+</li>
+        
+          <li> <h1>SenseHAT</h1>
 <p>Assuming you have the SenseHAT installed on your RPi, lets run the same program we used in the on-site lab. </p>
 <ul>
 <li>SSH into you Raspberry Pi. You can probably use the host name you configured in the last step instead of the IP address.</li>
@@ -445,67 +512,26 @@ while True:
 <li>Notice how <code>red</code> and <code>green</code> variables are structured. Investigate and explain why.</li>
 <li>Change the program to display everything in blue. </li>
 </ul>
-
-        </div>
-      
+</li>
+        
+      </ul>
     </div>
-  </div>
-</div>
 
-<script>
-  $(document).on('keydown', function(e) {
-  e = e || window.event;
-  var nextTab;
-  switch (e.which || e.keyCode) {
-    case 37: // left
-      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
-      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
-      nextTab.click();
-      $('.pusher').focus();
-      break;
-
-    case 39: // right
-      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
-      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
-      nextTab.click();
-      $('.pusher').focus();
-      break;
-  }
-});
-
-  $(document).ready(function() {
-  $('img').addClass('ui image');
-
-  $('.ui.embed').embed();
-
+    <script>
+      $(document).ready(function() {
   const $images = $('.lab img');
   jQuery.each($images, function(i) {
     if ($images[i].alt.length > 0) {
-      const divImg = $(document.createElement('div')).addClass(
-        'ui basic segment',
-      );
+      const divImg = $(document.createElement('div')).addClass('');
       $($images[i]).wrap(divImg);
-      const divLabel = $(document.createElement('div')).addClass(
-        'ui blue ribbon label',
-      );
+      const divLabel = $(document.createElement('div')).addClass('uk-label uk-text-lowercase');
       divLabel.append($images[i].alt);
-      $(divLabel).insertBefore($images[i]);
+      $(divLabel).insertAfter($images[i]);
+      $('<br>').insertAfter($images[i]);
     }
   });
-
-  $('.ui.menu .item').tab({
-    history: true,
-    historyType: 'hash',
-  });
-
-  $('.popup').popup();
-
-  $('.ui.sidebar')
-    .sidebar({ context: $('.pushable') })
-    .sidebar('setting', 'transition', 'slide out')
-    .sidebar('attach events', '#toc');
 });
 
-</script>
-</body>
+    </script>
+  </body>
 </html>
