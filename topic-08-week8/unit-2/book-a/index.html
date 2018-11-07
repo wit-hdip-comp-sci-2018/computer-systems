@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+        type="text/css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+        rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    
+      <a href="../../index.html">  Messaging and Web APIs  </a>
+    
+  </header>
+  <div class="right tab-menu menu">
+    
+      <a class="item" data-tab="Messaging Lab">
+        Messaging Lab
+      </a>
+    
+      <a class="item" data-tab="01">
+        01
+      </a>
+    
+      <a class="item" data-tab="02">
+        02
+      </a>
+    
+  </div>
+</div>
+
+<div class="ui pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment">
+      <br>
+      
+        <div class="ui tab segment lab" data-tab="Messaging Lab">
+          <h1>MQTT Publish and Subscribe</h1>
+<p>Use HTTP and MQTT to connect a device</p>
+<h2>Introduction</h2>
+<p>You will use the  Raspberry Pi as our sensor device to publish temperature, pressure and humidity data. It will send a current value of every sensor to a MQTT broker. There are many public MQTT brokers (you can set up your own). In this lab you can choose one of the following public brokers.</p>
+<ul>
+<li>mqtt://iot.eclipse.org:1883</li>
+<li>mqtt://broker.hivemq.com:1883</li>
+<li>mqtt://test.mosquitto.org:1883</li>
+</ul>
+<p>It is up to you which one you choose for the lab - perhaps try a few of them! 
+As they are public brokers there is no guarantee of service (personally I found broker.hivemq.com slow). If you wish to have some reassurance of performance and authentication, there are several services available that offer a free tier such as <a href="https://www.cloudmqtt.com">cloudmqtt</a>.</p>
+<p><img src="./img/main.png" alt="MQTT Publish-Subscribe"></p>
+<h2>Equipment, Software</h2>
+<ul>
+<li>Raspberry Pi 3 B</li>
+<li>SenseHAT</li>
+<li>Cloud MQTT Broker</li>
+<li>TinyDB and/or MLab MongoDB</li>
+</ul>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="01">
+          <h2>Set up</h2>
+<h3>Update the RPi</h3>
+<p>Run the following to make sure your RPi libraries are up to date:</p>
+<pre><code class="lang-bash">sudo apt-get update</code></pre>
+<h3>Eclipse Paho</h3>
+<p>You will use the <a href="https://pypi.org/project/paho-mqtt/">Eclipse Paho Python client library</a> to create a publish and subscribe program as shown in the above diagram. Run the following command in the RPi To install the relevant libraries on the RPi:</p>
+<pre><code class="lang-bash">sudo apt-get install mosquitto</code></pre>
+<pre><code class="lang-bash">sudo pip install paho-mqtt</code></pre>
+<h3>SenseHat</h3>
+<p>You will need to install the relevant SenseHAT Python libraries. Run the following command in the RPi To install the relevant libraries on the RPi:</p>
+<pre><code class="lang-bash">sudo apt-get install sense-hat</code></pre>
+<h2>Publish Temperature</h2>
+<ul>
+<li>On the Raspberry Pi, create a directory called <code>mqtt</code> in your home directory and <code>cd</code> into it:</li>
+</ul>
+<pre><code class="lang-bash">mkdir ~/mqtt
+cd mqtt</code></pre>
+<ul>
+<li>Create a new script called <code>client_pub.py</code> and enter the following code:</li>
+</ul>
+<pre><code class="lang-python">import paho.mqtt.client as mqtt
+import urlparse
+import sys
+import time
+import json
+from sense_hat import SenseHat
+
+sense = SenseHat()
+sense.clear()
+# Define event callbacks
+def on_connect(client, userdata, flags, rc):
+    print(&quot;Connection Result: &quot; + str(rc))
+
+def on_publish(client, obj, mid):
+    print(&quot;Message ID: &quot; + str(mid))
+
+mqttc = mqtt.Client()
+
+# Assign event callbacks
+mqttc.on_connect = on_connect
+mqttc.on_publish = on_publish
+
+# parse mqtt url for connection details
+url_str = sys.argv[1]
+print(url_str)
+url = urlparse.urlparse(url_str)
+base_topic = url.path[1:]
+
+# Connect
+if (url.username):
+    mqttc.username_pw_set(url.username, url.password)
+mqttc.connect(url.hostname, url.port)
+mqttc.loop_start()
+
+# Publish a message to temp every 15 seconds
+while True:
+    temp=round(sense.get_temperature(),2)
+    temp_json=json.dumps({&quot;temperature&quot;:temp, &quot;timestamp&quot;:time.time()})
+    mqttc.publish(base_topic+&quot;/temperature&quot;, temp_json)
+    time.sleep(15)</code></pre>
+<ul>
+<li>Examine the above code. The program expects a MQTT URL as the first command line argument. The connection details for MQTT broker as then parsed from the URL. </li>
+<li>You will publish the temperature reading to the following URL: <code>mqtt://iot.eclipse.org:1883/YOUR_ID/home</code> where you replace <code>YOUR_ID</code> in the URL with a memorable id of your choice (For example, I use my Github username, <code>fxwalsh</code>, so my URL is : <code>mqtt://iot.eclipse.org:1883/fxwalsh/home</code>).</li>
+<li>The program publishes the temperature and a timestamp from the device in question, which in this case is the time in seconds since the 1/1/1970 as a floating point number(the Linux epoch).</li>
+<li>Run the program, <code>python client_pub.py mqtt://iot.eclipse.org:1883/YOUR_ID/home</code> and you should see an output to the console similar to the following:</li>
+</ul>
+<pre><code class="lang-bash">mqtt://iot.eclipse.org:1883/fxwalsh/home
+Message ID: 1
+Connection Result: 0
+Message ID: 2
+Message ID: 3
+Message ID: 4</code></pre>
+<p>The <code>Message ID: ...</code> indicates on_publish callback and is called every time a value is publuished to the broker.  <code>Connection Result: 0</code> is output from the on_connect callback and <code>0</code> is success but any other number indicates a refused connection. For a more detailed explaination see: <a href="https://pypi.org/project/paho-mqtt/#callbacks">Paho Callbacks</a>.</p>
+<p>Your RPi is now hopefully publishing temperature messages to the cloud MQTT broker. Any device can now subscribe and use this data.<br><strong>NOTE: Leave this program running for the next section</strong></p>
+<h3>Subscribe</h3>
+<p>Ideally you can create the following program on another computer/device that can run Python but, if you only have the RPi, or just for convenience, it&#39;s OK to run the following subscribe program on the RPi also(just pretend it&#39;s on another device somewhere else in the world!).</p>
+<ul>
+<li>If you are using another device/laptop to subscribe, create a new directory called <code>mqtt</code>. </li>
+<li>in the <code>mqtt</code> directory, create a new Python program file called <code>client_sub.py</code> with the following content:</li>
+</ul>
+<pre><code class="lang-python">import paho.mqtt.client as mqtt
+import urlparse
+import sys
+
+# Define event callbacks
+def on_connect(client, userdata, flags, rc):
+    print(&quot;Connection Result: &quot; + str(rc))
+
+def on_message(client, obj, msg):
+    print(&quot;Topic:&quot;+msg.topic + &quot;,Payload:&quot; + str(msg.payload))
+
+def on_subscribe(client, obj, mid, granted_qos):
+    print(&quot;Subscribed,  QOS granted: &quot;+ str(granted_qos))
+
+mqttc = mqtt.Client()
+
+# Assign event callbacks
+mqttc.on_message = on_message
+mqttc.on_connect = on_connect
+mqttc.on_subscribe = on_subscribe
+
+# parse mqtt url for connection details
+url_str = sys.argv[1]
+url = urlparse.urlparse(url_str)
+base_topic = url.path[1:]
+
+# Connect
+if (url.username):
+    mqttc.username_pw_set(url.username, url.password)
+mqttc.connect(url.hostname, url.port)
+
+# Start subscribe, with QoS level 0
+mqttc.subscribe(base_topic+&quot;/#&quot;, 0)
+mqttc.loop_forever()
+
+# Continue the network loop, exit when an error occurs
+rc = 0
+while rc == 0:
+    rc = mqttc.loop()
+print(&quot;rc: &quot; + str(rc))</code></pre>
+<ul>
+<li>Now run it as before, <strong>using the same URL used in for the publishing program</strong> as a command line argument. You should see data output to the console similar to the following:</li>
+</ul>
+<pre><code class="lang-bash">Connection Result: 0
+Subscribed,  QOS granted: (0,)
+Topic:fxwalsh/home/temperature,Payload:{&quot;timestamp&quot;: 1541453620.862879, &quot;temperature&quot;: 34.48}
+Topic:fxwalsh/home/temperature,Payload:{&quot;timestamp&quot;: 1541453680.936523, &quot;temperature&quot;: 34.41}</code></pre>
+<p>You now have a working MQTT publisher/subscriber!</p>
+<h2>Multiple Topics</h2>
+<p>The SenseHAT on the RPi has a few other environment sensors, for example pressure and humidity. If you presume to operate the RPi as a weather station, you need to publish this data also and create a suiable channel structure for MQTT.
++ On the RPi, stop <code>client_pub.py</code> by entering <code>ctrl + c</code> in the terminal window.
++ On the RPi, create a new script in <code>~/mqtt</code> called  <code>client_pub_mult.py</code> with the following content:</p>
+<pre><code class="lang-python">import paho.mqtt.client as mqtt
+import paho.mqtt.publish as publish
+import urlparse
+import sys
+import time
+import json
+
+from sense_hat import SenseHat
+
+sense = SenseHat()
+sense.clear()
+
+# parse mqtt url for connection details
+url_str = sys.argv[1]
+print(url_str)
+url = urlparse.urlparse(url_str)
+base_topic = url.path[1:]
+auth=None
+# Connect
+if (url.username):
+    auth = {&#39;username&#39;:url.username, &#39;password&#39;:url.password}
+
+
+
+# Publish a message
+while True:
+    temp=round(sense.get_temperature(),2)
+    humidity=sense.get_humidity()
+
+    #Create JSON strings
+    temp_sensor=json.dumps({&quot;temperature&quot;:temp, &quot;timestamp&quot;:time.time()}) 
+    humidity_sensor=json.dumps({&quot;humidity&quot;:humidity, , &quot;timestamp&quot;:time.time()}) 
+
+    #Create array of MQTT messages
+    temp_msg={&#39;topic&#39;: base_topic +&quot;/temperature&quot;, &#39;payload&#39;:temp_sensor}
+    hum_msg={&#39;topic&#39;:base_topic +&quot;/humidity&quot;, &#39;payload&#39;:humidity_sensor}
+    msgs=[temp_msg,hum_msg]
+
+    #Publish array of messages
+    publish.multiple(msgs, hostname=url.hostname, port=url.port, auth=auth)
+    print(&quot;published&quot;)
+    time.sleep(15)</code></pre>
+<p>This time the program uses the publish.mutliple() function to send a list topics and payloads. </p>
+<ul>
+<li>The script is missing the pressure value. Inspect the script and update it to publish the pressure sensor reading to <code>/pressure</code>.(hint: use <code>sensor.get_pressure()</code> to get the pressure value). All going well, you should observe output from the program similar to the following:</li>
+</ul>
+<pre><code class="lang-bash">Topic:fxwalsh/home/temp,Payload:{&#39;temperature&#39;: 34.7}
+Topic:fxwalsh/home/humidity,Payload:{&#39;humidity&#39;: 48.56332015991211}
+Topic:fxwalsh/home/pressure,Payload:{&#39;pressure&#39;: 1022.30786133}
+Topic:fxwalsh/home/temp,Payload:{&#39;temperature&#39;: 34.74}
+Topic:fxwalsh/home/humidity,Payload:{&#39;humidity&#39;: 48.578670501708984}
+Topic:fxwalsh/home/pressure,Payload:{&#39;pressure&#39;: 1022.31079102}</code></pre>
+<h3>Payload size best practice</h3>
+<p>How many bytes are you using for the payload in each message at the moment? Payloads should be kept small as possible if only to be fair to others that use the Internet!
+In your report, suggest ways to reduce the size of the payload, for example:</p>
+<pre><code class="lang-json">{&quot;Temperature&quot;: 20.635 }
+24 bytes 
+
+{“t”:20.63}
+11 bytes</code></pre>
+<ul>
+<li><p>How small could you make the temperature message?(hint: MQTT does not mandate the use of JSON and do you really need the &quot;t&quot;)</p>
+</li>
+<li><p>At the moment you are publishing to 3 topics. In your report suggest a justification, if any, to do this. Furthermore, demonstrate with code, how you could combine temperature, pressure and humidity in one JSON message.</p>
+</li>
+</ul>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="02">
+          <h1>Data Persistence &amp; Web APIs</h1>
+<p>You are producing data, but it&#39;s not persisted as of yet. You may need to access historical data at a later data for various reasons such as analytics, functional or regulatory reasons.
+Some online MQTT brokers offer a window of historical data but will probably lack the ability to extensively query the data.
+In this section you will now build a simple data acquisition device to persist your data both locally and remotely and use Web APIs to access that data.
+MQTT is now &quot;moving&quot; the data from a temperature sensor to a message broker. We can now write a data auisition program to move that data into a DB. </p>
+<h3>A DB on the RPi</h3>
+<p>Lets assume that your RPi will also function as your DB host. For this you can use a JSON-based database called <strong>TinyDB</strong>. You will do this on the RPi for now but in a real world scenario the DB would probably exiest be on another server or cloud based service.</p>
+<ul>
+<li>Install TinyDB on the RPi</li>
+</ul>
+<pre><code class="lang-bash">pip install TinyDB</code></pre>
+<p>We&#39;ll create a separate MQTT subscription to persist our data and populate the database</p>
+<ul>
+<li>Make a copy of <code>client_sub.py</code> called <code>persist_sub.py</code> and open it in an editor.</li>
+<li><p>Change the code in <code>persist_sub_py</code> as follows:</p>
+<ul>
+<li>add the import statement to include TinyDB and Query<pre><code class="lang-python">from tinydb import TinyDB, Query
+db = TinyDB(&#39;db.json&#39;)</code></pre>
+</li>
+<li>Find and change the subscription statement to just subscribe to temperature:</li>
+</ul>
+<pre><code class="lang-python">...
+# Start subscribe, with QoS level 0
+mqttc.subscribe(base_topic+&quot;/temperature&quot;, 0)
+...</code></pre>
+<ul>
+<li>Replace the contents of the <code>on_message</code> callback function with the following to insert the JSON into the DB:</li>
+</ul>
+<pre><code class="lang-python">  print(&quot;Insering into DB: &quot;+msg.payload)
+  db.insert(msg.payload)</code></pre>
+</li>
+<li><p>Now run <code>persist_sub.py</code>. Any temperature data published will now be persisted to the DB.</p>
+</li>
+<li><p>If it&#39;s not still running, run ``client_pub.py&#39;&#39; program on the RPi again and leave it generate some temperature messages. </p>
+</li>
+</ul>
+<ul>
+<li>Open <code>db.json</code> in a text editor. You should see messages beginning to be the persisted in the file similar to the following:</li>
+</ul>
+<pre><code class="lang-json">{&quot;_default&quot;: {&quot;1&quot;: {&quot;timestamp&quot;: 1541234209.524762, &quot;temperature&quot;: &quot;18.77&quot;}, &quot;2&quot;: {&quot;timestamp&quot;: 1541234224.785746, &quot;temperature&quot;: &quot;18.77&quot;},</code></pre>
+<h3>Simple Analytics</h3>
+<p>Lets say you want to analyse the data to find the following:</p>
+<ul>
+<li>Maximum temp recorded</li>
+<li>Minimum temp recorded</li>
+<li>Average temp recorded</li>
+</ul>
+<p>You can do this both programatically and using the Python console as follows</p>
+<ul>
+<li><p>In the same directory as the <code>db.json</code> file,  start the Python console by typing <code>python</code> in a terminal window.</p>
+</li>
+<li><p>Type the following commands</p>
+</li>
+</ul>
+<pre><code class="lang-python">&gt;&gt;&gt; from tinydb import TinyDB, Query
+&gt;&gt;&gt; db = TinyDB(&#39;db.json&#39;)</code></pre>
+<ul>
+<li><p>List all items in the db:</p>
+<pre><code class="lang-python">&gt;&gt;&gt; for item in db:
+...     print(item)
+... (HIT RETURN ON THIS LINE!)
+{u&#39;timestamp&#39;: 1541453440.878712, u&#39;temperature&#39;: 34.67}
+{u&#39;timestamp&#39;: 1541453455.783444, u&#39;temperature&#39;: 34.5}
+{u&#39;timestamp&#39;: 1541453470.80211, u&#39;temperature&#39;: 34.54}
+{u&#39;timestamp&#39;: 1541453485.814092, u&#39;temperature&#39;: 34.63}
+{u&#39;timestamp&#39;: 1541453500.839073, u&#39;temperature&#39;: 34.61}
+{u&#39;timestamp&#39;: 1541453515.855052, u&#39;temperature&#39;: 34.76}
+{u&#39;timestamp&#39;: 1541453530.868686, u&#39;temperature&#39;: 34.74}
+{u&#39;timestamp&#39;: 1541453545.887301, u&#39;temperature&#39;: 34.5}</code></pre>
+</li>
+<li><p>Find all occurrences of  temperature less than 34.5:</p>
+</li>
+</ul>
+<pre><code class="lang-python">&gt;&gt;&gt; Temp = Query()
+&gt;&gt;&gt; db.search(Temp.temperature &lt; 34.5)
+[{u&#39;temperature&#39;: 33.93}, {u&#39;temperature&#39;: 33.84}, {u&#39;temperature&#39;: 33.84}, {u&#39;temperature&#39;: 33.84}, {u&#39;temperature&#39;: 33.97}, {u&#39;temperature&#39;: 33.86}, {u&#39;temperature&#39;: 33.7}, {u&#39;temperature&#39;: 34.06}, {u&#39;temperat.....
+&gt;&gt;&gt;</code></pre>
+<ul>
+<li>Using the above examples, run the following python script to extract max,min and average temp.</li>
+</ul>
+<pre><code class="lang-python">from tinydb import TinyDB, Query
+db = TinyDB(&#39;db.json&#39;)
+
+## get a list of temps from the DB
+temps = [float(item[&#39;temperature&#39;]) for item in db]
+print(min(temps))
+print(max(temps))
+print(sum(temps)/len(temps))</code></pre>
+<h3>Web API</h3>
+<p>Lets assume you wish to make the temperature data available via a web API. This might be useful for weather station dashboard or other applications, both current and in the future, that need access to the data.</p>
+<ul>
+<li>Install Flask</li>
+</ul>
+<pre><code class="lang-bash">pip install flask</code></pre>
+<ul>
+<li>To allow cross origin requests (CORS). We will also use the <code>flask-cors</code> library. Although not used in this lab, it would be useful if you use this API in another web application/web site.</li>
+</ul>
+<pre><code class="lang-bash">pip install -U flask-cors</code></pre>
+<p>Flask is a web framework written in Python that allow you, among other things, to implement web APIs.</p>
+<ul>
+<li>Create a Python module called <code>temp_db_data.py</code> that exposes the functions that do simple analysis on the data:</li>
+</ul>
+<pre><code class="lang-python">from tinydb import TinyDB, Query
+import time,datetime
+db = TinyDB(&#39;db.json&#39;)
+
+temps = [float(item[&#39;temperature&#39;]) for item in db]
+
+def min_temp():
+    return min(temps)
+
+def max_temp():
+    return max(temps)
+
+def mean_temp():
+    return sum(temps)/len(temps)
+
+def temp_items(start,end):
+    temps = Query()
+    return db.search((temps.timestamp &gt;= start) &amp; (temps.timestamp &lt;= end))</code></pre>
+<p>You will create an API according to the following design:</p>
+<p><img src="./img/api.png" alt="Sense Web API"></p>
+<ul>
+<li>Write a python program called <code>sense_api.py</code> that exposes the above module functions as a web API :</li>
+</ul>
+<pre><code class="lang-python">from flask import Flask, request
+from flask_cors import CORS
+import temp_db_data
+from sense_hat import SenseHat
+
+sense = SenseHat()
+
+#clear sensehat and intialise light_state
+sense.clear()
+
+
+app = Flask(__name__)
+CORS(app)
+
+@app.route(&#39;/sensehat/temp&#39;,methods=[&#39;GET&#39;])
+def current_temp():
+    temp=round(sense.get_temperature(),2)
+    return str(temp)
+
+@app.route(&#39;/sensehat/temp/&lt;metric&gt;&#39;,methods=[&#39;GET&#39;])
+def temp_metric(metric):
+    if (metric== &quot;mean&quot;): 
+        return str(temp_db_data.mean_temp())
+    if (metric== &quot;max&quot;):
+        return str(temp_db_data.max_temp())
+    if (metric== &quot;min&quot;): 
+        return str(temp_db_data.min_temp())
+    return &quot;Metric not found&quot;
+
+@app.route(&#39;/sensehat/light&#39;,methods=[&#39;POST&#39;])
+def light_post():
+    state=request.args.get(&#39;state&#39;)
+    print (state)
+    if (state==&quot;on&quot;):
+        sense.clear(255,255,255)
+        return &#39;{&quot;state&quot;:&quot;on&quot;}&#39;
+    else: 
+        sense.clear(0,0,0)
+        return &#39;{&quot;state&quot;:&quot;off&quot;}&#39;
+
+@app.route(&#39;/sensehat/light&#39;,methods=[&#39;GET&#39;])
+def light_get():
+    #check top left pixel value(==0 - off, &gt;0 - on) 
+    print(sense.get_pixel(0, 0)) 
+    if sense.get_pixel(0, 0)[0] == 0:
+        return &#39;{&quot;state&quot;:&quot;off&quot;}&#39;
+    else:
+        return &#39;{&quot;state&quot;:&quot;on&quot;}&#39;
+
+if __name__ == &quot;__main__&quot;:
+    app.run(host=&#39;0.0.0.0&#39;, port=5000, debug=True)</code></pre>
+<p>Finally, configure Flask to use your service and run it by entering the following commands at the command line(**Note: this is for  Unix/RPi):</p>
+<pre><code class="lang-bash">FLASK_APP=hello.py
+python temp_api.py</code></pre>
+<p>This will start the HTTP server on port 5000. 
+You should now be able to access the API using HTTP.</p>
+<h3>Curl it</h3>
+<p>You can use <a href="https://curl.haxx.se/">Curl</a> to check if the API is responding. </p>
+<ul>
+<li>Find the IP address of the RPi using the <code>ifconfig</code> command</li>
+<li>Run <code>Curl GET</code> to request the URL resource you want...</li>
+</ul>
+<pre><code class="lang-bash">curl http://YOUR_PI_IP:5000/sensehat/temp</code></pre>
+<ul>
+<li>Enter the above URL into the address field of a browser and you should see something similar to the following:</li>
+</ul>
+<p><img src="./img/browser.png" alt="Browser HTTP Request"></p>
+<ul>
+<li>Get the mean temperature as follows:</li>
+</ul>
+<pre><code class="lang-bash">curl http://YOUR_PI_IP:5000/sensehat/temp/mean</code></pre>
+<p>+Now try getting minimum and maximum recorded temperature by requesting <code>sensehat/temp/min</code> and <code>sensehat/temp/max</code></p>
+<ul>
+<li>Turn on the LED array (light) using a  <code>HTTP POST</code> request to <code>/sensehat/light</code> with the query string <code>state=on</code> as follows:</li>
+</ul>
+<pre><code class="lang-bash">curl -X POST http://YOUR_PI_IP:5000/sensehat/light?state=on</code></pre>
+<ul>
+<li>Turn it off using a query string <code>state=off</code></li>
+</ul>
+<pre><code class="lang-bash">curl -X POST http://YOUR_PI_IP:5000/sensehat/light?state=off</code></pre>
+<ul>
+<li>Find out the IP address of other people in your lab group. You should be able to make requests to their APIs also.</li>
+</ul>
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+  $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+</script>
+</body>
+</html>
