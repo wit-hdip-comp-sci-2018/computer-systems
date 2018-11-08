@@ -453,7 +453,8 @@ MQTT is now &quot;moving&quot; the data from a temperature sensor to a message b
 <li>Make a copy of <code>client_sub.py</code> called <code>persist_sub.py</code> and open it in an editor.</li>
 <li><p>Change the code in <code>persist_sub_py</code> as follows:</p>
 <ul>
-<li>add the import statement to include TinyDB and Query<pre><code class="lang-python">from tinydb import TinyDB, Query
+<li>add the import statement to include TinyDB, Query and json.<pre><code class="lang-python">import json
+from tinydb import TinyDB, Query
 db = TinyDB(&#39;db.json&#39;)</code></pre>
 </li>
 <li>Find and change the subscription statement to just subscribe to temperature:</li>
@@ -466,7 +467,8 @@ mqttc.subscribe(base_topic+&quot;/temperature&quot;, 0)
 <li>Replace the contents of the <code>on_message</code> callback function with the following to insert the JSON into the DB:</li>
 </ul>
 <pre><code class="lang-python">  print(&quot;Insering into DB: &quot;+msg.payload)
-  db.insert(msg.payload)</code></pre>
+  msg_json=json.loads(msg.payload)
+  db.insert(msg_json)</code></pre>
 </li>
 <li><p>Now run <code>persist_sub.py</code>. Any temperature data published will now be persisted to the DB.</p>
 </li>
