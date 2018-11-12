@@ -1,27 +1,23 @@
+
+
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-        type="text/css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-        rel="stylesheet"/>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
   <style>
     
 
@@ -67,170 +63,261 @@ h3 {
 
 
   </style>
-</head>
 
-<body>
+  <body class="lab">
 
-
-
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
     
-      <a href="../../index.html">  TCP/IP Protocol Stack  </a>
-    
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="Packet Sniffing using TShark">
-        Packet Sniffing using TShark
-      </a>
-    
-      <a class="item" data-tab="01">
-        01
-      </a>
-    
-      <a class="item" data-tab="02">
-        02
-      </a>
-    
-      <a class="item" data-tab="03">
-        03
-      </a>
-    
-      <a class="item" data-tab="04">
-        04
-      </a>
-    
-      <a class="item" data-tab="05">
-        05
-      </a>
-    
+  <div class="uk-offcanvas-content">
+    <div id="offcanvas-usage" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav">
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Preparatory Lab
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Shell Scripting
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Vagrant and Sense HAT
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Assessment-Guides
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Linux Practice Exercises
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Home Network
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Scripting Exercises
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-vagrant/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Vagrant and Virtualisation
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+CPU
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-packet-sniffing/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Packet Sniffing using TShark
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+NoBases
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-IP-Networking/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+IP Networking
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Boolean
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+The Headless RPi
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Logic
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Presence Detector 1
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-b/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+BLE
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Assessment-Time
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+TCP-Sockets
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Messaging Lab
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Labs
+                </a>
+              </li>
+            
+          
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="ui pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    <br><br>
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
-      
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment">
-      <br>
-      
-        <div class="ui tab segment lab" data-tab="Packet Sniffing using TShark">
-          <h1>Network Traffic Monitoring and Analysis</h1>
-<p>Use TShark to capture and analyse network traffic.</p>
 
+    <div uk-sticky>
+      <nav class="uk-navbar">
+        <div class="uk-navbar-left">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
+            <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
+                   uk-tooltip></a></li>
+             }}
+              <li class="uk-active"><a href="../../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
+                                       pos="bottom" uk-tooltip> TCP/IP Protocol Stack </a></li>
+            
+          </ul>
         </div>
-      
-        <div class="ui tab segment lab" data-tab="01">
-          <h2>Objectives</h2>
+        <div class="uk-navbar-right">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
+              uk-switcher="connect: .switcher-container">
+            
+              <li><a href="#">Packet Sniffing using TShark</a></li>
+            
+              <li><a href="#">01</a></li>
+            
+              <li><a href="#">02</a></li>
+            
+              <li><a href="#">03</a></li>
+            
+              <li><a href="#">04</a></li>
+            
+              <li><a href="#">05</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="uk-container uk-container-expand">
+      <ul class="uk-switcher switcher-container">
+        
+          <li> <h1>Network Traffic Monitoring and Analysis</h1>
+<p>Use TShark to capture and analyse network traffic.</p>
+</li>
+        
+          <li> <h2>Objectives</h2>
 <p><img src="./img/topology1.png" alt="Topology"></p>
 <p>Wireshark is a software protocol analyzer, or &quot;packet sniffer&quot; application, used
 for network troubleshooting, analysis, software and protocol development, and education. In this lab, you will:</p>
@@ -250,11 +337,9 @@ for network troubleshooting, analysis, software and protocol development, and ed
 <li>VirtualBox</li>
 <li>Complete last week2 lab - Vagrant and Virtualisation </li>
 </ul>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="02">
-          <h2>Set up Virtual Network</h2>
+</li>
+        
+          <li> <h2>Set up Virtual Network</h2>
 <ol>
 <li>Create a lab directory called <strong>cs-nets-lab3</strong>.</li>
 <li>Open a terminal window in the directory and run <code>vagrant init</code> to initialise it as a vagrant project</li>
@@ -286,11 +371,9 @@ ping 192.168.5.2</li>
 ``` 
 Both should respond successfully.</p>
 <p>You will now send and monitor network traffic between pc0, pc1 and the host machine. </p>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="03">
-          <h2>Capture and Analyse Local ICMP Data in Wireshark</h2>
+</li>
+        
+          <li> <h2>Capture and Analyse Local ICMP Data in Wireshark</h2>
 <p>You will now ping another PC on the private network and capture ICMP requests and replies in
 tshark. You will also look inside the frames captured for specific information. This analysis should help to
 clarify how packet headers are used to transport data to their destination.</p>
@@ -446,11 +529,9 @@ pings. You will then determine what is different about this data from the data e
 <li>Stop tshark recording network traffic by entering <em>ctrl+c</em> in the SSH session window. Now examine the file <code>/vagrant/pc0-eth0-traffic1.pcap</code> . Note that, when you ping the URLs listed, the Domain Name Server (DNS) translates the URL to an IP address.</li>
 <li>Try the same procedure for www.cisco.com and www.yahoo.com. Note the IP address received for each URL.  </li>
 </ul>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="04">
-          <h1>FTP PDU Capture</h1>
+</li>
+        
+          <li> <h1>FTP PDU Capture</h1>
 <p>In this section you will examine File Transfer Protocol (FTP) network traffic. Remember from the lectures that we said FTP traffic is through port 21 (control) and 20(data)</p>
 <ul>
 <li>As before, start capturing network data on machine pc0, network interface eth0. This time, store the data in file <code>/vagrant/pc0-eth0-traffic2.pcap</code>. This time, we will filter to port 20 and 21. This is specified using the <em>pcap filter syntax</em> indicated by the <em>-f</em> flag.</li>
@@ -498,11 +579,9 @@ Password: <ENTER></p>
  20 14.391252000 193.1.193.64 -&gt; 10.0.2.15    FTP 73 Response: 215 UNIX Type: L8
  22 32.045515000    10.0.2.15 -&gt; 193.1.193.64 FTP 60 Request: QUIT
  24 32.053020000 193.1.193.64 -&gt; 10.0.2.15    FTP 68 Response: 221 Goodbye.</code></pre>
-
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="05">
-          <h1>HTTP PDU Capture</h1>
+</li>
+        
+          <li> <h1>HTTP PDU Capture</h1>
 <p>You will now run tshark to capture HTTP traffic on interface <em>eth0</em> and write the data to <code>/vagrant/pc0-eth0-traffic3.pcap</code></p>
 <ul>
 <li><p>In a new or existing SSH session with pc0, start capturing tcp traffic on port 80.</p>
@@ -545,67 +624,26 @@ Password: <ENTER></p>
 <p>The above data gives the host and user-agent (requesting application). </p>
 </li>
 </ul>
-
-        </div>
-      
+</li>
+        
+      </ul>
     </div>
-  </div>
-</div>
 
-<script>
-  $(document).on('keydown', function(e) {
-  e = e || window.event;
-  var nextTab;
-  switch (e.which || e.keyCode) {
-    case 37: // left
-      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
-      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
-      nextTab.click();
-      $('.pusher').focus();
-      break;
-
-    case 39: // right
-      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
-      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
-      nextTab.click();
-      $('.pusher').focus();
-      break;
-  }
-});
-
-  $(document).ready(function() {
-  $('img').addClass('ui image');
-
-  $('.ui.embed').embed();
-
+    <script>
+      $(document).ready(function() {
   const $images = $('.lab img');
   jQuery.each($images, function(i) {
     if ($images[i].alt.length > 0) {
-      const divImg = $(document.createElement('div')).addClass(
-        'ui basic segment',
-      );
+      const divImg = $(document.createElement('div')).addClass('');
       $($images[i]).wrap(divImg);
-      const divLabel = $(document.createElement('div')).addClass(
-        'ui blue ribbon label',
-      );
+      const divLabel = $(document.createElement('div')).addClass('uk-label uk-text-lowercase');
       divLabel.append($images[i].alt);
-      $(divLabel).insertBefore($images[i]);
+      $(divLabel).insertAfter($images[i]);
+      $('<br>').insertAfter($images[i]);
     }
   });
-
-  $('.ui.menu .item').tab({
-    history: true,
-    historyType: 'hash',
-  });
-
-  $('.popup').popup();
-
-  $('.ui.sidebar')
-    .sidebar({ context: $('.pushable') })
-    .sidebar('setting', 'transition', 'slide out')
-    .sidebar('attach events', '#toc');
 });
 
-</script>
-</body>
+    </script>
+  </body>
 </html>

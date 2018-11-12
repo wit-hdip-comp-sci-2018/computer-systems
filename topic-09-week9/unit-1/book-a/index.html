@@ -283,9 +283,9 @@ Labs
           <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
             <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
                    uk-tooltip></a></li>
-            
-              <li class="uk-active"><a href="../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
-                                     pos="bottom" uk-tooltip> ASSESSMENT-1: Linux Shell Scripting </a></li>
+             }}
+              <li class="uk-active"><a href="../../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
+                                       pos="bottom" uk-tooltip> Scheduling </a></li>
             
           </ul>
         </div>
@@ -293,11 +293,13 @@ Labs
           <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
               uk-switcher="connect: .switcher-container">
             
-              <li><a href="#">Assessment-Guides</a></li>
+              <li><a href="#">Labs</a></li>
             
-              <li><a href="#">Files-Required</a></li>
+              <li><a href="#">Sched_EG</a></li>
             
-              <li><a href="#">Linux-Mail</a></li>
+              <li><a href="#">EXER</a></li>
+            
+              <li><a href="#">Exer_Soln</a></li>
             
           </ul>
         </div>
@@ -307,94 +309,121 @@ Labs
     <div class="uk-container uk-container-expand">
       <ul class="uk-switcher switcher-container">
         
-          <li> <h1>Shell Scripting Assessment Guidelines</h1>
-<p>Shell Scripting Assessment Guidelines</p>
-<h1>Assessment Guide Video also available under the previous  <strong>Assessment Details</strong> area</h1>
-<pre><code>**PLEASE NOTE: There is now a linked guide video underneath that will complement the Assessment Details file**</code></pre>
+          <li> <h1>Operating Systems</h1>
+<p>Scheduling Examples</p>
 <ul>
-<li>The following labs go through some exercises for you to try out that may be useful for your Shell Scripting Assessment </li>
-</ul>
-<h1>Assessment Due Date</h1>
-<pre><code> - to be uploaded to Moodle on or before 11:55pm Sunday 18th November (week 9)</code></pre>
-<h1>What to Upload?</h1>
-<pre><code>
-(1) COMPRESSED FILE
-
-- you are required to compress all of your files for upload to the associated Moodle upload area
-
-(2) VIDEO
-
-The purpose of this video is for you to do a full run through each of the files in your Assessment and describing them using voice only.
-
-- You should demonstrate the files using a screencasting software of your choice that allows you to record your screen plus voice audio.
-
-(e.g.&#39;s Kazam, SimpleScreenRecorder, Vokoscreen)
-
-- You should describing/defend your choices/approaches (using your machines standard mic for your voice is sufficient).
-
-- There is no particular time constraints on this video, it will most likely be &lt;10 minutes, sufficient time to allow you to describe your Assessment components.
-
-- You may choose to upload the video or Moodle or ideally upload a link to where you&#39;ve hosted it.</code></pre>
+<li><p>The first lab here goes through examples of some of the Scheduling techniques that are used in modern operating systems to complement the notes.</p>
 </li>
-        
-          <li> <h1>Shell Scripting Assessment Notes</h1>
-<ul>
-<li>In your <strong>Assessment Details</strong>, you can read that the <strong>Menu</strong> is to be the entry point of your project.</li>
-</ul>
-<p><img src="./img/wk2.jpg" alt=""></p>
-<ul>
-<li><strong>Menu</strong>, file #1, will allow the user to read a command line menu and from this, a user can select from any of the options presented and be brought to the appropriate script.</li>
-</ul>
-<p><img src="./img/menu.jpg" alt="Sample Basic Menu"></p>
-<ul>
-<li><p>So, if the user enters <strong>1</strong> then send them to the <strong>./AddCust</strong></p>
+<li><p>The next lab asks some questions for you to consider, having gone through and understood the purposes of and algorithms of the techniques in the notes. </p>
 </li>
-<li><p>This should be file #2 that you will have created which will automatically create a file called <strong>CustomerDetails</strong>, if it doesn&#39;t already exist... you might consider using re-direction in your command</p>
-</li>
-<li><p><strong>CustomerDetails</strong> is therefore file #3 that the script will create at the beginning to enter the first record</p>
-</li>
-<li><p>If the user enters <strong>2</strong> then send them to the <strong>./RemCust</strong> (so this is file #4 that you will have created)</p>
-</li>
-<li><p>If the user enters <strong>3</strong> then send them to the <strong>./FindCust</strong> (so this is file #5 that you will have created)</p>
-</li>
-<li><p>Finally a user will be allowed to <strong>email</strong> customer(s) and you can choose how you would like to approach this... see the next lab</p>
-</li>
-<li><p>All menu options should loop until a user chooses to exit</p>
+<li><p>There are some solutions to these problems in the following lab</p>
 </li>
 </ul>
 </li>
         
-          <li> <h1>Linux Mail Component</h1>
+          <li> <h1>Exercises</h1>
+<h1>Exercises demonstrating different scheduling Techniques</h1>
+<h2>FCFS Scheduling</h2>
 <ul>
-<li>There is a primitive mailer on Linux that is relatively easy to use from the command line.</li>
-<li>You check for mail by just typing:</li>
+<li>Suppose that 3 processes arrive in the order: P1, P2, P3 and they have the following CPU burst times:</li>
 </ul>
-<pre><code>mail</code></pre>
+<p><img src="./img/fcfs.png" alt=""></p>
+<p>Using FCFS, the Gantt Chart for the schedule is:</p>
+<p><img src="./img/fcfsgantt.png" alt=""></p>
 <ul>
-<li>You send mail by typing</li>
-</ul>
-<pre><code>mail joe@bloggs.com -s &quot;Message for Joe&quot;</code></pre>
-<ul>
-<li><p>You then type your mail and end it by typing <strong>CTRL+D</strong> on a line of its own</p>
+<li>Waiting Time for P1=0; P2=24; P3=27</li>
+<li>Average waiting time = (0 + 24 + 27) / 3 = 17</li>
+<li><p>Average turn-around time = (24+27+30)/3=27</p>
 </li>
-<li><p>You’ll need to install mailutils first if not already installed:</p>
-</li>
-</ul>
-<pre><code>sudo apt-get install mailutils
-
-(choose local only option)</code></pre>
-<ul>
-<li><p>This facility means that you will be only allowed send test emails and not emails via the internet so this is perfectly OK. An email will not actually be sent out. You can test that the email was sent via your mail command
-This is sufficient for the purpose of this assessment i.e. if you tested sending an email to your own email <em>myemail@gmail.com</em>, it is OK that you will not see this email in your own gmail account. </p>
-</li>
-<li><p>You might consider setting a variable to be equal to a find (recall <strong>grep</strong>) of the appropriate person in a particular file where the records are stored to begin with... what next?? Maybe pipe the output to an awk command? Why? </p>
-</li>
-<li><p>You might consider something like this to email the person with a particular message:</p>
-<pre><code>echo $message | mail -s $subject $emailaddress</code></pre>
-</li>
-<li><p>This is only one of MANY approaches that you might have taken to searching for a particular person/group you want to send an email to and then emailing them... what I&#39;m looking for is your command of the language</p>
+<li><p>Suppose the processes had arrived in the order P2, P3, P1. Then we would have the Gantt chart with FCFS:</p>
 </li>
 </ul>
+<p><img src="./img/fcfsgantt2.png" alt=""></p>
+<ul>
+<li>Waiting Time for P1=6; P2=0; P3=3</li>
+<li>Average waiting time = (6 + 0 + 3) / 3 = 3</li>
+<li><p>Average turn-around time = (3+6+30)/3=13</p>
+</li>
+<li><p>The average waiting time is much less than in the first case, which demonstrates a classic convoy effect where all the other processes are waiting for one long process to finish using the CPU. </p>
+</li>
+<li><p>This results in lower CPU and device utilisation</p>
+</li>
+<li><p>Example #2 shows that higher utilisation might be possible if the shortest processes were allowed to run first. </p>
+</li>
+</ul>
+<h2>SJN Scheduling</h2>
+<ul>
+<li>Suppose that 4 processes arrive as follows:</li>
+</ul>
+<p><img src="./img/sjn.png" alt=""></p>
+<p>Using SJN, we would have the following Gantt chart:</p>
+<p><img src="./img/sjngantt.png" alt=""></p>
+<ul>
+<li>Average waiting time = (0 + 3 + 6 + 7) / 4 = 4</li>
+</ul>
+<h2>SRT Scheduling</h2>
+<ul>
+<li>Suppose that 4 processes arrive as follows (same as SJN example):</li>
+</ul>
+<p><img src="./img/sjn.png" alt=""></p>
+<p>Using SRT, we would have the following Gantt chart:</p>
+<p><img src="./img/srt.png" alt=""></p>
+<p>Average waiting time = (9 + 1 + 0 +2)/4 = 3   </p>
+<ul>
+<li><strong>Note that this average wait time is better than with SJN.</strong></li>
+</ul>
+<h2>Priority Scheduling</h2>
+<p><img src="./img/priority.png" alt=""></p>
+<h2>Round Robin Scheduling</h2>
+<p>Suppose that 4 processes arrive at time 0, with the following CPU burst times:</p>
+<p><img src="./img/rr.png" alt=""></p>
+<p>Using RR with a time quantum of 20, we would have the following Gantt chart:</p>
+<p><img src="./img/rrgantt.png" alt=""></p>
+<ul>
+<li>Average waiting time = (81 + 20 + 94 + 97)/4 = 73   </li>
+</ul>
+<p><strong>Typically there will be higher average turnaround time than SJN but better response time.</strong></p>
+<h2>Multilevel Feedback Queue Scheduling</h2>
+<p>Let’s consider there are three queues Q1, Q2 and Q3.</p>
+<pre><code>Q1 Time quantum 9ms    
+Q2 Time quantum 18ms        
+Q3 FCFS</code></pre>
+<p><img src="./img/mlevel.png" alt=""></p>
+<ul>
+<li>Any process entering the ready queue is put in Q1. </li>
+<li>Then, a process in Q1 is given a time quantum of 9 milliseconds. </li>
+<li>If it does not finish within time, it is moved to the tail of Q2.</li>
+<li>If Q1 is empty, the process at the head of Q2 is given a quantum of 18 milliseconds. </li>
+<li>If it does not complete, it is preempted and is put into Q3.</li>
+<li><p>Processes in Q3 are run on an FCFS basis, only when Q1 and Q2 are empty.</p>
+</li>
+<li><p>A technique called <strong>Aging</strong> promotes lower priority process to the next higher priority queue after a suitable interval of time.</p>
+</li>
+</ul>
+</li>
+        
+          <li> <h1>Scheduling Exercises</h1>
+<h1>Which Scheduling Algorithm is best for the situations below?</h1>
+<h2>Situation 1</h2>
+<pre><code>The incoming processes are short and there is no need for the processes to execute in a specific order.</code></pre>
+<h2>Situation 2</h2>
+<pre><code>The processes are a mix of long and short processes and the task will only be completed if all the processes are executed successfully in a given time.</code></pre>
+<h2>Situation 3</h2>
+<pre><code>The processes are a mix of user based and kernel based processes.</code></pre>
+</li>
+        
+          <li> <h1>Exercises</h1>
+<h1>Which Scheduling Algorithm is best for the situations below?</h1>
+<h2>Situation 1</h2>
+<pre><code>The incoming processes are short and there is no need for the processes to execute in a specific order.</code></pre>
+<p>In this case, FCFS works best when compared to SJF and RR because the processes are short which means that no process will wait for a longer time. When each process is executed one by one, every process will be executed eventually.</p>
+<h2>Situation 2</h2>
+<pre><code>The processes are a mix of long and short processes and the task will only be completed if all the processes are executed successfully in a given time.</code></pre>
+<p>Round Robin scheduling works efficiently here because it does not cause starvation and also gives equal time quantum for each process. </p>
+<h2>Situation 3</h2>
+<pre><code>The processes are a mix of user based and kernel based processes.</code></pre>
+<p>Priority based scheduling works efficiently in this case because generally kernel based processes have higher priority when compared to user based processes.</p>
+<p>For example, the scheduler itself is a kernel based process, it should run first so that it can schedule other processes</p>
 </li>
         
       </ul>
