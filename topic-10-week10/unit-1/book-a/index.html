@@ -301,9 +301,9 @@ Labs
           <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
             <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
                    uk-tooltip></a></li>
-            
-              <li class="uk-active"><a href="../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
-                                     pos="bottom" uk-tooltip> ASSESSMENT-1: Linux Shell Scripting </a></li>
+             }}
+              <li class="uk-active"><a href="../../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
+                                       pos="bottom" uk-tooltip> Memory Management </a></li>
             
           </ul>
         </div>
@@ -311,11 +311,15 @@ Labs
           <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
               uk-switcher="connect: .switcher-container">
             
-              <li><a href="#">Assessment-Guides</a></li>
+              <li><a href="#">Labs</a></li>
             
-              <li><a href="#">Files-Required</a></li>
+              <li><a href="#">Swap</a></li>
             
-              <li><a href="#">Linux-Mail</a></li>
+              <li><a href="#">Paging</a></li>
+            
+              <li><a href="#">Segments</a></li>
+            
+              <li><a href="#">Fragmentation</a></li>
             
           </ul>
         </div>
@@ -325,94 +329,127 @@ Labs
     <div class="uk-container uk-container-expand">
       <ul class="uk-switcher switcher-container">
         
-          <li> <h1>Shell Scripting Assessment Guidelines</h1>
-<p>Shell Scripting Assessment Guidelines</p>
-<h1>Assessment Guide Video also available under the previous  <strong>Assessment Details</strong> area</h1>
-<pre><code>**PLEASE NOTE: There is now a linked guide video underneath that will complement the Assessment Details file**</code></pre>
+          <li> <h1>Memory Management Techniques</h1>
+<p>Principles of Memory Management</p>
+<p>The following labs supplement the class notes and demonstrate some of the workings of the Memory Management Techniques plus some examples of fundamental principles in Memory Management.</p>
 <ul>
-<li>The following labs go through some exercises for you to try out that may be useful for your Shell Scripting Assessment </li>
-</ul>
-<h1>Assessment Due Date</h1>
-<pre><code> - to be uploaded to Moodle on or before 11:55pm Sunday 18th November (week 9)</code></pre>
-<h1>What to Upload?</h1>
-<pre><code>
-(1) COMPRESSED FILE
-
-- you are required to compress all of your files for upload to the associated Moodle upload area
-
-(2) VIDEO
-
-The purpose of this video is for you to do a full run through each of the files in your Assessment and describing them using voice only.
-
-- You should demonstrate the files using a screencasting software of your choice that allows you to record your screen plus voice audio.
-
-(e.g.&#39;s Kazam, SimpleScreenRecorder, Vokoscreen)
-
-- You should describing/defend your choices/approaches (using your machines standard mic for your voice is sufficient).
-
-- There is no particular time constraints on this video, it will most likely be &lt;10 minutes, sufficient time to allow you to describe your Assessment components.
-
-- You may choose to upload the video or Moodle or ideally upload a link to where you&#39;ve hosted it.</code></pre>
-</li>
-        
-          <li> <h1>Shell Scripting Assessment Notes</h1>
-<ul>
-<li>In your <strong>Assessment Details</strong>, you can read that the <strong>Menu</strong> is to be the entry point of your project.</li>
-</ul>
-<p><img src="./img/wk2.jpg" alt=""></p>
-<ul>
-<li><strong>Menu</strong>, file #1, will allow the user to read a command line menu and from this, a user can select from any of the options presented and be brought to the appropriate script.</li>
-</ul>
-<p><img src="./img/menu.jpg" alt="Sample Basic Menu"></p>
-<ul>
-<li><p>So, if the user enters <strong>1</strong> then send them to the <strong>./AddCust</strong></p>
-</li>
-<li><p>This should be file #2 that you will have created which will automatically create a file called <strong>CustomerDetails</strong>, if it doesn&#39;t already exist... you might consider using re-direction in your command</p>
-</li>
-<li><p><strong>CustomerDetails</strong> is therefore file #3 that the script will create at the beginning to enter the first record</p>
-</li>
-<li><p>If the user enters <strong>2</strong> then send them to the <strong>./RemCust</strong> (so this is file #4 that you will have created)</p>
-</li>
-<li><p>If the user enters <strong>3</strong> then send them to the <strong>./FindCust</strong> (so this is file #5 that you will have created)</p>
-</li>
-<li><p>Finally a user will be allowed to <strong>email</strong> customer(s) and you can choose how you would like to approach this... see the next lab</p>
-</li>
-<li><p>All menu options should loop until a user chooses to exit</p>
-</li>
+<li>Time for you to practice by going through the examples to help you understand the memory management techniques in better depth </li>
 </ul>
 </li>
         
-          <li> <h1>Linux Mail Component</h1>
+          <li> <h1>Swapping</h1>
 <ul>
-<li>There is a primitive mailer on Linux that is relatively easy to use from the command line.</li>
-<li>You check for mail by just typing:</li>
+<li>The total time taken by swapping process includes the time it takes to move the entire process to a secondary disk and then to copy the process back to memory, as well as the time the process takes to regain main memory.</li>
 </ul>
-<pre><code>mail</code></pre>
+<h2>For example</h2>
 <ul>
-<li>You send mail by typing</li>
-</ul>
-<pre><code>mail joe@bloggs.com -s &quot;Message for Joe&quot;</code></pre>
-<ul>
-<li><p>You then type your mail and end it by typing <strong>CTRL+D</strong> on a line of its own</p>
+<li><p>Assume  the user process is of size 2048KB and on a standard hard disk where swapping will take place has a data transfer rate around 1MB per second. </p>
 </li>
-<li><p>You’ll need to install mailutils first if not already installed:</p>
+<li><p>The actual transfer time of the process to or from memory will take:</p>
 </li>
 </ul>
-<pre><code>sudo apt-get install mailutils
-
-(choose local only option)</code></pre>
+<pre><code>2048KB / 1024KB per second
+= 2 seconds
+= 2000 milliseconds</code></pre>
 <ul>
-<li><p>This facility means that you will be only allowed send test emails and not emails via the internet so this is perfectly OK. An email will not actually be sent out. You can test that the email was sent via your mail command
-This is sufficient for the purpose of this assessment i.e. if you tested sending an email to your own email <em>myemail@gmail.com</em>, it is OK that you will not see this email in your own gmail account. </p>
+<li>Now considering in and out time, it will take the 4000 milliseconds (4 secs) plus other overhead where the process competes to regain main memory.</li>
+</ul>
+<h1>Roll out, roll in Swapping Technique</h1>
+<ul>
+<li>A swapping variant used for priority-based scheduling algorithms; </li>
+<li><p>lower-priority process is swapped out so higher-priority process can be loaded and executed</p>
 </li>
-<li><p>You might consider setting a variable to be equal to a find (recall <strong>grep</strong>) of the appropriate person in a particular file where the records are stored to begin with... what next?? Maybe pipe the output to an awk command? Why? </p>
+<li><p>Major part of swap time is transfer time; total transfer time is directly proportional to the amount of memory swapped </p>
 </li>
-<li><p>You might consider something like this to email the person with a particular message:</p>
-<pre><code>echo $message | mail -s $subject $emailaddress</code></pre>
-</li>
-<li><p>This is only one of MANY approaches that you might have taken to searching for a particular person/group you want to send an email to and then emailing them... what I&#39;m looking for is your command of the language</p>
+<li><p>If the next processes to be put on CPU is not in memory, a process needs to be swapped out and swap in target process, then the context switch time can then be very high:</p>
 </li>
 </ul>
+<pre><code>100MB process swapping to hard disk with transfer rate of 50MB/sec
+Swap out time of 2000ms
+Plus swap in of same sized process
+Total context switch swapping component time of 4000ms (4 seconds)</code></pre>
+<h2>EXERCISE</h2>
+<ul>
+<li>What is meant by <strong>memory thrashing</strong>?</li>
+</ul>
+</li>
+        
+          <li> <h2>Paging Example</h2>
+<ul>
+<li><p>A logical address in a paged memory management system begins as a single integer value relative to the starting point of the program written as <page, offset></p>
+</li>
+<li><p>16-bit addresses are used and the page size is 1K=1024  bytes</p>
+</li>
+<li>The relative address of 1502(base 10) = 0000010111011110(base 2)</li>
+</ul>
+<p><img src="./img/paging.png" alt=""></p>
+<ul>
+<li><p>With a page size of 1K and an offset field of ten bits needed, leaving 6 bits for the page number.</p>
+</li>
+<li><p>Therefore relative address 1502 corresponds to an offset of 478=0111011110(base 2) on page 1 =000001(base 2) which yields the original 16-bit number 0000010111011110(base 2)</p>
+</li>
+</ul>
+<p><img src="./img/paging2.png" alt=""></p>
+<ul>
+<li>Suppose that this page is residing in main memory frame 6(base 10)=000110(base 2), then the physical address is frame number 6, offset 478(base 10)=0001100111011110(base 10)</li>
+</ul>
+<h2>Producing the Physical address</h2>
+<ul>
+<li>To get this, the page in the Page Map Table (PMT) needs to be looked up to find the frame number in which it is stored. </li>
+<li>Then multiply the frame number by the frame size and add the offset to get the physical address</li>
+<li>If process 1 is active, a logical address of <1, 222> would be processed as follows:</li>
+</ul>
+<p><img src="./img/paging3.png" alt=""></p>
+<ul>
+<li>Page 1 of process 1 is in frame 12</li>
+<li>Therefore the corresponding physical address is 12 multiply by 1024+222 = 12510.</li>
+<li>Invalid Logical Addresses occur when the page number is out of bounds or the offset is larger than the size of a frame.</li>
+</ul>
+</li>
+        
+          <li> <h1>Segmentation</h1>
+<ul>
+<li><p>A simple segmentation scheme would make use of a segment table for each process and list of free blocks in main memory.</p>
+</li>
+<li><p>The segment table for each process contains: </p>
+</li>
+<li><p>the starting physical addresses of that segment.</p>
+</li>
+<li><p>the length of that segment (for protection by ensuring invalid addresses are not used)</p>
+<ul>
+<li>When a process enters the <strong>Running</strong> state, the special register gets loaded with the starting address of the process’s segment table.</li>
+</ul>
+</li>
+<li><p>Presented with a logical address (segment number, offset) = (n, m) </p>
+</li>
+<li>the CPU extracts the segment number (n) of the logical address </li>
+<li>This is used as an index to the process segment table to obtain the starting physical address k and the length l of that segment</li>
+<li>The physical address = m + k (in contrast with paging)</li>
+<li>The hardware also compares the offset m with the length l of that segment to determine if the address is valid, if the offset&gt;=l the address is invalid</li>
+</ul>
+<p><img src="./img/paging.png" alt=""></p>
+<ul>
+<li>Logical address 0001001011110000, which is segment number 1, offset 752</li>
+<li>Suppose this segment is residing in RAM starting at physical address 0010000000100000, then the physical address is 0001001011110000+0010000000100000=0010001100010000</li>
+</ul>
+<p><img src="./img/seg.png" alt=""></p>
+</li>
+        
+          <li> <h1>Fragmentation</h1>
+<h2>Internal Fragmentation</h2>
+<p>This occurs when fixed size memory allocation technique is used. Memory allocation is based on fixed-size partitions where after a small size application is assigned to a slot, the remaining free space of that slot is wasted</p>
+<p><img src="./img/infrag.png" alt="Internal Fragmentation"></p>
+<p>Consider the figure above where memory allocation is done dynamically. </p>
+<ul>
+<li>In dynamic memory allocation, the allocator allocates only the exact needed size for that program. </li>
+<li>First memory is completely free. </li>
+<li>Then the Programs A, B, C, D and E of different sizes are loaded one after the other and they are placed in memory contiguously in that order. </li>
+<li>Then later, Program A and Program C closes and they are unloaded from memory. </li>
+<li>Now there are three free space areas in the memory, but they are not adjacent. </li>
+<li>Now a large program called Program F is going to be loaded but neither of the free space block is not enough for Program F. </li>
+<li>The addition of all the free spaces is definitely enough for Program F, but due to the lack of adjacency that space is unusable for Program F. </li>
+</ul>
+<p><img src="./img/exfrag.png" alt="External Fragmentation"></p>
 </li>
         
       </ul>
