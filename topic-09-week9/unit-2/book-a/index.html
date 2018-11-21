@@ -1,23 +1,27 @@
-
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"/>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+        type="text/css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+        rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <style>
     
 
@@ -63,284 +67,188 @@ h3 {
 
 
   </style>
+</head>
 
-  <body class="lab">
+<body>
 
+
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
     
-  <div class="uk-offcanvas-content">
-    <div id="offcanvas-usage" uk-offcanvas>
-      <div class="uk-offcanvas-bar">
-        <button class="uk-offcanvas-close" type="button" uk-close></button>
-        <ul class="uk-nav">
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Preparatory Lab
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Shell Scripting
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Vagrant and Sense HAT
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Assessment-Guides
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Linux Practice Exercises
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Home Network
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Scripting Exercises
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-vagrant/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Vagrant and Virtualisation
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-CPU
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-packet-sniffing/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Packet Sniffing using TShark
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-NoBases
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-1-IP-Networking/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-IP Networking
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Boolean
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-The Headless RPi
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Logic
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Presence Detector 1
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-b/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-BLE
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Assessment-Time
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-TCP-Sockets
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Lab
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Messaging Lab
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Labs
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-2/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-IoT-Platforms-Lab1
-                </a>
-              </li>
-            
-          
-            
-              <li>
-                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//unit-1/book-a/index.html">
-  <i class="fas fa-flask " style="color:#00BCD4"> </i>
-Labs
-                </a>
-              </li>
-            
-          
-        </ul>
-      </div>
-    </div>
+      <a href="../../index.html">  Internet of Things Platforms  </a>
+    
+  </header>
+  <div class="right tab-menu menu">
+    
+      <a class="item" data-tab="Wia Lab">
+        Wia Lab
+      </a>
+    
+      <a class="item" data-tab="web-page">
+        web-page
+      </a>
+    
+      <a class="item" data-tab="photo-event">
+        photo-event
+      </a>
+    
+      <a class="item" data-tab="wia-flow">
+        wia-flow
+      </a>
+    
   </div>
+</div>
 
-
-    <div uk-sticky>
-      <nav class="uk-navbar">
-        <div class="uk-navbar-left">
-          <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
-            <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
-                   uk-tooltip></a></li>
-             }}
-              <li class="uk-active"><a href="../../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
-                                       pos="bottom" uk-tooltip> Internet of Things Platforms </a></li>
-            
-          </ul>
-        </div>
-        <div class="uk-navbar-right">
-          <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
-              uk-switcher="connect: .switcher-container">
-            
-              <li><a href="#">IoT-Platforms-Lab1</a></li>
-            
-              <li><a href="#">02</a></li>
-            
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    <div class="uk-container uk-container-expand">
-      <ul class="uk-switcher switcher-container">
-        
-          <li> <p>Use Wia.io to collect and display data from the RPi </p>
+<div class="ui pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment">
+      <br>
+      
+        <div class="ui tab segment lab" data-tab="Wia Lab">
+          <h1>WIA IoT Platform</h1>
+<p>In this tutorial you will use Wia.io to collect and display data from the RPi. You will also use Wia to send commands to a device. </p>
 <h2>Set up</h2>
 <ul>
 <li><p>Create an account on <a href="https://www.wia.io/">Wia.io</a></p>
 </li>
-<li><p>SSH into your RPi and install Wia</p>
+<li><p>On your Raspberry Pi, install Wia by opening a terminal window and running the following command:</p>
 </li>
 </ul>
 <pre><code class="lang-bash">pip install wia</code></pre>
 <ul>
-<li>Make a directory for the python scripts:</li>
+<li>Make a directory called <code>iot-week9</code> for your python programs</li>
 </ul>
-<pre><code class="lang-bash">mkdir iot-week9
-cd iot*</code></pre>
-<h2>Create Weather Device</h2>
+<pre><code class="lang-bash">mkdir iot-week9</code></pre>
+<h2>Create a Device in Wia</h2>
 <p>Go to the <strong>Wia Dashboard</strong> and select <code>Create a New Space</code> then select <code>Devices</code>. Add a device and give it the name <code>SensePi</code>. Now, in the <code>Configuration</code> tab for your device, you will find <code>device_secret_key</code> which should begin with <code>d_sk</code>. This will be important later on.</p>
 <h2>Python Code</h2>
-<p>Create a file called <code>sensehat_wia.py</code> containing following code:</p>
+<p>In the <code>iot-week9</code> directory, create a file called <code>sensehat_wia.py</code> containing following code:</p>
 <pre><code class="lang-python">from wia import Wia
 
 wia = Wia()
@@ -348,7 +256,7 @@ wia.access_token = &quot;Your access token&quot;
 
 wia.Event.publish(name=&quot;temperature&quot;, data=21.5)</code></pre>
 <ul>
-<li>Run the program. In <strong>weather</strong> space on the <strong>Wia Dashboard</strong>,  select <code>Devices</code> and check the <code>temperature</code> event has appeared in the <code>Events</code> tab for your device.</li>
+<li>Run the program. In the <strong>weather</strong> space on the <strong>Wia Dashboard</strong>,  select <code>Devices</code> and check the <code>temperature</code> event has appeared in the <code>Events</code> tab for your device.</li>
 </ul>
 <p><img src="./img/wia-event.png" alt="Temperature Event"></p>
 <ul>
@@ -359,31 +267,37 @@ wia.Event.publish(name=&quot;temperature&quot;, data=21.5)</code></pre>
 <h2>Integrate SenseHat</h2>
 <p>Now lets update the code to use the SenseHat sensor values to create events:</p>
 <ul>
-<li>Import the <code>sense-hat</code> library and create a Sensehat object:</li>
+<li>Replace the code in <code>senshat_wia.py</code> with the following code:</li>
 </ul>
-<pre><code class="lang-python">from sense_hat import SenseHat
-sense = SenseHat()</code></pre>
+<pre><code class="lang-python">from wia import Wia
+from sense_hat import SenseHat
+sense = SenseHat()
+
+wia = Wia()
+wia.access_token = &quot;Your access token&quot;
+
+temp=round(sense.get_temperature(),2)
+wia.Event.publish(name=&quot;temperature&quot;, data=temp)</code></pre>
+<p>You are now taking the temperature sensor reading from the SenseHat and publishing it to Wia</p>
 <ul>
-<li>Update the sensor publishing event to use the temperature sensor value</li>
+<li>Now, as before, run the script again and check your Wia space responds to the event.</li>
 </ul>
-<pre><code class="lang-python">temp=round(sense.get_temperature(),2)</code></pre>
+<h3><strong>Exercise</strong></h3>
 <ul>
-<li><p>Now run the script again and check your Wia space responds to the event.</p>
-</li>
-<li><p><strong>Exercise</strong>: Now update <code>data_wia.py</code> to do the following:</p>
-<ul>
+<li>update <code>sensehat_wia.py</code> to do the following:<ul>
 <li>to create <code>pressure</code> and <code>humidity</code> events in your Wia space every 15 seconds.</li>
 <li>Add text widgets for pressure and humidity.</li>
-<li>Change the <code>Temperature</code> widget type to a graph(leave default vlues for <code>Time period</code> and <code>Aggregate function</code>)
+<li>Change the <code>Temperature</code> widget type to a graph(leave default values for <code>Time period</code> and <code>Aggregate function</code>)
 All going well, your  <code>overview</code> tab should now look like this and update every 15 seconds.</li>
 </ul>
 </li>
 </ul>
 <p><img src="./img/wia-overview-all.png" alt="Wia Overview Tab"></p>
-<h2>Web API and Web Page</h2>
-<p>You can access your app data on Wia via a Restful API. This would be useful if you have other programs that require and analyse the data in question.</p>
-<h3>Web Site</h3>
-<h2>Create a Web Page</h2>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="web-page">
+          <h1>Web Page</h1>
 <ul>
 <li>In the same directory as your python script, create a new directory called <code>html</code>.</li>
 <li>Create a file called <code>index.html</code> and add the following content:</li>
@@ -395,7 +309,7 @@ All going well, your  <code>overview</code> tab should now look like this and up
   &lt;/head&gt;
   &lt;body&gt;
 
-    &lt;h1&gt;SenseHat Weather Station&lt;/h1&gt;
+    &lt;h1&gt;SenseHat Data&lt;/h1&gt;
 
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
@@ -414,14 +328,17 @@ All going well, your  <code>overview</code> tab should now look like this and up
 <p>Once you are set up with github, create a new repository and name it <code>your-github-username.github.io</code>. Check the box to initialize with a README.</p>
 <p>Now, navigate to your new repository and create a new file. It must be named index.html. Copy and paste the code from <code>index.html</code>.
 Click commit changes. Now, visit your site at <a href="https://username.github.io">https://username.github.io</a>. You&#39;re on the Web!</p>
-</li>
-        
-          <li> <h2>Smile, you&#39;re on camera.</h2>
-<p>In this section you will use Wia commands and flows to control the SenseHat using facial expressions.
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="photo-event">
+          <h2>Smile, you&#39;re on camera.</h2>
+<p>You will now use Wia events, commands and flows to control the SenseHat using facial expressions.
 Wia uses MQTT and the publish-subscribe pattern we talked about in class in their commands functionality. </p>
+<h3>Create Commands</h3>
 <ul>
 <li>Inside your Device Dashboard click on the <code>Commands</code> and then click <code>Add Command</code></li>
-<li>Add a <code>happy-face</code> and <code>sad-face</code> commands. You will use these commands to control the Raspberry Pi with just a smile!</li>
+<li>Add a <code>happy-face</code> and <code>sad-face</code> commands. You will use these commands to control the Raspberry Pi with a smile!</li>
 </ul>
 <p><img src="./img/add-command.png" alt="Add Photo Command"></p>
 <ul>
@@ -429,16 +346,14 @@ Wia uses MQTT and the publish-subscribe pattern we talked about in class in thei
 </ul>
 <p><img src="./img/commands.png" alt="Commands"></p>
 <h2>Create Photo Events</h2>
-<p><strong>The following section should be done on your laptop or workstation</strong></p>
-<p>You will need a webcam to complete the following section. The alternative is to post photos to the Wia service. Complete the following on your laptop or workstation.</p>
-<ul>
-<li><p>Complete one of the following to create a photo event in Wia.</p>
-</li>
+<p>You will now write a small program that will take a photo and create <strong>photo</strong> events in Wia. <strong>PLEASE CHOOSE ONE OF THE FOLLOWING OPTIONS TO ACCOMPISH THIS</strong> </p>
+<h3><strong>OPTION 1:</strong> Using your Laptop Webcam</h3>
+<ol>
 <li><p>Post photo from webcam</p>
 </li>
 <li><p>Install OpenCV</p>
 </li>
-</ul>
+</ol>
 <pre><code class="lang-bash">sudo pip install opencv-python</code></pre>
 <ul>
 <li>If not already installed, install Wia</li>
@@ -471,14 +386,68 @@ else:
 <li>Look into the camera and press andy key. Your photo will be published as an event on Wia. Log into Wia and you should see the event recorded, similar to the following.</li>
 </ul>
 <p><img src="./img/photo-event.png" alt="The photo event"></p>
-<h2>Create a Flow in Wia</h2>
+<h3>OPTION  2: <strong>Using a Raspberry Pi Camera (if you have one)</strong></h3>
 <ul>
-<li>In the Wia dashboard, create a new Flow as follows:</li>
+<li>Connect a Pi camera module to the Pi. Follow the instuctions <a href="https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/4">here</a></li>
+<li>Open a terminal window on the RPi and enter <code>sudo raspi-config</code></li>
+<li>Select option <code>5 Interfacing Options</code></li>
+</ul>
+<p><img src="./img/pi-conf1.png" alt="raspi-conf"></p>
+<ul>
+<li>Select <code>P1 Camera</code> and enable the camera interface:</li>
+</ul>
+<p><img src="./img/picam.png" alt="Enable camera"></p>
+<p>Your camera is ready to go! Exit <code>raspi-conf</code> by selecting <code>back</code>/<code>exit</code>.</p>
+<h4>Create Python Program</h4>
+<ul>
+<li>In the directory you created earlier called <code>iot-week9</code> create a file called <code>snap.py</code>.</li>
+<li>Enter the following code in the file and save. </li>
+</ul>
+<pre><code class="lang-python">from wia import Wia
+import time
+from picamera import PiCamera
+
+wia = Wia()
+## INSERT YOUR SECRET KET
+wia.access_token = &#39;YOUR_SECRET_KEY&#39;
+camera = PiCamera()
+
+## Halt execution until
+input(&#39;Look at the camera and hit &quot;Enter&quot; to take a pic...&#39;)
+
+## Start up PiCam
+camera.start_preview()
+## sleep for a few seconds to let camera focus/adjust to light
+time.sleep(5)
+## Capture photo
+camera.capture(&#39;/home/pi/image.jpg&#39;)
+## Stop the PiCam
+camera.stop_preview()
+
+## Publish &quot;photo&quot; event to Wia. Include the photo file. 
+result = wia.Event.publish(name=&#39;photo&#39;, file=open(&#39;/home/pi/image.jpg&#39;, &#39;rb&#39;))</code></pre>
+<ul>
+<li>Now, open a terminal window in the <code>iot-week9</code> directory run the script by entering the following command: </li>
+</ul>
+<pre><code class="lang-python">python3 snap.py</code></pre>
+<ul>
+<li>You should see an image file appear in  <code>/home/pi/image.jpg</code>.</li>
+<li>Go to Wia and check that a new <code>photo</code> event has appeared.</li>
+</ul>
+<p><img src="./img/waievent.png" alt="Photo Event"></p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="wia-flow">
+          <h1>Wia Flows</h1>
+<p>You will now create a <strong>Flow</strong>  that is triggered by <code>photo</code> events:</p>
+<ul>
+<li>In the Wia dashboard, click on the flow option on the left side.  Create a new Flow as follows:</li>
 </ul>
 <p><img src="./img/flow.png" alt="Photo processing flow"></p>
 <ul>
 <li>The trigger is when a <code>photo</code> event is created by the <code>sensepi</code> device. </li>
-<li>This then goes through a <code>Detect Faces</code> service node, the output of which branches off into two <code>Run Function</code> logic nodes - one to output a string &quot;Yes&quot; if the subject is smiling, and one to output a string &quot;No&quot; if the subject isn&#39;t smiling. Here&#39;s the code for the &#39;smiling&#39; logic node:</li>
+<li>This then goes through a <code>Detect Faces</code> service node, the output of which branches off into two <code>Run Function</code> logic nodes; one to output a string &quot;Yes&quot; if the subject is smiling, and one to output a string &quot;No&quot; if the subject isn&#39;t smiling. Here&#39;s the code for the &#39;smiling&#39; logic node:</li>
 </ul>
 <pre><code class="lang-javascript">if (input.body.faceDetails &amp;&amp; input.body.faceDetails.length &gt; 0) {
    output.body.isSmiling = input.body.faceDetails[0].smile.value;
@@ -490,7 +459,7 @@ else:
     }
 } else {
     output.process = false;
-      output.body.data = false;
+  output.body.data = false;
 }</code></pre>
 <ul>
 <li>The Javascript code for the <code>not smiling</code> node is as follows:</li>
@@ -505,7 +474,7 @@ else:
     }
 } else {
     output.process = false;
-      output.body.data = false;
+  output.body.data = false;
 }</code></pre>
 <p>If the subject is smiling, the &#39;happy-face&#39; Command is run, triggering the RPi to display a happy emoticon on the SenseHat. If the subject isn&#39;t smiling, the &#39;sad-face&#39; Command is run, displaying a sad emoticon on the SenseHat.</p>
 <ul>
@@ -515,55 +484,116 @@ else:
 <ul>
 <li>As an exercise, add a <code>Text</code> widget and link it to the <code>happy</code> event.</li>
 </ul>
-<h2>On RPi</h2>
+<h2>Update Raspberry Pi</h2>
 <ul>
-<li>Run the following command in the same directory as <code>sensehay-wia.py</code></li>
+<li>Open a terminal window and run the following command in the <code>iot_week9</code> directory containing <code>sensehat-wia.py</code></li>
 </ul>
 <pre><code class="lang-bash">wget http://rpf.io/shfaces -O faces.py</code></pre>
-<p>Update <code>sensehat_wia.py</code> to use MQTT to subscribe to the commands:</p>
 <ul>
-<li>Import <code>happy</code> and <code>sad</code> from the faces library</li>
+<li>Update the code in <code>sensehat_wia.py</code> to subscribe to the commands and show the corresponding emoticon by updating the code to the following:</li>
 </ul>
-<pre><code class="lang-python">from faces import happy, sad</code></pre>
-<ul>
-<li>Add two callback functions for each command.</li>
-</ul>
-<pre><code class="lang-python">def on_happy_face(event):
+<pre><code class="lang-python">from wia import Wia
+from sense_hat import SenseHat
+import time
+from faces import normal, happy, sad
+
+# happy face callback
+def on_happy_face(event):
     print(&quot;:)&quot;)
     sense.set_pixels(happy)
 
+# sad face callback
 def on_sad_face(event):
     print(&quot;:(&quot;)
-    sense.set_pixels(sad)</code></pre>
-<ul>
-<li>Finally, add the following lines of code to subscribe to the <code>happy-face</code> and <code>sad-face</code> commands.</li>
-</ul>
-<pre><code class="lang-python">wia.Stream.connect()
-wia.Command.subscribe(**{&quot;device&quot;: deviceId, &quot;slug&quot;: &#39;happy-face&#39;, &quot;func&quot;: on_happy_face})
-wia.Command.subscribe(**{&quot;device&quot;: deviceId, &quot;slug&quot;: &#39;sad-face&#39;, &quot;func&quot;: on_sad_face})</code></pre>
-<ul>
-<li>Run the program on the RPi and take another photo. It should now inicate if you&#39;re smiling or not. Smile! </li>
-</ul>
-</li>
-        
-      </ul>
-    </div>
+    sense.set_pixels(sad)
 
-    <script>
-      $(document).ready(function() {
+sense = SenseHat()
+
+wia = Wia()
+wia.access_token = &#39;d_sk_JFODUgcmYToVZSd7JP8xrt54&#39;
+deviceId = &#39;dev_NEJjk3oa&#39;
+
+wia.Stream.connect()
+
+# Subscribe to happy and sad face commands
+wia.Command.subscribe(**{&quot;device&quot;: deviceId, &quot;slug&quot;: &#39;happy-face&#39;, &quot;func&quot;: on_happy_face})
+wia.Command.subscribe(**{&quot;device&quot;: deviceId, &quot;slug&quot;: &#39;sad-face&#39;, &quot;func&quot;: on_sad_face})
+
+
+while True:
+        temp=round(sense.get_temperature(),2)
+        press=round(sense.get_pressure(),2)
+        hum=round(sense.get_humidity(),2)
+        #publish temp/pressure/hum
+        wia.Event.publish(name=&quot;temperature&quot;, data=temp)
+        wia.Event.publish(name=&quot;pressure&quot;, data=press)
+        wia.Event.publish(name=&quot;humidity&quot;, data=hum)    
+        time.sleep(60)</code></pre>
+<ul>
+<li>Run the program on the RPi and take another photo. It should now indicate if you&#39;re smiling or not. Smile! You shoud see the corresponding result on the RPi Sensehat. </li>
+</ul>
+<p><img src="./img/happy.png" alt="Happy Pi"></p>
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+  $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
   const $images = $('.lab img');
   jQuery.each($images, function(i) {
     if ($images[i].alt.length > 0) {
-      const divImg = $(document.createElement('div')).addClass('');
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
       $($images[i]).wrap(divImg);
-      const divLabel = $(document.createElement('div')).addClass('uk-label uk-text-lowercase');
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
       divLabel.append($images[i].alt);
-      $(divLabel).insertAfter($images[i]);
-      $('<br>').insertAfter($images[i]);
+      $(divLabel).insertBefore($images[i]);
     }
   });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
 });
 
-    </script>
-  </body>
+</script>
+</body>
 </html>
