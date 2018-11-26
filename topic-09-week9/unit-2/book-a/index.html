@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-        type="text/css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-        rel="stylesheet"/>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <style>
-    
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
 
 body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
@@ -66,172 +66,205 @@ h3 {
 
 
 
-  </style>
-</head>
+      
 
-<body>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
 
 
 
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
-    
-      <a href="../../index.html">  Internet of Things Platforms  </a>
-    
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="Wia Lab">
-        Wia Lab
-      </a>
-    
-      <a class="item" data-tab="web-page">
-        web-page
-      </a>
-    
-      <a class="item" data-tab="photo-event">
-        photo-event
-      </a>
-    
-      <a class="item" data-tab="wia-flow">
-        wia-flow
-      </a>
-    
+    </style>
+  </head>
+
+  <body class="uk-background-muted">
+    <div class="wrapper">
+      <div class="content">
+        <div style="height:1000px;">
+          
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  Internet of Things Platforms  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Wia Lab">
+          Wia Lab
+        </a>
+      
+        <a class="item" data-tab="web-page">
+          web-page
+        </a>
+      
+        <a class="item" data-tab="photo-event">
+          photo-event
+        </a>
+      
+        <a class="item" data-tab="wia-flow">
+          wia-flow
+        </a>
+      
+    </div>
   </div>
-</div>
 
-<div class="ui pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    <br><br>
-    
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
+        
       
-    
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
+        
       
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
-      
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment">
-      <br>
-      
-        <div class="ui tab segment lab" data-tab="Wia Lab">
-          <h1>WIA IoT Platform</h1>
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Wia Lab">
+            <h1>WIA IoT Platform</h1>
 <p>In this tutorial you will use Wia.io to collect and display data from the RPi. You will also use Wia to send commands to a device. </p>
 <h2>Set up</h2>
 <ul>
@@ -294,10 +327,10 @@ All going well, your  <code>overview</code> tab should now look like this and up
 </ul>
 <p><img src="./img/wia-overview-all.png" alt="Wia Overview Tab"></p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="web-page">
-          <h1>Web Page</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="web-page">
+            <h1>Web Page</h1>
 <ul>
 <li>In the same directory as your python script, create a new directory called <code>html</code>.</li>
 <li>Create a file called <code>index.html</code> and add the following content:</li>
@@ -329,10 +362,10 @@ All going well, your  <code>overview</code> tab should now look like this and up
 <p>Now, navigate to your new repository and create a new file. It must be named index.html. Copy and paste the code from <code>index.html</code>.
 Click commit changes. Now, visit your site at <a href="https://username.github.io">https://username.github.io</a>. You&#39;re on the Web!</p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="photo-event">
-          <h2>Smile, you&#39;re on camera.</h2>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="photo-event">
+            <h2>Smile, you&#39;re on camera.</h2>
 <p>You will now use Wia events, commands and flows to control the SenseHat using facial expressions.
 Wia uses MQTT and the publish-subscribe pattern we talked about in class in their commands functionality. </p>
 <h3>Create Commands</h3>
@@ -436,10 +469,10 @@ result = wia.Event.publish(name=&#39;photo&#39;, file=open(&#39;/home/pi/image.j
 </ul>
 <p><img src="./img/waievent.png" alt="Photo Event"></p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="wia-flow">
-          <h1>Wia Flows</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="wia-flow">
+            <h1>Wia Flows</h1>
 <p>You will now create a <strong>Flow</strong>  that is triggered by <code>photo</code> events:</p>
 <ul>
 <li>In the Wia dashboard, click on the flow option on the left side.  Create a new Flow as follows:</li>
@@ -534,14 +567,16 @@ while True:
 </ul>
 <p><img src="./img/happy.png" alt="Happy Pi"></p>
 
-        </div>
-      
+          </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  $(document).on('keydown', function(e) {
+
+
+  <script>
+    $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -561,7 +596,7 @@ while True:
   }
 });
 
-  $(document).ready(function() {
+    $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -594,6 +629,16 @@ while True:
     .sidebar('attach events', '#toc');
 });
 
-</script>
-</body>
+  </script>
+
+
+        </div>
+      </div>
+      <div class="footer"> <p> Powered by <a
+          href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a>
+        Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. </p>
+      </div>
+    </div>
+  </body>
+
 </html>
