@@ -91,11 +91,7 @@ html, body {
     </style>
   </head>
 
-  <body class="uk-background-muted">
-    <div class="wrapper">
-      <div class="content">
-        <div style="height:1000px;">
-          
+  
   
 
   <div class="ui fixed top pointing inverted stackable menu labmenu">
@@ -119,12 +115,8 @@ html, body {
           02
         </a>
       
-        <a class="item" data-tab="03">
-          03
-        </a>
-      
-        <a class="item" data-tab="Solns">
-          Solns
+        <a class="item" data-tab="Soln">
+          Soln
         </a>
       
     </div>
@@ -262,6 +254,11 @@ html, body {
              href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
         
       
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
+        
+      
     </div>
     <div class="pusher" tabindex="-1">
       <div class="ui basic segment">
@@ -285,30 +282,30 @@ html, body {
             <h1>Karnaugh Maps</h1>
 <ul>
 <li>The following demonstrate various inputs and their corresponding karnaugh maps used to simplify the Boolean expressions
-<img src="./img/Kmap4.jpg" alt="2-input example">
-<img src="./img/Kmap5.jpg" alt="3-input example">
-<img src="./img/Kmap6.jpg" alt="4-input example"></li>
+<img src="./img/kmapfour.jpg" alt="2-input example">
+<img src="./img/kmapfive.jpg" alt="3-input example">
+<img src="./img/kmapsix.jpg" alt="4-input example"></li>
 </ul>
 <h1><strong>EXERCISE 1: Simplify the logic diagram below</strong></h1>
-<p><img src="./img/Kmap1.JPG" alt=""></p>
+<p><img src="./img/kmap1.jpg" alt=""></p>
 <h1><strong>EXERCISE 2: Simplify the logic diagram below</strong></h1>
-<p><img src="./img/Kmap3.JPG" alt=""></p>
+<p><img src="./img/kmap3.jpg" alt=""></p>
 <h1><strong>EXERCISE 3:</strong></h1>
 <p>Reduce the following to it&#39;s simpliest Boolean Expression</p>
-<p><img src="./img/Kmapa.JPG" alt=""></p>
+<p><img src="./img/kmapa.jpg" alt=""></p>
 <h1><strong>EXERCISE 4:</strong></h1>
 <p>Reduce the following to it&#39;s simpliest Boolean Expression</p>
-<p><img src="./img/Kmapb.JPG" alt=""></p>
+<p><img src="./img/kmapb.jpg" alt=""></p>
 <h1><strong>EXERCISE 5:</strong></h1>
 <p>Use a K-map to reduce the following 4-input circuit. </p>
-<p><img src="./img/Kmap7.JPG" alt=""></p>
+<p><img src="./img/kmap7.jpg" alt=""></p>
 <h1><strong>EXERCISE 6:</strong></h1>
 <p>Simplify the following using </p>
 <ol>
 <li>the rules of Boolean Algebra and </li>
 <li>a Karnaugh map</li>
 </ol>
-<p><img src="./img/Kmap0.JPG" alt=""></p>
+<p><img src="./img/kmap0.jpg" alt=""></p>
 
           </div>
         
@@ -333,50 +330,10 @@ html, body {
 
           </div>
         
-          <div class="ui tab segment lab" data-tab="03">
-            <h1>Combinational Logic Circuits</h1>
-<p>The combinational logic circuits can be classified into various types based on the purpose of usage, such as 
-- arithmetic &amp; logical functions, 
-- data transmission and 
-- code converters. </p>
-<h1>Binary Arithmetic</h1>
-<ul>
-<li><p>In computers, arithmetic operations are performed inside the CPU by the ALU.</p>
-</li>
-<li><p>Arithmetic in binary is much like arithmetic in other numeral systems. Addition is completed using a component within the CPU called an <strong>adder</strong></p>
-</li>
-</ul>
-<p><strong>Function of an adder:</strong>  add two binary numbers, output result</p>
-<ul>
-<li><em>Inputs:</em> two bits (x,y) to add and one carry-in(Cin)</li>
-<li><em>Outputs:</em>    sum bit (s) and one carry out but (Cout)</li>
-</ul>
-<p>Recall the possibilities for adding two binary numbers:</p>
-<pre><code>    0 + 0 = 0
-    1 + 0 = 1
-    1 + 1 = 2 which is 10 in binary which is 0 with a carry of 1
-    1 + 1 + 1 (carry) = decimal 3 which is 11 in binary. In your  calculation, write down one 1 and a carry of 1</code></pre>
-<p><img src="./img/HalfAdder.png" alt=""></p>
-<h1><strong>EXERCISE: Complete the truth table for the Half Adder</strong></h1>
-<p><img src="./img/HATruthTable.jpg" alt="Half Adder Truth Table"></p>
-<h1>Full Adder</h1>
-<ul>
-<li>The full adder is a three input and two output combinational circuit<ul>
-<li>A circuit called a full adder takes the carry-in value into account</li>
-</ul>
-</li>
-</ul>
-<p><img src="./img/Adder.png" alt=""></p>
-<h1><strong>EXERCISE: Complete the truth table for the Full Adder</strong></h1>
-<p>Remember: All of the more complex adder architectures are constructed from its basic building blocks such as Half Adder and Full Adder so it&#39;s important to understand the workings of these.</p>
-<h3>Again, experimenting with different circuit combinations will allow you become more familiar with the expected outputs of them...</h3>
-
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="Solns">
+          <div class="ui tab segment lab" data-tab="Soln">
             <h1>Karnaugh Maps</h1>
 <h1><strong>EXERCISE: Simplify the logic diagram below</strong></h1>
-<p><img src="./img/Kmap1.jpg" alt=""></p>
+<p><img src="./img/kmap1.jpg" alt=""></p>
 <ul>
 <li>Write the Boolean expression for the original logic diagram as shown below</li>
 <li>Transfer the product terms to the Karnaugh map</li>
@@ -384,9 +341,9 @@ html, body {
 <li>Write Boolean expression for groups as in previous examples</li>
 <li>Draw simplified logic diagram</li>
 </ul>
-<p><img src="./img/Kmap2.jpg" alt="Simplified Expression"></p>
+<p><img src="./img/kmap2.jpg" alt="Simplified Expression"></p>
 <h1><strong>EXERCISE 2: Simplify the logic diagram below</strong></h1>
-<p><img src="./img/Kmap3.jpg" alt=""></p>
+<p><img src="./img/kmap3.jpg" alt=""></p>
 <ul>
 <li>Write the Boolean expression for the original logic diagram shown above</li>
 <li>Transfer the product terms to the Karnaugh map.</li>
@@ -403,25 +360,25 @@ This sometimes happens. </p>
 </ul>
 <h1><strong>EXERCISE 3:</strong></h1>
 <p>Reduce the following to it&#39;s simpliest Boolean Expression</p>
-<p><img src="./img/Kmapa.jpg" alt="">
-<img src="./img/KmapaSoln.jpg" alt=""></p>
+<p><img src="./img/kmapa.jpg" alt="">
+<img src="./img/kmapasoln.jpg" alt=""></p>
 <h1><strong>EXERCISE 4:</strong></h1>
 <p>Reduce the following to it&#39;s simpliest Boolean Expression</p>
-<p><img src="./img/Kmapb.jpg" alt=""></p>
-<p><img src="./img/KmapbSoln.jpg" alt=""></p>
+<p><img src="./img/kmapb.jpg" alt=""></p>
+<p><img src="./img/kmapbsoln.jpg" alt=""></p>
 <h1><strong>EXERCISE 5:</strong></h1>
 <p>Use a K-map to reduce the following 4-input circuit. </p>
-<p><img src="./img/Kmap7.jpg" alt=""></p>
-<p><img src="./img/Kmap8.jpg" alt="the best solution"></p>
-<p><img src="./img/Kmap9.jpg" alt="an alternative solution"></p>
+<p><img src="./img/kmap7.jpg" alt=""></p>
+<p><img src="./img/kmap8.jpg" alt="the best solution"></p>
+<p><img src="./img/kmap9.jpg" alt="an alternative solution"></p>
 <h1><strong>EXERCISE 6:</strong></h1>
 <p>Simplify the following</p>
-<p><img src="./img/Kmap0.jpg" alt=""></p>
+<p><img src="./img/kmap0.jpg" alt=""></p>
 <ul>
 <li>Here we are minimising the Boolean expression and therefore simplifying the circuitry needed to implement the equivalent functions:</li>
 </ul>
-<p><img src="./img/Kmap0Soln.jpg" alt="Full expression as a circuit"></p>
-<p><img src="./img/Kmap0Solnb.jpg" alt="Simplified expression as a circuit"></p>
+<p><img src="./img/kmap0soln.jpg" alt="Full expression as a circuit"></p>
+<p><img src="./img/kmap0solnb.jpg" alt="Simplified expression as a circuit"></p>
 
           </div>
         
@@ -488,13 +445,15 @@ This sometimes happens. </p>
   </script>
 
 
-        </div>
-      </div>
-      <div class="footer"> <p> Powered by <a
-          href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a>
-        Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. </p>
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
       </div>
     </div>
+  </div>
+
   </body>
 
 </html>

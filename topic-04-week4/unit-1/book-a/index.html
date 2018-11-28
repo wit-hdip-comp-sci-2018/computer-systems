@@ -91,11 +91,7 @@ html, body {
     </style>
   </head>
 
-  <body class="uk-background-muted">
-    <div class="wrapper">
-      <div class="content">
-        <div style="height:1000px;">
-          
+  
   
 
   <div class="ui fixed top pointing inverted stackable menu labmenu">
@@ -270,6 +266,11 @@ html, body {
              href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
         
       
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
+        
+      
     </div>
     <div class="pusher" tabindex="-1">
       <div class="ui basic segment">
@@ -428,7 +429,7 @@ html, body {
 </ul>
 </li>
 </ul>
-<p><img src="./img/8bit.png" alt="Representation of 01101110"></p>
+<p><img src="./img/eightbit.png" alt="Representation of 01101110"></p>
 <ul>
 <li><p>Here, the values 64, 32, 8, 4 and 2 are all turned on</p>
 <ul>
@@ -495,7 +496,7 @@ html, body {
 
     These are the only possibilities in Binary Addition</code></pre>
 <p><strong>WORKED THROUGH EXAMPLE: Perform binary addition on 11101 + 1100</strong></p>
-<p><img src="./img/add1.png" alt="Always align the numbers FROM THE RIGHT!"></p>
+<p><img src="./img/addone.png" alt="Always align the numbers FROM THE RIGHT!"></p>
 <ul>
 <li>Start adding the numbers, starting from the RIGHT side.. </li>
 </ul>
@@ -504,10 +505,10 @@ html, body {
 1+0=1 
 0+0=0
 1+1=1 and carry a 1 ... this is the first carry so this is what your arithmetic should look like, so far:</code></pre>
-<p><img src="./img/add2.png" alt="Add from the right, as far as first carry"></p>
+<p><img src="./img/addtwo.png" alt="Add from the right, as far as first carry"></p>
 <ul>
 <li><p>Continue adding until you reach the last carry on the left
-<img src="./img/add3.png" alt="Add the numbers, bringing any carry to the left as you go"></p>
+<img src="./img/addthree.png" alt="Add the numbers, bringing any carry to the left as you go"></p>
 <ul>
 <li>It IS possible to add as many numbers as you wish, but the carry can get confusing. <ul>
 <li>Consider adding Number1+Number2 and then, with your answer add Number3 and so on</li>
@@ -557,7 +558,7 @@ eg. 8 is 2^3 which is 1000 in binary.
     10 - 1 = 1
     11 - 1 = 1</code></pre>
 <p><strong>WORKED THROUGH EXAMPLE 1: Perform binary subtraction on 11101 - 1100</strong></p>
-<p><img src="./img/mult1.png" alt="Always align the numbers FROM THE RIGHT!"></p>
+<p><img src="./img/multone.png" alt="Always align the numbers FROM THE RIGHT!"></p>
 <p><strong>WORKED THROUGH EXAMPLE 2: How about 100 - 1</strong></p>
 <pre><code>1    0    0
 0    0    1    -    #leading zeros not necessary
@@ -612,7 +613,7 @@ _______________
 <li>When our number is negative, we make our sign bit one. 
 This approach is called the <strong>Signed Magnitude Representation</strong></li>
 </ul>
-<p><img src="./img/sign.jpg" alt="Examples"></p>
+<p><img src="./img/sign.png" alt="Examples"></p>
 <p>Since we are using 4-bit signed magnitude representation, we know the first bit is our sign and the remaining three bits are our number (Be sure that you do not mistake the number <strong>1101</strong>(base2) for <strong>13</strong>(base10)</p>
 <p>The drawbacks of sign-magnitude representation are:</p>
 <ol>
@@ -623,8 +624,8 @@ This approach is called the <strong>Signed Magnitude Representation</strong></li
 <h2>1&#39;s Complement</h2>
 <p>Representing a signed number with 1&#39;s complement is done by changing all the bits that are 1 to 0 and all the bits that are 0 to 1. Reversing the digits in this way is also called <strong>complementing a number</strong></p>
 <p>Again, the drawback is that there are two representations of zero, one being positive and one negative</p>
-<p><img src="./img/1C.jpg" alt="Examples"></p>
-<p><img src="./img/1CSummary.jpg" alt="Summary of 1&#39;s Complement"></p>
+<p><img src="./img/onec.jpg" alt="Examples"></p>
+<p><img src="./img/onecsummary.jpg" alt="Summary of 1&#39;s Complement"></p>
 <h2>How a computer subtracts: Two&#39;s Complement</h2>
 <ul>
 <li><p>There is another approach however and this is the way that computers subtract binary digits. </p>
@@ -645,7 +646,7 @@ This approach is called the <strong>Signed Magnitude Representation</strong></li
 1101</code></pre>
 <p>Step 4: <strong>Add</strong> those two numbers together (using the method above) to get <strong>10101</strong> <em>b</em></p>
 <p>Step 5: <strong>Remove the leading 1</strong> (and any 0&#39;s after it). You are left with 101<em>b</em>.</p>
-<p><img src="./img/2CSummary.jpg" alt="Summary of 2&#39;s Complement"></p>
+<p><img src="./img/twocsummary.jpg" alt="Summary of 2&#39;s Complement"></p>
 
           </div>
         
@@ -712,13 +713,15 @@ This approach is called the <strong>Signed Magnitude Representation</strong></li
   </script>
 
 
-        </div>
-      </div>
-      <div class="footer"> <p> Powered by <a
-          href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a>
-        Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. </p>
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
       </div>
     </div>
+  </div>
+
   </body>
 
 </html>
