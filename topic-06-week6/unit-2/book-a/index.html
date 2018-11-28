@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  Wireless Communication Networks  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Presence Detector 1">
+          Presence Detector 1
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="06">
+          06
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Presence Detector 1">
+            <h1>WiFi-based Presence Detector - Part 1</h1>
+<p>WiFi · MAC Address · ARP Scan · CronTab</p>
+<h2>Introduction</h2>
+<p>In this lab you will use a WiFi local network and a Raspberry Pi/SenseHAT to build a device presence detector.
+You will scan the WiFi network for connected devices and identify them using their MAC address, the unique identifiers that devices use when communicating in a WiFi network.
+An application of this is to check who is home/in the office/lab (and not home) by checking if a person&#39;s smartphone has connected to the WiFi.</p>
+<h2>Equipment</h2>
+<ul>
+<li>Raspberry pi 3 and SD Card installed with Raspbian</li>
+<li>SenseHAT</li>
+<li>A Wifi network with internet access</li>
+<li>OPTIONAL: Screen with HDMI, Keyboard, Mouse.</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>arp-scan</h1>
+<p><a href="https://www.netscantools.com/nstpro_arp_scan.html">arp-scan</a> is a fast ARP packet scanner that can find all active IPv4 devices on a network.  Devices cannot hide from ARP packets like they can hide from Ping and it should detect all devices including those with firewalls.</p>
+<p>To install arp-scan, connect to your RPi 3 in your preferred manner (e.g. <a href="">headless</a> or <a href="">screen-based</a>)</p>
+<p>Open a terminal window on the Raspberry Pi and enter the following command:</p>
+<pre><code class="lang-bash">sudo apt-get update
+sudo apt-get install arp-scan</code></pre>
+<p>Once installed, check that it&#39;s working correctly by entering the command on the Raspberry Pi: <code>sudo arp-scan -l</code>. This will list all devices on your local network that responded . You should see a list of devices and corresponding IP and MAC addresses on your local network. It may take a moment to load if you are on a large network:
+<img src="./img/arp-scan1.png" alt="ARP Scan">  </p>
+<ul>
+<li>Question: If you had to write a program to replicate the list function in arp-scan, how would you do it? </li>
+</ul>
+<h2>Presence detection</h2>
+<p>ARP-Scan lists all devices (if any) connected your local network at the time the scan was executed. By scanning the local network for certain devices’ MAC addresses, we can detect their &#39;presence&#39; on the network. Furthermore, if connected by WiFi, we can deduce that the physical device itself is within the range of the WiFi access point (e.g. at home).</p>
+<ul>
+<li><p>There are various ways of finding a particular device MAC address and a quick internet search will soon let you know how to find the MAC address for the WiFi interface on your Smartphone.  </p>
+</li>
+<li><p>Find and record the MAC address of your smartphones Wifi interface (or if you&#39;re not using a Smarthone,  any other device on the Wifi Network for now)</p>
+</li>
+<li><p>Check for the presence of the device by doing a &#39;grep&#39; on the device list returned by apr-scan:</p>
+<pre><code class="lang-bash">sudo arp-scan -l | grep YOUR_DEVICE_MAC</code></pre>
+<p><img src="./img/arp-scan2.png" alt="ARP Scan"><br>If your device was found, the command will output its address info. If nothing appears, make sure that it’s connected to the same local WiFi network as your RPi. Smart devices are fairly energy efficient so you may also need to &#39;wake up&#39; your device, as it may drop the WiFi connection if left idle for too long.</p>
+</li>
+</ul>
+<p>Now that we have a mechanism to detect known devices on the local network, we can write a short python program to get the RPi/SenseHAT to indicate the presence/absence of a device.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Presence Detector Script</h1>
+<p>Using <code>arp-scan</code>, you will now write a script that:</p>
+<ul>
+<li>gets a list of connected devices to the local network</li>
+<li>gets a list of &quot;known devices&quot;</li>
+<li>echoes(prints) the intersection of connected devices and known devices</li>
+</ul>
+<p>Put simply, the progran will find the list of known devices that are connected to the network.</p>
+<h2>Create the Search Script</h2>
+<ul>
+<li>On the RPi, open a terminal window (connect either by SSH or Screen/Keyboard), and, in your home directory, create a new directory called <code>presence</code>:</li>
+</ul>
+<p><img src="./img/presence1.png" alt="Make Directory"><br>In this directory, create a new file in called <code>presence-detect.sh</code> and enter the following code:</p>
+<pre><code class="lang-bash">#! /bin/bash
+
+# presence-detect.sh
+# searches for the MAC address of known devices
+
+# do arp_scan to get connected mac addresses
+connectedDevices=$(sudo arp-scan -l)
+
+knownDevices=(&quot;d4:28:d5:37:7e:a2&quot;)
+
+for device in &quot;${knownDevices[@]}&quot;
+do
+    if [[ &quot;$connectedDevices&quot; = *&quot;$device&quot;* ]]; then
+        echo &quot;$device is present!&quot;
+    else
+        echo &quot;$device is NOT present!&quot;
+    fi
+done</code></pre>
+<ul>
+<li>Save the file and change the files permissions to make it executable:</li>
+</ul>
+<pre><code class="lang-bash">chmod +x presence-detect.sh</code></pre>
+<ul>
+<li>Test the script by running it at the command line (./presence-detect.sh) . </li>
+</ul>
+<p><img src="./img/presence2.png" alt="Presence Detector">  </p>
+<p>The script gets the result of <code>arp-scan</code> and assigns it to connectedDevices.  It then searches <code>connectedDevices</code> for each MAC addresses contained in the <code>knownDevices</code> array (the above script only contains my phones MAC address).<br>The script should return indicating that the device was not detected (otherwise I want my phone back!).  </p>
+<ul>
+<li>Now update the script and add another device in the <code>knownDevices</code> list that you can connect/disconnect easily. Perhaps add in your smartphones address.</li>
+</ul>
+<pre><code class="lang-bash">knownDevices=(&quot;d4:28:d5:37:7e:a2&quot; &quot;xx:xx:xx:xx:xx:xx&quot;)</code></pre>
+<p>Now run the script again. Make sure you get a result that has both outcomes (present and not present).</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Python ARP-Scan</h1>
+<p>In order to access easily higher order functions on the RPi such as SenseHAT and messaging protocols, we&#39;ll now switch to using Python, a good general purpose programming library that&#39;s already installed on the RPi,</p>
+<h2>Scanning for MAC addresses with Python</h2>
+<p>We can call the <code>arp-scan</code> program from a Python program using the <code>subprocess</code> library.</p>
+<ul>
+<li>In the <code>presence</code> directory you created earlier, create a new file called <code>presence-detector.py</code> with the following content:</li>
+</ul>
+<pre><code class="lang-python">#!/usr/bin/env python
+#coding=utf-8
+
+import subprocess
+
+def arp_scan():
+        output = subprocess.check_output(&quot;sudo arp-scan -l&quot;, shell=True)
+        print output
+
+arp_scan()</code></pre>
+<ul>
+<li>Run the program by typing <code>python presence-detector.py</code> on the command prompt. You should see the <code>arp-scan</code> output printed on the console similar to the following:</li>
+</ul>
+<p><img src="./img/python-arp1.png" alt="ARP Scan with Python"></p>
+<p>Using this program we can now get at the MAC address list programatically.</p>
+<ul>
+<li>To search the output for a particular MAC addresses, lets introduce two lists into our program, device owner names (<code>names</code>) and corresponding MAC addresses (<code>macs</code>).
+Notice the order of the names and devices correlate(i.e. Frank&#39;s device MAC address is <code>&quot;d4:28:d5:37:7e:a2&quot;</code>). <strong>As before, you should add a name and device that is present on the local network.</strong></li>
+</ul>
+<pre><code class="lang-python">#!/usr/bin/env python
+#coding=utf-8
+
+import subprocess
+
+#Names of device owners 
+names = [&quot;Frank&quot;,&quot;Someone Else&quot;]
+
+# MAC addresses of devices
+macs = [&quot;d4:28:d5:37:7e:a2&quot;,&quot;xx:xx:xx:xx:xx:xx&quot;]
+
+def arp_scan():
+        output = subprocess.check_output(&quot;sudo arp-scan -l&quot;, shell=True)
+        for i in range(len(names)):
+                if macs[i] in output:
+                        print(names[i] + &quot;&#39;s device is present&quot;)
+                else:
+                        print(names[i] + &quot;&#39;s device is NOT present&quot;)
+
+arp_scan()</code></pre>
+<ul>
+<li>Test this program and make sure it works by placing a known device in the arrays. Run the program from the command line as before:<br><img src="./img/presence3.png" alt="ARP Scan with Python">.  </li>
+</ul>
+<p>Next we&#39;ll use the SenseHat to output the results.  </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>SenseHAT</h1>
+<p>In this section you will ouput the presence detection result using SenseHAT.
+The SenseHAT can be controlled using the <a href="https://pythonhosted.org/sense-hat/">SenseHat</a> Python module. </p>
+<ul>
+<li>If you have not already, install the python module by opening a terminal window on your RPi and running the following commands:</li>
+</ul>
+<pre><code class="lang-bash">sudo apt-get update
+sudo apt-get install sense-hat
+sudo reboot</code></pre>
+<ul>
+<li>First, let&#39;s just output the <code>result</code> to the 8x8 LED display. Update your program by adding the following import statement at the top of the python program:</li>
+</ul>
+<pre><code class="lang-python">from sense_hat import SenseHat
+
+sense = SenseHat()</code></pre>
+<p>We will use two arrays to keep track of the names and corresponding device MAC addresses. Add the following array declarations to your program **just before the <code>arp-scan()</code> function.</p>
+<ul>
+<li>Change the <code>arp_scan()</code> Python function to iterate through the <code>names</code> array and check the <code>arp-scan</code> for the corresponding MAC address. Replace the <code>arp_scan()</code> with the following code:</li>
+</ul>
+<pre><code class="lang-python">def arp_scan():
+        output = subprocess.check_output(&quot;sudo arp-scan -l&quot;, shell=True)
+        for i in range(len(names)):
+                result = names[i]
+                if macs[i] in output:
+                        result=result+&quot; is home&quot;
+                else:
+                        result=result+&quot; is not home&quot;
+                print(result)
+                sense.show_message(result)</code></pre>
+<p>Now your program will, for each name:</p>
+<ul>
+<li>check the arp-scan <code>output</code> for the MAC address of his/her device.</li>
+<li>print the <code>result</code> to the console and show the result on the SenseHAT 8x8 LED. </li>
+</ul>
+<p>Run the program as before and you should see something similar to the following:<br><img src="./img/sense-hat1.gif" alt="SenseHAT 8x8 LED"></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Automate Presence Detection</h1>
+<p>At the moment, you have to run your presence detection script manually on the RPi. Ideally, your script would run automatically at a set interval, perhaps every minute.</p>
+<h2>Loop forever</h2>
+<p>Add an endless loop in the program that waits of 60 seconds after every successful call to the apr-scan() function. You can use the <code>sleep()</code> function in the <code>time</code> python package to do this. </p>
+<ul>
+<li>In <code>presence-detector.py</code>, add the following import statement at the top of the file:</li>
+</ul>
+<pre><code class="lang-python">from time import sleep</code></pre>
+<ul>
+<li>Put the call to the <code>arp_scan()</code> function in an endless loop(<code>while True:</code>) and add code to suspend execution for 60 seconds(<code>sleep(60)</code>) on each iteration:</li>
+</ul>
+<pre><code class="lang-python">while True:
+        arp_scan()
+        sleep(60)</code></pre>
+<ul>
+<li>Run the program again. This time your program should never stop and should repeat the scan every 60 seconds.</li>
+</ul>
+<h2>When things go wrong...</h2>
+<p>Usually, when perfoming any input/output or network connections with programming, it is a good idea to assume that at some stage the connection will fail or that the file you are trying to use might become unavailable. You can think of this as an &quot;exceptional&quot; event - you&#39;re not expecting it but it might happen.
+Also, if we are running a device remotely and will not be attending, it may be a good idea to start logging information if an error or excpetional event does occur so that you can debug it.</p>
+<p>In Python, error handling at run time in done through the use of exceptions that are caught in try blocks and handled in except blocks. We can then using logging to save details of the error for debugging later.</p>
+<ul>
+<li>Add the following logging declaration to the <code>precence-detector.py</code> program</li>
+</ul>
+<pre><code class="lang-python">import logging
+
+logging.basicConfig(filename=&#39;presence-detector.log&#39;,level=logging.INFO, format=&#39;%(asctime)s - %(message)s&#39;)
+logging.info(&#39;Starting presencenan detector&#39;)</code></pre>
+<p>Currently, in our <code>presence-detector.py</code> program, if an error occurs in the arp-scan() function the program will terminate. </p>
+<ul>
+<li>In the arp-scan() function, surround the code with a try-except block that logs any errors that occur:</li>
+</ul>
+<pre><code class="lang-python">def arp_scan():
+        try:
+                output = subprocess.check_output(&quot;sudo arp-scan -l&quot;, shell=True)
+                for i in range(len(names)):
+                        result = names[i]
+                        if macs[i] in output:
+                                result=result+&quot; is home&quot;
+                        else:
+                                result=result+&quot; is not home&quot;
+                        print(result)
+                        sense.show_message(result)
+        except Exception as e:
+                logging.error(e)</code></pre>
+<ul>
+<li><p>Now run your program as before. It should work exactly as before but now you will have a log file in the same directory as your script. Check it&#39;s contents and you should see similar to the following:</p>
+<pre><code class="lang-bash">2018-10-16 09:09:11,225 - Starting presence detector</code></pre>
+</li>
+</ul>
+<h2>Crontab</h2>
+<p><a href="https://en.wikipedia.org/wiki/Cron">cron</a> is a utility that allows tasks to be automatically run in the background at regular intervals. The Crontab (CRON TABle) is a file which contains the schedule of cron entries to be run and at specified times. The crontab File location varies by operating system however you can easily access it on the RPi using the <code>crontab</code> utility program.<br>In a terminal window, enter <code>crontab -e</code> at the prompt:
+<img src="./img/cron1.png" alt="Crontab"><br>Follow the instructions and select your favourite editor (default is nano). At the end of the file, add <code>@reboot nohup sudo /usr/bin/python /home/pi/presence/presence-detector.py &amp;</code>:<br><img src="./img/cron2.png" alt="Crontab"><br>Save and exit the Crontab and reboot the RPi by typing <code>sudo reboot</code> at the command prompt. The presence detector should now start in the background on every reboot of the RPi.</p>
+<ul>
+<li>Check the log file now just to see if everything is OK. You may notice some errors the first time the script executes. If you do, try to come up with a reason and investigate a solution using the web.</li>
+<li>If you do not get errors, how would you know if the simple exception handling/logging works? Propose a way to force an error in the try block of the code.</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="06">
+            <h1>Exercises</h1>
+<ol>
+<li>On the Sensehat, change the program to display the names of those who are present in <span style="color:green">green</span> and not present in <span style="color:red">red</span></li>
+<li>The current program requires you to &quot;hardcode&quot; names and MAC addresses into the program. Try to update the program so that names and MAC addresses are read from a file or files. (e.g. create a file called <code>devices.dat</code> and read the file when the program starts).</li>
+</ol>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

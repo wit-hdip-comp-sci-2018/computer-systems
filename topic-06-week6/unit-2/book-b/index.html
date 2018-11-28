@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  Wireless Communication Networks  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="BLE">
+          BLE
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="06">
+          06
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="BLE">
+            <h1>BLE Smart Light</h1>
+<p>Bluez · Smartphone · Raspberry Pi · SenseHAT</p>
+<h2>Introduction</h2>
+<p>In this lab you will use Bluetooth Low Energy (BLE) and a Raspberry Pi/SenseHAT to build a &quot;smart lightbulb&quot;.</p>
+<h2>Equipment</h2>
+<ul>
+<li>Raspberry pi 3</li>
+<li>SenseHAT</li>
+<li>Smartphone(Android/iPhone)</li>
+<li>OPTIONAL: Screen with HDMI, Keyboard, Mouse for RPi</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Configure your RPi for BLE</h1>
+<p> Your RPi has a built in Bluetooth protocol implementation called <a href="http://www.bluez.org/">Bluez</a>. However, as you will be creating a Bluetooth Low Energy service, it&#39;s a good idea to download, compile, install, and configure the latest stable version of Bluez on the Raspberry Pi.  </p>
+<h2>Install Dependencies</h2>
+<p>Your BLE service will require a few additional libraries on the RPi. Update the package list on your RPi  and install these dependencies as follows:</p>
+<pre><code class="lang-bash">$ sudo apt-get update
+$ sudo apt-get install libdbus-1-dev libglib2.0-dev libudev-dev libical-dev libreadline-dev -y</code></pre>
+<p>You&#39;ll have to wait a short while for the dependencies to install.</p>
+<h2>Check current Bluez version</h2>
+<p>Open a command prompt on your RPi and check the BlueZ Version you have currently on your RPi:</p>
+<pre><code class="lang-bash">$ bluetoothctl -v</code></pre>
+<p>You should see a reasonably current version (probably 5.43). If it&#39;s already 5.50 or greater then that&#39;s fine and you can move to the next section of the exercise.</p>
+<h2>Download and install BlueZ 5.50</h2>
+<p>Download the  BlueZ 5.50 source code on to your RPi using the <code>wget</code> command. Make sure your RPi has an internet connection.</p>
+<pre><code class="lang-bash">$ wget www.kernel.org/pub/linux/bluetooth/bluez-5.50.tar.xz</code></pre>
+<p>Uncompress the downloaded file using the <code>tar</code> command and change directory to the new uncompressed directory:</p>
+<pre><code class="lang-bash">$ tar xvf bluez-5.50.tar.xz &amp;&amp; cd bluez-5.50</code></pre>
+<p>To install Bluez, you need to follow the standard configure-make-install process for most Linux software packages:</p>
+<pre><code class="lang-bash">./configure --prefix=/usr --mandir=/usr/share/man --sysconfdir=/etc --localstatedir=/var --enable-experimental</code></pre>
+<p>Once the configure script has successfully run you can compile the Bluez code.  This compilation will take about 10 minutes. Compile the code by running the <code>make</code> command:</p>
+<pre><code class="lang-bash">make -j4</code></pre>
+<p>After Bluez has been compiled it can be installed on the RPi by running the following command:</p>
+<pre><code class="lang-bash">sudo make install</code></pre>
+<p>If all the above runs without any difficulty then you&#39;ve updated your Bluetooth stack to Bluez 5.50. Now reboot the RPi for it to fully take effect.</p>
+<pre><code class="lang-bash">sudo reboot</code></pre>
+<h2>Verify Update</h2>
+<p>Verify the BlueZ version by issuing the command below.</p>
+<pre><code class="lang-bash">$ bluetoothctl -v
+bluetoothctl: 5.50</code></pre>
+<h2>Install python-dbus</h2>
+<pre><code class="lang-bash">sudo apt-get install python-dbus</code></pre>
+<h2>Install Git</h2>
+<p>You will need to download starter code for this lab from an online Git repo. To make this easy, install Git on your RPi by running the following command on the RPi:</p>
+<pre><code class="lang-bash">sudo apt-get install git</code></pre>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>The Raspberry Pi as BLE peripheral</h1>
+<p>You will now use the Raspberry Pi to start advertising itself to BLE central devices and expose some data. </p>
+<p>The example you will use is similar to some commercial BLE &quot;Smart Light&quot; products on the market at the moment. Typically they are controlled using a smart phone app whereby their colour and state(on/off) can be changed. They can also include other novel features. For example, <a href="http://www.playbulb.com/index.html">PlayBulb</a> provide a BLE light that has a built in speaker that pulses and changes colour to match the mood of the music (a party bulb!). </p>
+<p>You will now use the 8x8 LED matrix on the RPi to create a Smart light proto type that can be controlled from a Mobile device. It will provide the following functionality:</p>
+<ul>
+<li>Control light colour</li>
+<li>temperature </li>
+</ul>
+<p>By adverising temperature, the lightbulb could posiibly be used as part of a smart home climate control system or as an ambient/assisted living device where the colour indicates temperature (blue -&gt; too cold, red -&gt; too hot).</p>
+<h2>Service Design</h2>
+<p>Your RPi can have multiple BLE services. Each BLE service, in turn, can have multiple characteristics. Characteristics can be read-only, read/write, or notify. Our Smart Light will contain 2 services: a SmartLight service and a Temperature service.<br>The BLE service design you will implement is shown in the following diagram:</p>
+<p><img src="./img/service-design.png" alt="Service Design"></p>
+<h3>Smart Light Service</h3>
+<p>The Bluetooth Special interest group (SIG) has agreed specifications for BLE services and characteristics (for example Heart Rate Monitors). To date, there is no specific agreed standard for the light services and colour so we can define our own custom spec. Each service must have its own Universally Unique Identifier (UUID). You can use an online tool <a href="https://www.guidgenerator.com/online-guid-generator.aspx">GUID Generator</a> to do this. For the purposes of this lab, we will use the following:</p>
+<blockquote>
+<p>UUID_SMART_LIGHT_SRVC = &#39;FF00&#39;<br>UUID_LIGHT_COLOUR_CHRC = &#39;FF01&#39;<br>UUID_LIGHT_SWITCH = &#39;FF02&#39;  </p>
+</blockquote>
+<h3>Temperature Service</h3>
+<p>There is an agreed standard for Temperature characteristics. Based on this, the UUID for temperature will use the short 16 bit UUID defined by the BLuetooth SIG:</p>
+<blockquote>
+<p>UUID_TEMP_SRVC = &#39;2A60&#39;<br>UUID_TEMP_CHRC = &#39;2A6E&#39;</p>
+</blockquote>
+<h2>Turn on BLE advertising</h2>
+<p>Before changing anything, lets check if the generic service example runs. </p>
+<p>First, change the bluetooth device name permanently to include your name so that it can be identified easily. On the Raspberry Pi, create a file called <code>/etc/machine-info</code> (perhaps use <code>nano /etc/machine-info</code>) and add the following content:</p>
+<pre><code class="lang-bash">PRETTY_HOSTNAME=YOUR_NAME</code></pre>
+<p>Next, configure your Bluetooth controller on the RPi to allow BLE advertising. At the command line on the RPi, run the following command to allow both reading and writing to ble services.</p>
+<pre><code class="lang-bash">sudo hciconfig hci0 leadv 0</code></pre>
+<p>(&quot;leadv&quot; stands for LE Advertising...)</p>
+<h2>Clone Example Service</h2>
+<p>Open a terminal window and make sure you are in your home directory by entering <code>cd ~</code>.  </p>
+<p>Use <code>Git</code> to clone the starter code for your GATT service. In your home directory, run the following command</p>
+<pre><code class="lang-bash">~ $ git clone https://github.com/fxwalsh/Bluetooth-Low-Energy-LED-Matrix.git</code></pre>
+<p>Change directory to the cloned repository and examine the files in the src directory.</p>
+<pre><code class="lang-bash">~ $ cd Bl*/src
+~/Bluetooth-Low-Energy-LED-Matrix/src $ ls
+bluez_components.py  gatt-server</code></pre>
+<p><code>bluez_components.py</code> contains &quot;boiler-plate&quot; functions that control the BLE adapter. The <code>gatt-server</code> implements a generic BLE service that we can modify to implement our Smart Light Service.
+At the command prompt in the src directory, type <code>sudo ./gatt-server</code> to start the service. Hopefully there are no errors and you see something similar to the following:</p>
+<pre><code class="lang-bash">pi@sensePi:~/Bluetooth-Low-Energy-LED-Matrix/src $ sudo ./gatt-server
+Registering GATT application...
+GetManagedObjects
+GATT application registered</code></pre>
+<h2>Explore your device</h2>
+<p>Your RPi should now be advertising and waiting for a central device to connect to it. You can use a Smart phone app to do this. LightBlue Explorer is a BLE test app that allows you to scan for Bluetooth Low Energy devices and communicate with them. It also is available for both Android and Apple iOS Devices.
+Go to the App Store on your device and search for it using &#39;LightBlue&#39; as the search word and install it on your device.
+The following desciption is using Android version of LightBlue.</p>
+<h2>Scan for BLE Devices</h2>
+<p>To test our RPi Smart Light peripheral, we&#39;ll be using LightBlue in Central Mode which allows you to scan and connect to BLE peripherals. Start LightBlue on your device. After some onboarding messages it should start scanning and you should see nearby devices appear on the screen. You can choose a peripheral from a list of nearby devices and explore information about that connected peripheral, its services, and characteristics.<br><img src="./img/lightblue1.png" alt="LightBlue Peripheral List">  </p>
+<h2>Connecting to the RPi</h2>
+<p>Find the Smart Light peripheral in the list. Tap on the service to connect and you should see the advertisement data for the Demo Service showing just one characteristic.</p>
+<p><img src="./img/lightblue2.png" alt="LightBlue Service"> </p>
+<p>Tap on the characteristic and, in &quot;Written Values&quot;, enter &quot;FF00F0&quot; and hit Write; the screen should show the new value as 0xFF0F.
+Hit the Read button and it should return the same value.<br><img src="./img/lightblue4.png" alt="LightBlue Characteristic"><br>If you now check the console output in the RPi where the service is running, you should see output confirming the write and read.<br><img src="./img/gatt-service1.png" alt="RPi Console - GATT Service"><br>Congratulations, you&#39;ve just implemented and tested a simple BLE peripheral on a Raspberry Pi. Now we will modify this service to control the LED matrix and read temperature sensor on the SenseHAT.</p>
+<h2>Stopping the Service</h2>
+<p>To stop the GATT server, enter <code>ctrl+c</code> in the RPi console. The console should then return to the command prompt. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Implement SmartLight</h1>
+<h2>GATT Server</h2>
+<p>Rename the <code>gatt-server</code> script to <code>smartlight-gatt-server</code>.</p>
+<p>Using <code>nano</code> or a suitable editor, open the <code>smartlight-gatt-server</code> file. You will see that it contains 3 python classes, <code>DemoService</code>, <code>DemoCharacteristic</code>, and <code>CharacteristicUserDescriptionDescriptor</code>.</p>
+<h2>Include the SmartHAT</h2>
+<p>You will need a way to access the SenseHAT LEDs and temperature sensor from the SmartLight service. At the top of the <code>smartlight-gatt-server</code> script, add the following to import the SenseHAT package and create the <code>sense</code> object. </p>
+<pre><code class="lang-python">from sense_hat import SenseHat
+sense = SenseHat()</code></pre>
+<h2>SmartLight Service</h2>
+<p>Change the DemoService class to match the Smart Light design as follows:</p>
+<ul>
+<li>change the class name to &quot;SmartLightService&quot;</li>
+<li>change TEST_SVC_UUID to SVC_UUID</li>
+<li>change the UUID to match the proposed design</li>
+<li>change the characteristic name to LightColourCharacteristic</li>
+</ul>
+<pre><code class="lang-python">class SmartLightService(Service):
+    SVC_UUID = &#39;FF10&#39;
+
+    def __init__(self, bus, index):
+        Service.__init__(self, bus, index, self.SVC_UUID, True)
+        self.add_characteristic(LightColourCharacteristic(bus, 0, self))</code></pre>
+<h2>LightColourCharacteristic</h2>
+<p>Update the <code>DemoCharacteristic</code> class as follows</p>
+<ul>
+<li>change the class name to &quot;LightColourCharacteristic&quot;</li>
+<li>change the UUID to match the proposed design(FF11)</li>
+<li>in the <code>__init__</code> function (i.e. the constructor):<ul>
+<li>initialise the light colour value to 0,0,0 (representing RGB)</li>
+<li>clear the SenseHAT LED matrix</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python">class LightColourCharacteristic(Characteristic):
+    CHRC_UUID = &#39;FF11&#39;
+
+    def __init__(self, bus, index, service):
+        Characteristic.__init__(
+                self, bus, index,
+                self.CHRC_UUID,
+                [&#39;read&#39;, &#39;write&#39;, &#39;writable-auxiliaries&#39;],
+                service)
+        self.value = [0,0,0]
+        sense.clear()
+        self.add_descriptor(
+                LightColourUserDescription(bus, 0, self))</code></pre>
+<p>Whenever a value is received from a connected client, change the colour of the LED matrix to the received value. Find the <code>WriteValue</code> function in the script and change it to the following:</p>
+<pre><code class="lang-python">    def WriteValue(self, value, options):
+        print(&#39;light Colour WriteValue called&#39;)
+        if len(value)!=3:
+            raise InvalidValueLengthException()
+        sense.clear([int(value[0]),int(value[1]),int(value[2])])
+        self.value = value
+        print(&#39;Finished changing colour!&#39;)</code></pre>
+<h2>Light Colour User Description</h2>
+<p>Finally, change the name of the <code>CharacteristicUserDescriptionDescriptor</code> class and update the <code>value</code> field to a more accurate description of the characteristic:</p>
+<pre><code class="lang-python">class LightColourUserDescription(Descriptor):
+    CUD_UUID = &#39;2901&#39;
+
+    def __init__(self, bus, index, characteristic):
+        self.writable = &#39;writable-auxiliaries&#39; in characteristic.flags
+        self.value = array.array(&#39;B&#39;, b&#39;Smart Light Colour(RGB)&#39;)
+        self.value = self.value.tolist()
+        Descriptor.__init__(
+                self, bus, index,
+                self.CUD_UUID,
+                [&#39;read&#39;, &#39;write&#39;],
+                characteristic)
+...
+...</code></pre>
+<h2>Update main() function</h2>
+<p>Find the <code>main()</code> function in the script. Replace the line that adds the Demo Service (<code>app.add_service(DemoService(bus, 1))</code>) to the following:</p>
+<pre><code class="lang-python">app.add_service(SmartLightService(bus, 0))</code></pre>
+<h2>Run it!</h2>
+<p>If the example service is still running, stop it using <code>ctrl+c</code>. As before, run the service by entering <code>sudo ./smartlight-gatt-server</code> at the RPi command prompt and connect using LightBlue on your device. 
+Write &quot;FFFFFF&quot; to the light colour characteristic and you should see the SenseHAT LED matrix light up. Try some other colours to make sure it&#39;s working.</p>
+<h2>Any Problems?</h2>
+<p>Bluetooth can be tricky. When you make changes to your service you may need to stop and start Bluetooth on your device/smartphone.<br>If you cannot see the service on your device, restart Bluetooth on the RPi and make sure Low Energy Advertising is allowed:</p>
+<pre><code class="lang-bash">sudo hciconfig hci0 down
+sudo hciconfig hci0 up
+sudo hciconfig hci0 leadv 0</code></pre>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Temperature Service</h1>
+<p>Now you will add another service to the RPi GATT server. The Temperature service will read from the temperature sensor on the SenseHAT and provide both read and notify functionality for the temperature characteristic.</p>
+<p>The environment service design is as follows:</p>
+<p><img src="./img/env-service.png" alt="Environment Service"></p>
+<p>The design applies the UUIDs for environment sensing service and temperature characteristic specified by the Bluetooth SIG.</p>
+<h2>Environment Service Class</h2>
+<p><strong>NOTE: ALL THE FOLLOWING CODE SHOULD BE ADDED ABOVE THE <code>main()</code> FUNCTION</strong></p>
+<p>Add the following class to the <code>smartlight-gatt-server</code> script:</p>
+<pre><code class="lang-python">class EnvironmentService(Service):
+
+    ENV_UUID = &#39;181a&#39;
+
+    def __init__(self, bus, index):
+        Service.__init__(self, bus, index, self.ENV_UUID, True)
+        self.add_characteristic(TemperatureCharacteristic(bus, 0, self))</code></pre>
+<p>As you can see the service uses the reserved UUID for Environment Sensing services and adds just on characteristic, <code>TemperatureCharacteristic</code></p>
+<h2>Temperature Characteristic class</h2>
+<p>Add the folowing class to the <code>smartlight-gatt-server</code> script.</p>
+<pre><code class="lang-python">class TemperatureCharacteristic(Characteristic):
+    TEMP_UUID = &#39;2a6e&#39;
+
+    def __init__(self, bus, index, service):
+        Characteristic.__init__(
+                self, bus, index,
+                self.TEMP_UUID,
+                [&#39;read&#39;, &#39;notify&#39;],
+                service)
+        self.notifying = False
+        self.temp = temp_sint16(sense.get_temperature())
+        GObject.timeout_add(1000, self.get_temp)
+
+    def notify_temp(self):
+        if not self.notifying:
+            return
+        self.PropertiesChanged(
+                GATT_CHRC_IFACE,
+                                { &#39;Value&#39;: self.temp }, [])
+        print(&#39;temp notify: &#39; + repr(self.temp))
+        return self.notifying
+
+    def get_temp(self):
+        self.temp = temp_sint16(sense.get_temperature())
+        if not self.notifying:
+            return True
+        self.notify_temp()
+        return True
+
+    def ReadValue(self, options):
+        self.get_temp()
+        print(&#39;temp read: &#39; + repr(self.temp))
+        return self.temp
+
+    def StartNotify(self):
+        if self.notifying:
+            print(&#39;Already notifying, nothing to do&#39;)
+            return
+        self.notifying = True
+
+    def StopNotify(self):
+        if not self.notifying:
+            print(&#39;Not notifying, nothing to do&#39;)
+            return
+        self.notifying = False
+
+## Utility function to convert temp value to 16 bit int value, preserving 2 decimal places
+def temp_sint16(value):
+    answer = []
+    value_int16=int(value * 100).to_bytes(2, byteorder=&#39;little&#39;, signed=True)
+    for bytes in value_int16:
+        answer.append(dbus.Byte(bytes))
+    return answer</code></pre>
+<p>Finally, add the Environment Service to the application by adding the following line to the <code>main()</code> function:</p>
+<pre><code class="lang-python"> app.add_service(EnvironmentService(bus, 1))</code></pre>
+<p>Notice that this characteristic permits notifications and includes <code>StartNotify</code> and <code>StopNotify</code> functions to control notifications sent to a connected device. The service requests the temperature from the SenseHAT every  second (1Hz) by using the <code>GObject.timeout_add()</code> function.</p>
+<h2>Run it!</h2>
+<p>Now run the service again. You should now see a new service included for your smartlight device. 
+To read the temperature from the device, do </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Automate GATT service on Startup</h1>
+<p>At the moment, you have to run your GATT service manually on the RPi. Ideally, your script would run automatically when the RPi boots.
+One way to do this is to edit the Cron Table.</p>
+<h2>Crontab</h2>
+<p><a href="https://en.wikipedia.org/wiki/Cron">cron</a> is a utility that allows tasks to be automatically run in the background at regular intervals. The Crontab (CRON TABle) is a file which contains the schedule of cron entries to be run and at specified times. The crontab File location varies by operating system however you can easily access it on the RPi using the <code>crontab</code> utility program.<br>In a terminal window, enter <code>sudo crontab -e</code> at the prompt:
+<img src="./img/cron1.png" alt="Crontab"><br>If prompted, follow the instructions and select your favourite editor (default is nano). At the end of the file, add:</p>
+<pre><code class="lang-bash">@reboot sleep 30 &amp;&amp; sudo hciconfig hci0 leadv 0
+@reboot sleep 40 &amp;&amp; sudo python3 /home/pi/Bluetooth-Low-Energy-LED-Matrix/src/smartlight-gatt-server</code></pre>
+<p>The <code>sleep</code> commands delay the startup of the GATT server long enough for the supporting services on the Pi to start (i.e. Bluetooth service)
+Save and exit the Crontab and reboot the RPi by typing <code>sudo reboot</code> at the command prompt. 
+The BLE device should start advertising in the background on every reboot of the RPi.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="06">
+            <h1>Exercises</h1>
+<ol>
+<li>We used the <code>hciconfig</code> command in this lab. Investigate and explain how this command could be used to turn the Raspberry Pi into a broadcast-only BLE device. </li>
+<li>Explain how the <code>hcitool</code> command can be used to advertise data. </li>
+</ol>
+<h2>Optional:</h2>
+<ol>
+<li>Include a <code>Light Switch</code> characteristic in the SmartLight service that turns the LED Matrix on and off. You should consider the following:<br>The light has two states: <code>on</code> and <code>off</code>. If the state is set to off, the LED matrix should be off. If the state is on, the LED matrix should be set to the <code>value</code> of the light colour characteristic (<code>sense.clear(value[0],value[1],value[2])</code>).</li>
+</ol>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

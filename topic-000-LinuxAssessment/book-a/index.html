@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html">  ASSESSMENT-1: Linux Shell Scripting  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Assessment-Guides">
+          Assessment-Guides
+        </a>
+      
+        <a class="item" data-tab="Files-Required">
+          Files-Required
+        </a>
+      
+        <a class="item" data-tab="Linux-Mail">
+          Linux-Mail
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-1/book-a/index.html">Assessment-Time </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
+        
+      
+        
+          <a class="item"
+             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Assessment-Guides">
+            <h1>Shell Scripting Assessment Guidelines</h1>
+<p>Shell Scripting Assessment Guidelines</p>
+<h1>Assessment Guide Video also available under the previous  <strong>Assessment Details</strong> area</h1>
+<pre><code>**PLEASE NOTE: There is now a linked guide video underneath that will complement the Assessment Details file**</code></pre>
+<ul>
+<li>The following labs go through some exercises for you to try out that may be useful for your Shell Scripting Assessment </li>
+</ul>
+<h1>Assessment Due Date</h1>
+<pre><code> - to be uploaded to Moodle on or before 11:55pm Sunday 18th November (week 9)</code></pre>
+<h1>What to Upload?</h1>
+<pre><code>
+(1) COMPRESSED FILE
+
+- you are required to compress all of your files for upload to the associated Moodle upload area
+
+(2) VIDEO
+
+The purpose of this video is for you to do a full run through each of the files in your Assessment and describing them using voice only.
+
+- You should demonstrate the files using a screencasting software of your choice that allows you to record your screen plus voice audio.
+
+(e.g.&#39;s Kazam, SimpleScreenRecorder, Vokoscreen)
+
+- You should describing/defend your choices/approaches (using your machines standard mic for your voice is sufficient).
+
+- There is no particular time constraints on this video, it will most likely be &lt;10 minutes, sufficient time to allow you to describe your Assessment components.
+
+- You may choose to upload the video or Moodle or ideally upload a link to where you&#39;ve hosted it.</code></pre>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Files-Required">
+            <h1>Shell Scripting Assessment Notes</h1>
+<ul>
+<li>In your <strong>Assessment Details</strong>, you can read that the <strong>Menu</strong> is to be the entry point of your project.</li>
+</ul>
+<p><img src="./img/wk2.jpg" alt=""></p>
+<ul>
+<li><strong>Menu</strong>, file #1, will allow the user to read a command line menu and from this, a user can select from any of the options presented and be brought to the appropriate script.</li>
+</ul>
+<p><img src="./img/menu.jpg" alt="Sample Basic Menu"></p>
+<ul>
+<li><p>So, if the user enters <strong>1</strong> then send them to the <strong>./AddCust</strong></p>
+</li>
+<li><p>This should be file #2 that you will have created which will automatically create a file called <strong>CustomerDetails</strong>, if it doesn&#39;t already exist... you might consider using re-direction in your command</p>
+</li>
+<li><p><strong>CustomerDetails</strong> is therefore file #3 that the script will create at the beginning to enter the first record</p>
+</li>
+<li><p>If the user enters <strong>2</strong> then send them to the <strong>./RemCust</strong> (so this is file #4 that you will have created)</p>
+</li>
+<li><p>If the user enters <strong>3</strong> then send them to the <strong>./FindCust</strong> (so this is file #5 that you will have created)</p>
+</li>
+<li><p>Finally a user will be allowed to <strong>email</strong> customer(s) and you can choose how you would like to approach this... see the next lab</p>
+</li>
+<li><p>All menu options should loop until a user chooses to exit</p>
+</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Linux-Mail">
+            <h1>Linux Mail Component</h1>
+<ul>
+<li>There is a primitive mailer on Linux that is relatively easy to use from the command line.</li>
+<li>You check for mail by just typing:</li>
+</ul>
+<pre><code>mail</code></pre>
+<ul>
+<li>You send mail by typing</li>
+</ul>
+<pre><code>mail joe@bloggs.com -s &quot;Message for Joe&quot;</code></pre>
+<ul>
+<li><p>You then type your mail and end it by typing <strong>CTRL+D</strong> on a line of its own</p>
+</li>
+<li><p>You’ll need to install mailutils first if not already installed:</p>
+</li>
+</ul>
+<pre><code>sudo apt-get install mailutils
+
+(choose local only option)</code></pre>
+<ul>
+<li><p>This facility means that you will be only allowed send test emails and not emails via the internet so this is perfectly OK. An email will not actually be sent out. You can test that the email was sent via your mail command
+This is sufficient for the purpose of this assessment i.e. if you tested sending an email to your own email <em>myemail@gmail.com</em>, it is OK that you will not see this email in your own gmail account. </p>
+</li>
+<li><p>You might consider setting a variable to be equal to a find (recall <strong>grep</strong>) of the appropriate person in a particular file where the records are stored to begin with... what next?? Maybe pipe the output to an awk command? Why? </p>
+</li>
+<li><p>You might consider something like this to email the person with a particular message:</p>
+<pre><code>echo $message | mail -s $subject $emailaddress</code></pre>
+</li>
+<li><p>This is only one of MANY approaches that you might have taken to searching for a particular person/group you want to send an email to and then emailing them... what I&#39;m looking for is your command of the language</p>
+</li>
+</ul>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
