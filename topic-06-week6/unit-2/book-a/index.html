@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-          rel="stylesheet"/>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <style>
-      
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+        type="text/css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+        rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    
 
 body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
@@ -66,213 +66,189 @@ h3 {
 
 
 
-      
+  </style>
+</head>
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
-.wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.footer {
-  background: white;
-  text-align: right;
-}
-.content {
-  flex: 1;
-  overflow: auto;
-}
+<body>
 
 
 
-    </style>
-  </head>
-
-  
-  
-
-  <div class="ui fixed top pointing inverted stackable menu labmenu">
-    <header class="header item">
-      <i id="toc" class="sitemap icon"></i>
-      
-        <a href="../../index.html">  Wireless Communication Networks  </a>
-      
-    </header>
-    <div class="right tab-menu menu">
-      
-        <a class="item" data-tab="Presence Detector 1">
-          Presence Detector 1
-        </a>
-      
-        <a class="item" data-tab="01">
-          01
-        </a>
-      
-        <a class="item" data-tab="02">
-          02
-        </a>
-      
-        <a class="item" data-tab="03">
-          03
-        </a>
-      
-        <a class="item" data-tab="04">
-          04
-        </a>
-      
-        <a class="item" data-tab="05">
-          05
-        </a>
-      
-        <a class="item" data-tab="06">
-          06
-        </a>
-      
-    </div>
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    
+      <a href="../../index.html">  Wireless Communication Networks  </a>
+    
+  </header>
+  <div class="right tab-menu menu">
+    
+      <a class="item" data-tab="Presence Detector 1">
+        Presence Detector 1
+      </a>
+    
+      <a class="item" data-tab="01">
+        01
+      </a>
+    
+      <a class="item" data-tab="02">
+        02
+      </a>
+    
+      <a class="item" data-tab="03">
+        03
+      </a>
+    
+      <a class="item" data-tab="04">
+        04
+      </a>
+    
+      <a class="item" data-tab="05">
+        05
+      </a>
+    
+      <a class="item" data-tab="06">
+        06
+      </a>
+    
   </div>
+</div>
 
-
-  
-
-  <div class="ui pushable">
-    <div class="ui inverted labeled icon left inline vertical sidebar menu">
-      <br><br>
+<div class="ui pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">cpu </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
       
-    </div>
-    <div class="pusher" tabindex="-1">
-      <div class="ui basic segment">
-        <br>
-        
-          <div class="ui tab segment lab" data-tab="Presence Detector 1">
-            <h1>WiFi-based Presence Detector - Part 1</h1>
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment">
+      <br>
+      
+        <div class="ui tab segment lab" data-tab="Presence Detector 1">
+          <h1>WiFi-based Presence Detector - Part 1</h1>
 <p>WiFi · MAC Address · ARP Scan · CronTab</p>
 <h2>Introduction</h2>
 <p>In this lab you will use a WiFi local network and a Raspberry Pi/SenseHAT to build a device presence detector.
@@ -286,10 +262,10 @@ An application of this is to check who is home/in the office/lab (and not home) 
 <li>OPTIONAL: Screen with HDMI, Keyboard, Mouse.</li>
 </ul>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="01">
-            <h1>arp-scan</h1>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="01">
+          <h1>arp-scan</h1>
 <p><a href="https://www.netscantools.com/nstpro_arp_scan.html">arp-scan</a> is a fast ARP packet scanner that can find all active IPv4 devices on a network.  Devices cannot hide from ARP packets like they can hide from Ping and it should detect all devices including those with firewalls.</p>
 <p>To install arp-scan, connect to your RPi 3 in your preferred manner (e.g. <a href="">headless</a> or <a href="">screen-based</a>)</p>
 <p>Open a terminal window on the Raspberry Pi and enter the following command:</p>
@@ -314,10 +290,10 @@ sudo apt-get install arp-scan</code></pre>
 </ul>
 <p>Now that we have a mechanism to detect known devices on the local network, we can write a short python program to get the RPi/SenseHAT to indicate the presence/absence of a device.</p>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="02">
-            <h1>Presence Detector Script</h1>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="02">
+          <h1>Presence Detector Script</h1>
 <p>Using <code>arp-scan</code>, you will now write a script that:</p>
 <ul>
 <li>gets a list of connected devices to the local network</li>
@@ -363,10 +339,10 @@ done</code></pre>
 <pre><code class="lang-bash">knownDevices=(&quot;d4:28:d5:37:7e:a2&quot; &quot;xx:xx:xx:xx:xx:xx&quot;)</code></pre>
 <p>Now run the script again. Make sure you get a result that has both outcomes (present and not present).</p>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="03">
-            <h1>Python ARP-Scan</h1>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="03">
+          <h1>Python ARP-Scan</h1>
 <p>In order to access easily higher order functions on the RPi such as SenseHAT and messaging protocols, we&#39;ll now switch to using Python, a good general purpose programming library that&#39;s already installed on the RPi,</p>
 <h2>Scanning for MAC addresses with Python</h2>
 <p>We can call the <code>arp-scan</code> program from a Python program using the <code>subprocess</code> library.</p>
@@ -417,10 +393,10 @@ arp_scan()</code></pre>
 </ul>
 <p>Next we&#39;ll use the SenseHat to output the results.  </p>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="04">
-            <h1>SenseHAT</h1>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="04">
+          <h1>SenseHAT</h1>
 <p>In this section you will ouput the presence detection result using SenseHAT.
 The SenseHAT can be controlled using the <a href="https://pythonhosted.org/sense-hat/">SenseHat</a> Python module. </p>
 <ul>
@@ -456,10 +432,10 @@ sense = SenseHat()</code></pre>
 </ul>
 <p>Run the program as before and you should see something similar to the following:<br><img src="./img/sense-hat1.gif" alt="SenseHAT 8x8 LED"></p>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="05">
-            <h1>Automate Presence Detection</h1>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="05">
+          <h1>Automate Presence Detection</h1>
 <p>At the moment, you have to run your presence detection script manually on the RPi. Ideally, your script would run automatically at a set interval, perhaps every minute.</p>
 <h2>Loop forever</h2>
 <p>Add an endless loop in the program that waits of 60 seconds after every successful call to the apr-scan() function. You can use the <code>sleep()</code> function in the <code>time</code> python package to do this. </p>
@@ -517,25 +493,23 @@ logging.info(&#39;Starting presencenan detector&#39;)</code></pre>
 <li>If you do not get errors, how would you know if the simple exception handling/logging works? Propose a way to force an error in the try block of the code.</li>
 </ul>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="06">
-            <h1>Exercises</h1>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="06">
+          <h1>Exercises</h1>
 <ol>
 <li>On the Sensehat, change the program to display the names of those who are present in <span style="color:green">green</span> and not present in <span style="color:red">red</span></li>
 <li>The current program requires you to &quot;hardcode&quot; names and MAC addresses into the program. Try to update the program so that names and MAC addresses are read from a file or files. (e.g. create a file called <code>devices.dat</code> and read the file when the program starts).</li>
 </ol>
 
-          </div>
-        
-      </div>
+        </div>
+      
     </div>
   </div>
+</div>
 
-
-
-  <script>
-    $(document).on('keydown', function(e) {
+<script>
+  $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -555,7 +529,7 @@ logging.info(&#39;Starting presencenan detector&#39;)</code></pre>
   }
 });
 
-    $(document).ready(function() {
+  $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -588,18 +562,6 @@ logging.info(&#39;Starting presencenan detector&#39;)</code></pre>
     .sidebar('attach events', '#toc');
 });
 
-  </script>
-
-
-
-  <div class="ui bottom fixed borderless right menu">
-    <div class="ui right small menu">
-      <div class="ui tiny basic message segment">
-         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-      </div>
-    </div>
-  </div>
-
-  </body>
-
+</script>
+</body>
 </html>
