@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-          rel="stylesheet"/>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <style>
-      
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+        type="text/css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+        rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    
 
 body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
@@ -66,205 +66,181 @@ h3 {
 
 
 
-      
+  </style>
+</head>
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
-.wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.footer {
-  background: white;
-  text-align: right;
-}
-.content {
-  flex: 1;
-  overflow: auto;
-}
+<body>
 
 
 
-    </style>
-  </head>
-
-  
-  
-
-  <div class="ui fixed top pointing inverted stackable menu labmenu">
-    <header class="header item">
-      <i id="toc" class="sitemap icon"></i>
-      
-        <a href="../../index.html">  Gates and Circuits  </a>
-      
-    </header>
-    <div class="right tab-menu menu">
-      
-        <a class="item" data-tab="Boolean">
-          Boolean
-        </a>
-      
-        <a class="item" data-tab="01">
-          01
-        </a>
-      
-        <a class="item" data-tab="02">
-          02
-        </a>
-      
-        <a class="item" data-tab="03">
-          03
-        </a>
-      
-        <a class="item" data-tab="Soln">
-          Soln
-        </a>
-      
-    </div>
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    
+      <a href="../../index.html">  Gates and Circuits  </a>
+    
+  </header>
+  <div class="right tab-menu menu">
+    
+      <a class="item" data-tab="Boolean">
+        Boolean
+      </a>
+    
+      <a class="item" data-tab="01">
+        01
+      </a>
+    
+      <a class="item" data-tab="02">
+        02
+      </a>
+    
+      <a class="item" data-tab="03">
+        03
+      </a>
+    
+      <a class="item" data-tab="Soln">
+        Soln
+      </a>
+    
   </div>
+</div>
 
-
-  
-
-  <div class="ui pushable">
-    <div class="ui inverted labeled icon left inline vertical sidebar menu">
-      <br><br>
+<div class="ui pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">cpu </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
       
-    </div>
-    <div class="pusher" tabindex="-1">
-      <div class="ui basic segment">
-        <br>
-        
-          <div class="ui tab segment lab" data-tab="Boolean">
-            <h1>Simplification of Logic Circuits</h1>
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment">
+      <br>
+      
+        <div class="ui tab segment lab" data-tab="Boolean">
+          <h1>Simplification of Logic Circuits</h1>
 <p>Boolean algebra in logic circuits · Circuit Simulator</p>
 <p><strong>George Boole</strong> is the mathematician who helped establish modern symbolic logic and whose algebra of logic, now called <strong>Boolean algebra</strong>, is basic to the design of digital computer circuits.</p>
 <ul>
@@ -281,10 +257,10 @@ html, body {
 <li>Boolean algebra finds its most practical use in the simplification of logic circuits. </li>
 </ul>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="01">
-            <h1><strong>EXERCISE: Logic Gate Representations</strong></h1>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="01">
+          <h1><strong>EXERCISE: Logic Gate Representations</strong></h1>
 <p>Answer the following in relation to multiple-input logic gates</p>
 <ol>
 <li>For a Three input OR Gate the inputs are 0, 0, 0.     What is the output? </li>
@@ -335,10 +311,10 @@ A switch to turn on/off the porch light (L)</p>
 <h1><strong>EXERCISE: Create the truth table for above scenario</strong></h1>
 <p><img src="./img/juggle.png" alt=""></p>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="02">
-            <h1>Use of Logic.ly</h1>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="02">
+          <h1>Use of Logic.ly</h1>
 <ul>
 <li><p>Logic circuit simulators can simulate electronic logic gates in an interactive environment on your computer. Such environments are often used to design circuits before implementing them with real electronic components</p>
 </li>
@@ -383,10 +359,10 @@ A switch to turn on/off the porch light (L)</p>
     - Is the <strong>output behaviour</strong> as you expect them to be? </p>
 <h3>Enjoy experimenting with Logic.ly</h3>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="03">
-            <h1>Combinational Logic Circuits</h1>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="03">
+          <h1>Combinational Logic Circuits</h1>
 <p>The combinational logic circuits can be classified into various types based on the purpose of usage, such as 
 - arithmetic &amp; logical functions, 
 - data transmission and 
@@ -423,10 +399,10 @@ A switch to turn on/off the porch light (L)</p>
 <p>Remember: All of the more complex adder architectures are constructed from its basic building blocks such as Half Adder and Full Adder so it&#39;s important to understand the workings of these.</p>
 <h3>Again, experimenting with different circuit combinations will allow you become more familiar with the expected outputs of them...</h3>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="Soln">
-            <h1>Solutions to some of the labs</h1>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="Soln">
+          <h1>Solutions to some of the labs</h1>
 <h2>EXERCISE: Use Boolean Algebra to simplify:</h2>
 <p><img src="./img/simplifysolntwo.jpg" alt=""></p>
 <p><img src="./img/simplifysolnthree.jpg" alt=""></p>
@@ -443,16 +419,14 @@ A switch to turn on/off the porch light (L)</p>
 <p><img src="./img/identitylaw.png" alt="Boolean Indentity Law circuit representation?">
 <img src="./img/logiclyone.png" alt="Boolean Complement Law circuit representation?"></p>
 
-          </div>
-        
-      </div>
+        </div>
+      
     </div>
   </div>
+</div>
 
-
-
-  <script>
-    $(document).on('keydown', function(e) {
+<script>
+  $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -472,7 +446,7 @@ A switch to turn on/off the porch light (L)</p>
   }
 });
 
-    $(document).ready(function() {
+  $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -505,18 +479,6 @@ A switch to turn on/off the porch light (L)</p>
     .sidebar('attach events', '#toc');
 });
 
-  </script>
-
-
-
-  <div class="ui bottom fixed borderless right menu">
-    <div class="ui right small menu">
-      <div class="ui tiny basic message segment">
-         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-      </div>
-    </div>
-  </div>
-
-  </body>
-
+</script>
+</body>
 </html>

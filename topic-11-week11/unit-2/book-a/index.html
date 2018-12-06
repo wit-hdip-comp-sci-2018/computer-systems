@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-          rel="stylesheet"/>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <style>
-      
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+        type="text/css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+        rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    
 
 body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
@@ -66,201 +66,177 @@ h3 {
 
 
 
-      
+  </style>
+</head>
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
-.wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.footer {
-  background: white;
-  text-align: right;
-}
-.content {
-  flex: 1;
-  overflow: auto;
-}
+<body>
 
 
 
-    </style>
-  </head>
-
-  
-  
-
-  <div class="ui fixed top pointing inverted stackable menu labmenu">
-    <header class="header item">
-      <i id="toc" class="sitemap icon"></i>
-      
-        <a href="../../index.html">  IoT Mobile Apps  </a>
-      
-    </header>
-    <div class="right tab-menu menu">
-      
-        <a class="item" data-tab="Blynk">
-          Blynk
-        </a>
-      
-        <a class="item" data-tab="01">
-          01
-        </a>
-      
-        <a class="item" data-tab="02">
-          02
-        </a>
-      
-        <a class="item" data-tab="03">
-          03
-        </a>
-      
-    </div>
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    
+      <a href="../../index.html">  IoT Mobile Apps  </a>
+    
+  </header>
+  <div class="right tab-menu menu">
+    
+      <a class="item" data-tab="Blynk">
+        Blynk
+      </a>
+    
+      <a class="item" data-tab="01">
+        01
+      </a>
+    
+      <a class="item" data-tab="02">
+        02
+      </a>
+    
+      <a class="item" data-tab="03">
+        03
+      </a>
+    
   </div>
+</div>
 
-
-  
-
-  <div class="ui pushable">
-    <div class="ui inverted labeled icon left inline vertical sidebar menu">
-      <br><br>
+<div class="ui pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">CPU </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">cpu </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
-        
+    
       
-        
-          <a class="item"
-             href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
-        
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
       
-    </div>
-    <div class="pusher" tabindex="-1">
-      <div class="ui basic segment">
-        <br>
-        
-          <div class="ui tab segment lab" data-tab="Blynk">
-            <h1>IoT Mobile Apps using Blynk</h1>
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
+      
+    
+      
+        <a class="item"
+           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment">
+      <br>
+      
+        <div class="ui tab segment lab" data-tab="Blynk">
+          <h1>IoT Mobile Apps using Blynk</h1>
 <p>Remote Hardware Control via Mobile App.</p>
 <p>Blynk was designed for the Internet of Things. It can control hardware remotely, it can display sensor data, it can store and visualise data. </p>
 <p><img src="./img/main.png" alt="Blynk"></p>
@@ -272,10 +248,10 @@ html, body {
 <li>Send your Phone location to Wia. </li>
 </ul>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="01">
-            <h2>Install the Blynk App</h2>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="01">
+          <h2>Install the Blynk App</h2>
 <p>You will need the Blynk app on an Android or IoS device such as a Smart Phone or Tablet. If you don&#39;t have a device available to do this, you can <a href="https://community.blynk.cc/t/blynk-desktop-app-android-emulator/13968">emulate Android on your desktop</a>.</p>
 <ul>
 <li><p>Install the Blynk App for your Smartphone (or Tablet) from <a href="https://www.blynk.cc/getting-started/">here</a>.</p>
@@ -470,10 +446,10 @@ v2.on(&#39;read&#39;, function() {
 <li>Run the <code>Blynk-lab1</code> app on your phone again by tapping the <code>Run</code> icon. It will now read the value of the virtual pin <code>V2</code> every 5 seconds and display the returned value.</li>
 </ul>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="02">
-            <h1>Phone Sensors</h1>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="02">
+          <h1>Phone Sensors</h1>
 <p><strong>NOTE: The following sections were tested using an Android Device (Alcatel A3). Blynk is designed to be cross platform but some variations in operation, particularly when integrating with phone sensors, may exist on different phone models. You can try this section on an emulated smartphone.</strong></p>
 <p>Blynk has lots of widgets for various uses. The phone app also allow you to access the phones sensors such a light sensor, accelerometer. The next example will use use a <code>webhook</code> to push  light sensor data to Thingspeak for analysis.</p>
 <ul>
@@ -533,10 +509,10 @@ See <a href="https://docs.blynk.cc/#widgets-other-webhook">here</a> for more det
 </ul>
 <p><img src="./img/thing.png" alt="Thingspeak Data"></p>
 
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="03">
-            <h2>Location/GPS Streaming</h2>
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="03">
+          <h2>Location/GPS Streaming</h2>
 <p>In this section we will use Blynk&#39;s GPS streaming feature to push the phone location to Wia.
 As we&#39;re working with Javascript, you&#39;ll need to install the Wia node module. Run the following command in your project directory.</p>
 <pre><code>npm install wia --save</code></pre>
@@ -596,16 +572,14 @@ wia.stream.connect();</code></pre>
 </ul>
 <p><img src="./img/map.png" alt="Add Location Widget"></p>
 
-          </div>
-        
-      </div>
+        </div>
+      
     </div>
   </div>
+</div>
 
-
-
-  <script>
-    $(document).on('keydown', function(e) {
+<script>
+  $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -625,7 +599,7 @@ wia.stream.connect();</code></pre>
   }
 });
 
-    $(document).ready(function() {
+  $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -658,18 +632,6 @@ wia.stream.connect();</code></pre>
     .sidebar('attach events', '#toc');
 });
 
-  </script>
-
-
-
-  <div class="ui bottom fixed borderless right menu">
-    <div class="ui right small menu">
-      <div class="ui tiny basic message segment">
-         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-      </div>
-    </div>
-  </div>
-
-  </body>
-
+</script>
+</body>
 </html>
