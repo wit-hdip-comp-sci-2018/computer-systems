@@ -8,9 +8,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
   </head>
   <body class="uk-background-muted">
-    
+    <div class="wrapper">
+      <div class="content">
+        <div style="height:1000px;">
+          
   
   <div class="uk-offcanvas-content">
     <div id="offcanvas-usage" uk-offcanvas>
@@ -1368,14 +1396,14 @@ DHCP
                             
                               <div class="item">  
   <i class="fas fa-bookmark " style="color:"> </i>
-  Memory Management  </div>
+  Memory Management  </div>
                               <ul class="uk-nav-sub">
                                 
                                   <div>
                                     <a class="item"
                                        href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/talk-1/talk-1.pdf">
   <i class="fas fa-object-group " style="color:#009688"> </i>
- I/O Devices 
+ I/O Devices 
                                       
                                     </a>
                                   </div>
@@ -1384,7 +1412,7 @@ DHCP
                                     <a class="item"
                                        href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/talk-2/talk-2.pdf">
   <i class="fas fa-object-group " style="color:#009688"> </i>
- I/O Data Transfer Modes 
+ I/O Data Transfer Modes 
                                       
                                     </a>
                                   </div>
@@ -1393,7 +1421,7 @@ DHCP
                                     <a class="item"
                                        href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/talk-3/talk-3.pdf">
   <i class="fas fa-object-group " style="color:#009688"> </i>
- I/O Model 
+ I/O Model 
                                       
                                     </a>
                                   </div>
@@ -1402,7 +1430,7 @@ DHCP
                                     <a class="item"
                                        href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/talk-4/talk-4.pdf">
   <i class="fas fa-object-group " style="color:#009688"> </i>
- RAID and Disk Cache  
+ RAID and Disk Cache  
                                       
                                     </a>
                                   </div>
@@ -1430,14 +1458,14 @@ Labs
                             
                               <div class="item">  
   <i class="fas fa-bookmark " style="color:"> </i>
-  IoT Mobile Apps  </div>
+  IoT Mobile Apps  </div>
                               <ul class="uk-nav-sub">
                                 
                                   <div>
                                     <a class="item"
                                        href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/talk-1/talk-1.pdf">
   <i class="fas fa-object-group " style="color:#009688"> </i>
- Mobile Device IoT 
+ Mobile Device IoT 
                                       
                                     </a>
                                   </div>
@@ -1480,14 +1508,14 @@ Blynk
                             
                               <div class="item">  
   <i class="fas fa-bookmark " style="color:"> </i>
-  Module Overview  </div>
+  Module Overview  </div>
                               <ul class="uk-nav-sub">
                                 
                                   <div>
                                     <a class="item"
                                        href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-12-week12/unit-1/talk-1/talk-1.pdf">
   <i class="fas fa-object-group " style="color:#009688"> </i>
- Computer Systems 
+ Computer Systems 
                                       
                                     </a>
                                   </div>
@@ -1496,7 +1524,7 @@ Blynk
                                     <a class="item"
                                        href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-12-week12/unit-1/talk-2/talk-2.pdf">
   <i class="fas fa-object-group " style="color:#009688"> </i>
- Operating Systems 
+ Operating Systems 
                                       
                                     </a>
                                   </div>
@@ -1515,14 +1543,14 @@ Blynk
                             
                               <div class="item">  
   <i class="fas fa-bookmark " style="color:"> </i>
-  DNS and DNS Rebinding  </div>
+  DNS and DNS Rebinding  </div>
                               <ul class="uk-nav-sub">
                                 
                                   <div>
                                     <a class="item"
                                        href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-12-week12/unit-2/talk-1/talk-1.pdf">
   <i class="fas fa-object-group " style="color:#009688"> </i>
- DNS Introduction 
+ DNS Introduction 
                                       
                                     </a>
                                   </div>
@@ -1531,7 +1559,7 @@ Blynk
                                     <a class="item"
                                        href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-12-week12/unit-2/talk-2/talk-2.pdf">
   <i class="fas fa-object-group " style="color:#009688"> </i>
- DNS Rebinding 
+ DNS Rebinding 
                                       
                                     </a>
                                   </div>
@@ -1565,7 +1593,7 @@ Blynk
 
     
   <div class="uk-width-1-2@m  uk-card uk-card-default uk-padding-small">
-    <h2> Computer Systems and Networks  </h2>
+    <h2> Computer Systems and Networks  </h2>
     <div class="uk-text-muted uk-text-small">
       
         Dr Frank Walsh, Caroline Cahill, WIT
@@ -1699,6 +1727,9 @@ Blynk
     
   
 
+    
+  
+
   </div>
   
   <div class="uk-container uk-padding-small">
@@ -1707,6 +1738,10 @@ Blynk
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -1739,7 +1774,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-00-open-day/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -1764,12 +1799,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -1802,7 +1843,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-000-LinuxAssessment/topic.jpg">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -1827,12 +1868,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -1865,7 +1912,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-001-assignment2/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -1890,12 +1937,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -1928,7 +1981,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-01-week1/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -1953,12 +2006,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -1991,7 +2050,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-02-week2/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -2016,12 +2075,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -2054,7 +2119,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-03-week3/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -2079,12 +2144,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -2117,7 +2188,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-04-week4/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -2142,12 +2213,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -2180,7 +2257,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-05-week5/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -2205,12 +2282,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -2243,7 +2326,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-06-week6/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -2268,12 +2351,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -2306,7 +2395,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-07-week7/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -2331,12 +2420,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -2369,7 +2464,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-08-week8/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -2394,12 +2489,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -2432,7 +2533,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-09-week9/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -2457,12 +2558,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -2495,7 +2602,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-10-week10/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -2520,12 +2627,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -2558,7 +2671,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-11-week11/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -2583,12 +2696,18 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
         <div>
           
             
+
+  
+  
+
   <div class="uk-card uk-card-default 
   
     uk-card-hover
@@ -2621,7 +2740,7 @@ Blynk
     
   <div class="uk-card-body">
     
-      <img src="./topic-12-week12/topic.png">
+      <i class="fas fa-microchip fa-10x" style="color:#d50000"></i>
     
   </div>
 
@@ -2646,6 +2765,8 @@ Blynk
 
   </div>
 
+
+
           
         </div>
       
@@ -2653,5 +2774,12 @@ Blynk
   </div>
 
 
+        </div>
+      </div>
+      <div class="footer uk-text-small uk-text-right uk-text-muted"> Powered by <a
+          href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a>
+        Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
   </body>
 </html>

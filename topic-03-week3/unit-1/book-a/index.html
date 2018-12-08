@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-        type="text/css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-        rel="stylesheet"/>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <style>
-    
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
 
 body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
@@ -66,177 +66,251 @@ h3 {
 
 
 
-  </style>
-</head>
+      
 
-<body>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
 
 
 
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
-    
-      <a href="../../index.html">  Computer History & Architecture  </a>
-    
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="cpu">
-        cpu
-      </a>
-    
-      <a class="item" data-tab="vonneumann">
-        vonneumann
-      </a>
-    
-      <a class="item" data-tab="problems">
-        problems
-      </a>
-    
-      <a class="item" data-tab="alternative">
-        alternative
-      </a>
-    
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  Computer History & Architecture  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="cpu">
+          cpu
+        </a>
+      
+        <a class="item" data-tab="vonneumann">
+          vonneumann
+        </a>
+      
+        <a class="item" data-tab="problems">
+          problems
+        </a>
+      
+        <a class="item" data-tab="alternative">
+          alternative
+        </a>
+      
+    </div>
   </div>
-</div>
 
-<div class="ui pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    <br><br>
-    
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">cpu </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">cpu </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
+          
+        
       
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
-      
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment">
-      <br>
-      
-        <div class="ui tab segment lab" data-tab="cpu">
-          <h1>The CPU in Practice</h1>
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="cpu">
+            <h1>The CPU in Practice</h1>
 <p>The Von Neumann architecture </p>
 <p>This has been incredibly successful, with most modern computers following the idea.
 When you look at the Von Neumann Architecture, you can see the various components:</p>
@@ -261,20 +335,20 @@ Bus</p>
 <p>Notice the arrows between components? This implies that information should flow between various parts of the computer. In a modern computer built to the Von Neumann architecture, information passes back and forth along a &#39;bus&#39;. There are buses to identify locations in memory - an &#39;address bus&#39;</p>
 <p>And there are buses to allow the flow of data and program instructions - a &#39;data bus&#39;.</p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="vonneumann">
-          <h1>Von Neumann Architecture</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="vonneumann">
+            <h1>Von Neumann Architecture</h1>
 <p>You should supplement these notes with spending some time using a CPU Similator</p>
 <p>One example is the <a href="https://peterhigginson.co.uk/LMC/">Peter Higginsons CPU Simulator</a></p>
 <p>This will assist in an understanding of how data moves around the CPU - which is based on the Von Neumann Architecture, a computer architecture based on a 1945 description by the mathematician and physicist John von Neuman</p>
 <p>PLEASE BECOME FAMILIAR WITH WORKING OF THIS OR AN ALTERNATIVE CPU SIMULATOR</p>
 <p><img src="./img/vonNeumann.jpg" alt="Von Neumann Architecture"></p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="problems">
-          <h1>Von Neumann Architecture has its problems</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="problems">
+            <h1>Von Neumann Architecture has its problems</h1>
 <h1>For example:</h1>
 <p>Every single piece of data and/or instruction (instr) must pass across the data bus so that the data/instr can move from main memory into the CPU and vice versa.</p>
 <h2>The &#39;Von Neumann bottleneck&#39;</h2>
@@ -282,10 +356,10 @@ Bus</p>
 <p>If nothing were done, the CPU would spend most of its time waiting around for instructions.</p>
 <h1>What type of memory is used to help alleviate this bottleneck?</h1>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="alternative">
-          <h1>Von Neumann Architecture has its problems</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="alternative">
+            <h1>Von Neumann Architecture has its problems</h1>
 <h1>For example:</h1>
 <p>The rate at which data needs to be fetched and the rate at which instructions need to be fetched are often very different. And yet they share the same bottlenecked data bus</p>
 <p>This alternative architecture is mainly used within the CPU to handle its caches, but it is less used with main memory because of complexity and cost</p>
@@ -293,14 +367,16 @@ Bus</p>
 <p>What are some advantages of this alternative architecture?</p>
 <p>Remember, PLEASE BECOME FAMILIAR WITH WORKING of the Peter Higginson or any alternative CPU simulator</p>
 
-        </div>
-      
+          </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  $(document).on('keydown', function(e) {
+
+
+  <script>
+    $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -320,7 +396,7 @@ Bus</p>
   }
 });
 
-  $(document).ready(function() {
+    $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -353,6 +429,18 @@ Bus</p>
     .sidebar('attach events', '#toc');
 });
 
-</script>
-</body>
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
 </html>

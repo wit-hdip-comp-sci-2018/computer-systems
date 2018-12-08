@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-        type="text/css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-        rel="stylesheet"/>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <style>
-    
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
 
 body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
@@ -66,189 +66,263 @@ h3 {
 
 
 
-  </style>
-</head>
+      
 
-<body>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
 
 
 
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
-    
-      <a href="../../index.html">  Wireless Communication Networks  </a>
-    
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="BLE">
-        BLE
-      </a>
-    
-      <a class="item" data-tab="01">
-        01
-      </a>
-    
-      <a class="item" data-tab="02">
-        02
-      </a>
-    
-      <a class="item" data-tab="03">
-        03
-      </a>
-    
-      <a class="item" data-tab="04">
-        04
-      </a>
-    
-      <a class="item" data-tab="05">
-        05
-      </a>
-    
-      <a class="item" data-tab="06">
-        06
-      </a>
-    
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  Wireless Communication Networks  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="BLE">
+          BLE
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="06">
+          06
+        </a>
+      
+    </div>
   </div>
-</div>
 
-<div class="ui pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    <br><br>
-    
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">cpu </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">cpu </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
+          
+        
       
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
-      
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment">
-      <br>
-      
-        <div class="ui tab segment lab" data-tab="BLE">
-          <h1>BLE Smart Light</h1>
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="BLE">
+            <h1>BLE Smart Light</h1>
 <p>Bluez · Smartphone · Raspberry Pi · SenseHAT</p>
 <h2>Introduction</h2>
 <p>In this lab you will use Bluetooth Low Energy (BLE) and a Raspberry Pi/SenseHAT to build a &quot;smart lightbulb&quot;.</p>
@@ -260,10 +334,10 @@ h3 {
 <li>OPTIONAL: Screen with HDMI, Keyboard, Mouse for RPi</li>
 </ul>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="01">
-          <h1>Configure your RPi for BLE</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Configure your RPi for BLE</h1>
 <p> Your RPi has a built in Bluetooth protocol implementation called <a href="http://www.bluez.org/">Bluez</a>. However, as you will be creating a Bluetooth Low Energy service, it&#39;s a good idea to download, compile, install, and configure the latest stable version of Bluez on the Raspberry Pi.  </p>
 <h2>Install Dependencies</h2>
 <p>Your BLE service will require a few additional libraries on the RPi. Update the package list on your RPi  and install these dependencies as follows:</p>
@@ -297,10 +371,10 @@ bluetoothctl: 5.50</code></pre>
 <p>You will need to download starter code for this lab from an online Git repo. To make this easy, install Git on your RPi by running the following command on the RPi:</p>
 <pre><code class="lang-bash">sudo apt-get install git</code></pre>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="02">
-          <h1>The Raspberry Pi as BLE peripheral</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>The Raspberry Pi as BLE peripheral</h1>
 <p>You will now use the Raspberry Pi to start advertising itself to BLE central devices and expose some data. </p>
 <p>The example you will use is similar to some commercial BLE &quot;Smart Light&quot; products on the market at the moment. Typically they are controlled using a smart phone app whereby their colour and state(on/off) can be changed. They can also include other novel features. For example, <a href="http://www.playbulb.com/index.html">PlayBulb</a> provide a BLE light that has a built in speaker that pulses and changes colour to match the mood of the music (a party bulb!). </p>
 <p>You will now use the 8x8 LED matrix on the RPi to create a Smart light proto type that can be controlled from a Mobile device. It will provide the following functionality:</p>
@@ -357,10 +431,10 @@ Hit the Read button and it should return the same value.<br><img src="./img/ligh
 <h2>Stopping the Service</h2>
 <p>To stop the GATT server, enter <code>ctrl+c</code> in the RPi console. The console should then return to the command prompt. </p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="03">
-          <h1>Implement SmartLight</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Implement SmartLight</h1>
 <h2>GATT Server</h2>
 <p>Rename the <code>gatt-server</code> script to <code>smartlight-gatt-server</code>.</p>
 <p>Using <code>nano</code> or a suitable editor, open the <code>smartlight-gatt-server</code> file. You will see that it contains 3 python classes, <code>DemoService</code>, <code>DemoCharacteristic</code>, and <code>CharacteristicUserDescriptionDescriptor</code>.</p>
@@ -442,10 +516,10 @@ Write &quot;FFFFFF&quot; to the light colour characteristic and you should see t
 sudo hciconfig hci0 up
 sudo hciconfig hci0 leadv 0</code></pre>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="04">
-          <h1>Temperature Service</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Temperature Service</h1>
 <p>Now you will add another service to the RPi GATT server. The Temperature service will read from the temperature sensor on the SenseHAT and provide both read and notify functionality for the temperature characteristic.</p>
 <p>The environment service design is as follows:</p>
 <p><img src="./img/env-service.png" alt="Environment Service"></p>
@@ -523,10 +597,10 @@ def temp_sint16(value):
 <p>Now run the service again. You should now see a new service included for your smartlight device. 
 To read the temperature from the device, do </p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="05">
-          <h1>Automate GATT service on Startup</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Automate GATT service on Startup</h1>
 <p>At the moment, you have to run your GATT service manually on the RPi. Ideally, your script would run automatically when the RPi boots.
 One way to do this is to edit the Cron Table.</p>
 <h2>Crontab</h2>
@@ -538,10 +612,10 @@ One way to do this is to edit the Cron Table.</p>
 Save and exit the Crontab and reboot the RPi by typing <code>sudo reboot</code> at the command prompt. 
 The BLE device should start advertising in the background on every reboot of the RPi.</p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="06">
-          <h1>Exercises</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="06">
+            <h1>Exercises</h1>
 <ol>
 <li>We used the <code>hciconfig</code> command in this lab. Investigate and explain how this command could be used to turn the Raspberry Pi into a broadcast-only BLE device. </li>
 <li>Explain how the <code>hcitool</code> command can be used to advertise data. </li>
@@ -551,14 +625,16 @@ The BLE device should start advertising in the background on every reboot of the
 <li>Include a <code>Light Switch</code> characteristic in the SmartLight service that turns the LED Matrix on and off. You should consider the following:<br>The light has two states: <code>on</code> and <code>off</code>. If the state is set to off, the LED matrix should be off. If the state is on, the LED matrix should be set to the <code>value</code> of the light colour characteristic (<code>sense.clear(value[0],value[1],value[2])</code>).</li>
 </ol>
 
-        </div>
-      
+          </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  $(document).on('keydown', function(e) {
+
+
+  <script>
+    $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -578,7 +654,7 @@ The BLE device should start advertising in the background on every reboot of the
   }
 });
 
-  $(document).ready(function() {
+    $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -611,6 +687,18 @@ The BLE device should start advertising in the background on every reboot of the
     .sidebar('attach events', '#toc');
 });
 
-</script>
-</body>
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
 </html>

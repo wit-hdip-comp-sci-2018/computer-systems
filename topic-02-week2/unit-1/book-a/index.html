@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-        type="text/css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-        rel="stylesheet"/>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <style>
-    
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
 
 body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
@@ -66,185 +66,259 @@ h3 {
 
 
 
-  </style>
-</head>
+      
 
-<body>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
 
 
 
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
-    
-      <a href="../../index.html">  Shell Scripting  </a>
-    
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="Scripting Exercises">
-        Scripting Exercises
-      </a>
-    
-      <a class="item" data-tab="grep">
-        grep
-      </a>
-    
-      <a class="item" data-tab="awk">
-        awk
-      </a>
-    
-      <a class="item" data-tab="sed">
-        sed
-      </a>
-    
-      <a class="item" data-tab="quotes">
-        quotes
-      </a>
-    
-      <a class="item" data-tab="$">
-        $
-      </a>
-    
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  Shell Scripting  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Scripting Exercises">
+          Scripting Exercises
+        </a>
+      
+        <a class="item" data-tab="grep">
+          grep
+        </a>
+      
+        <a class="item" data-tab="awk">
+          awk
+        </a>
+      
+        <a class="item" data-tab="sed">
+          sed
+        </a>
+      
+        <a class="item" data-tab="quotes">
+          quotes
+        </a>
+      
+        <a class="item" data-tab="$">
+          $
+        </a>
+      
+    </div>
   </div>
-</div>
 
-<div class="ui pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    <br><br>
-    
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-1/index.html">Preparatory Lab </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-2/index.html">Shell Scripting </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-00-open-day/book-3/index.html">Vagrant and Sense HAT </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-000-LinuxAssessment/book-a/index.html">Assessment-Guides </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-1/book-a/index.html">Linux Practice Exercises </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">cpu </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-01-week1/unit-2/book-a/index.html">Home Network </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-1/book-a/index.html">Scripting Exercises </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-02-week2/unit-2/book-1-vagrant/index.html">Vagrant and Virtualisation </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-1/book-a/index.html">cpu </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-03-week3/unit-2/book-1-packet-sniffing/index.html">Packet Sniffing using TShark </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-1/book-a/index.html">NoBases </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-04-week4/unit-2/book-1-IP-Networking/index.html">IP Networking </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
+          
+        
       
-    
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
+          
+        
       
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-1/book-a/index.html">Boolean </a>
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
+          
+        
       
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-05-week5/unit-2/book-a/index.html">The Headless RPi </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-1/book-a/index.html">Logic </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-a/index.html">Presence Detector 1 </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-06-week6/unit-2/book-b/index.html">BLE </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-07-week7/unit-2/book-a/index.html">TCP-Sockets </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-1/book-a/index.html">Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-08-week8/unit-2/book-a/index.html">Messaging Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-1/book-a/index.html">Labs </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-09-week9/unit-2/book-a/index.html">Wia Lab </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-10-week10/unit-1/book-a/index.html">Labs </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-1/book-a/index.html">Labs </a>
-      
-    
-      
-        <a class="item"
-           href="http://wit-hdip-comp-sci-2018.github.io/computer-systems//topic-11-week11/unit-2/book-a/index.html">Blynk </a>
-      
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment">
-      <br>
-      
-        <div class="ui tab segment lab" data-tab="Scripting Exercises">
-          <h1>Scripting in Practice</h1>
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Scripting Exercises">
+            <h1>Scripting in Practice</h1>
 <p>Unix Commands in Practice</p>
 <p><strong>Recall from last week: The Shell is the interface between the user and the OS</strong></p>
 <h2>Viewing Files</h2>
@@ -292,10 +366,10 @@ h3 {
 <p>and please refer to Week 1 notes for further details and commands.. </p>
 <h2><em>_</em></h2>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="grep">
-          <h1>What is <code>grep</code></h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="grep">
+            <h1>What is <code>grep</code></h1>
 <ul>
 <li>stands for <strong>g</strong>lobal <strong>r</strong>egular <strong>e</strong>xpression <strong>p</strong>rint</li>
 <li><p><code>grep</code> is a powerful file pattern searcher that comes equipped on every distribution of Linux
@@ -366,10 +440,10 @@ If the pattern is found, it displays the line containing it. </p>
 <h2>Be creative, experiment with the options in the <code>man</code> page, and come up with <code>grep</code> expressions that serve your own purposes!</h2>
 <h2><em>_</em></h2>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="awk">
-          <h1>What is <code>awk</code>?</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="awk">
+            <h1>What is <code>awk</code>?</h1>
 <p><code>awk</code> is an entire text-processing language, but it is also very useful for some small tasks, such as for extracting pieces of text from a line returned by <code>grep</code>.</p>
 <ul>
 <li><p><code>awk</code> is a versatile programming language for working on files.</p>
@@ -435,10 +509,10 @@ Oslo, Norway</code></pre>
 </ul>
 <h2><em>_</em></h2>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="sed">
-          <h2>What is <code>sed</code>?</h2>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="sed">
+            <h2>What is <code>sed</code>?</h2>
 <ul>
 <li><code>sed</code> is the ultimate <strong>s</strong>tream <strong>ed</strong>itor</li>
 <li><code>sed</code> is a special editor for modifying files automatically. If you want to write a program to make changes in a file, sed is the tool to use. </li>
@@ -484,10 +558,10 @@ s/u/U/g&#39;  &lt;old &gt;new</code></pre>
 <p>When in doubt, experiment!!!</p>
 <h2><em>_</em></h2>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="quotes">
-          <h1>Quotes</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="quotes">
+            <h1>Quotes</h1>
 <p>There are four different types of quote characters that the shell recognises:</p>
 <ol>
 <li><p>The single quote character &#39;</p>
@@ -531,10 +605,10 @@ The date and time is: Thu Sept 24 18:50:52 IST 2018</code></pre>
 </li>
 </ul>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="$">
-          <h1>Command Line Arguments</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="$">
+            <h1>Command Line Arguments</h1>
 <p>Shell programs can process arguments passed to them
 via the command line
 Every time we have executed a shell program, the shell has automatically stored all the proceeding arguments in what is referred to as positional parameters, namely 1, 2, 3, etc.
@@ -561,14 +635,16 @@ echo arg 1 = $1 arg 2 = $2 arg 3 = $3</code></pre>
 </ul>
 <h2>_</h2>
 
-        </div>
-      
+          </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  $(document).on('keydown', function(e) {
+
+
+  <script>
+    $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -588,7 +664,7 @@ echo arg 1 = $1 arg 2 = $2 arg 3 = $3</code></pre>
   }
 });
 
-  $(document).ready(function() {
+    $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -621,6 +697,18 @@ echo arg 1 = $1 arg 2 = $2 arg 3 = $3</code></pre>
     .sidebar('attach events', '#toc');
 });
 
-</script>
-</body>
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
 </html>
