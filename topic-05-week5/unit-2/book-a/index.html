@@ -98,7 +98,7 @@ html, body {
     <header class="header item">
       <i id="toc" class="sitemap icon"></i>
       
-        <a href="../../index.html">  Raspberry Pi  </a>
+        <a href="../../index.html">  Raspberry Pi  </a>
       
     </header>
     <div class="right tab-menu menu">
@@ -513,15 +513,17 @@ In the Raspi-config tool, select Network Options-&gt;Hostname
 <pre><code class="lang-bash">sudo apt-get install sense-hat</code></pre>
 <h2>Create Python Program</h2>
 <ul>
-<li>Create a new directory called <code>cs-lab-5</code> and change directory to it:<pre><code class="lang-bash">~ $ mkdir cs-lab-5
+<li>Create a new directory called <code>cs-lab-5</code> and change directory to it:</li>
+</ul>
+<pre><code class="lang-bash">~ $ mkdir cs-lab-5
 ~ $ cd cs-lab-5
 ~/cs-lab-5 $</code></pre>
-</li>
-<li>Using nano, create a new python script called <code>temp-sensor.py</code> and add the following code:
-```python
-from sense_hat import SenseHat</li>
+<ul>
+<li>Using nano, create a new python script called <code>temp-sensor.py</code> and add the following code:</li>
 </ul>
-<p>sense = SenseHat()
+<pre><code class="lang-python">from sense_hat import SenseHat
+
+sense = SenseHat()
 sense.clear()
 green = (0, 255, 0)
 red = (255,0,0)
@@ -531,15 +533,15 @@ while True:
     sense.show_message(&quot;HOT!&quot;, text_colour = red)
   else:
     sense.show_message(&quot;Fine!&quot;, text_colour = green)
-  print(temp)</p>
-<p><code>`
-- Now run the the program by typing</code>python temp-sensor.py`` at the command line. You should see output similar to the following:</p>
-<pre><code class="lang-bash">~/cs-lab-5 $ python temp-sensor.py
+  print(temp)</code></pre>
+<ul>
+<li>Now run the the program by typing <code>python temp-sensor.py</code> at the command line. You should see output similar to the following:<pre><code class="lang-bash">~/cs-lab-5 $ python temp-sensor.py
 33.149307251
 33.1675720215
 33.2771759033
 33.3319740295</code></pre>
-<p>and your SenseHAT should be telling you if it&#39;s HOT! or Fine.</p>
+and your SenseHAT should be telling you if it&#39;s HOT! or Fine.</li>
+</ul>
 <p>Look at the code and try to understand the logic using what you learned in Programming. Some things of note with Python
 1. You use indent group statements in a program or script. For example, notice the  block of code contained in the <code>while</code> statement is indented.
 2. You don&#39;t have to compile it before you run it - it&#39;s an &#39;interpreted&#39; language.
@@ -557,7 +559,7 @@ while True:
   </div>
 
 
-
+  <br>
   <script>
     $(document).on('keydown', function(e) {
   e = e || window.event;
